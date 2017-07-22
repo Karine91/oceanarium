@@ -37,7 +37,8 @@ gulp.task('jade',['clean_jade'], function() {
         .on('error', console.log)
         .pipe(wiredep({
             directory: './app/bower_components',
-            bowerJson: require('./bower.json')
+            bowerJson: require('./bower.json'),
+            ignorePath: '../app/'
         }))
         .pipe(gulp.dest('app/'))
 });
@@ -116,7 +117,7 @@ gulp.task('sass', function () {
 gulp.task('bower', function () {
     gulp.src('./app/index.html')
         .pipe(wiredep({
-            directory: './app/bower_components',
+            directory: 'bower_components',
             bowerJson: require('./bower.json')
         }))
         .pipe(gulp.dest('./app'))
