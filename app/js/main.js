@@ -1,11 +1,13 @@
 $(function(){
 
-   function changeDirect(player, direct, reverse){
+   function changeDirect(player, direct){
        return new Promise(function(resolve, reject) {
-           player.setDirection([direct, 0]);
-           setTimeout(function(){
-               resolve();
-           },50);
+           var angle = direct;
+           console.log(angle);
+           setTimeout(function() {
+               player.setDirection([angle, 0]);
+               resolve(angle);
+           }, 50);
            // setTimeout(function(direct){
            //     player.setDirection([direct, 0]);
            //     resolve();
@@ -13,21 +15,35 @@ $(function(){
        });
    }
 
+    function delay(ms){
+        return new Promise(function(resolve){
+            setTimeout(resolve, ms);
+        });
+    }
+
 function directionToRight(player,angleFrom, angleTo){
-    var last = Promise.resolve();
-    return new Promise(function(resolve, reject) {
+    // return new Promise(function(resolve, reject) {
+        var last = Promise.resolve(angleFrom);
         for (var direct = angleFrom; direct < angleTo; direct++) {
-            last=last.then(function(){changeDirect(player,direct,0)}.apply(direct));
-            console.log(player.getDirection());
+            last=last.then(function(angle){
+                var agl= ++angle;
+                console.log(agl);
+                console.log(player.getDirection());
+                return changeDirect(player,agl);
+            });
         }
-    });
+        console.log(last);
+        return last;
+
+    // });
 }
 function directionToLeft(player,angleFrom, angleTo) {
     var last = Promise.resolve();
     return new Promise(function(resolve, reject) {
         for (var direct = angleFrom; direct > angleTo; direct--) {
-            last=last.then(function(){changeDirect(player,direct,angleFrom)}.apply(direct));
-            console.log(player.getDirection());
+            last=last.then(function(angle){
+                console.log(player.getDirection());
+                return changeDirect(player,direct,angleFrom)}.apply(direct));
         }
     });
 }
@@ -79,25 +95,32 @@ ymaps.ready(function () {
                 // }
 
 
-                //directionToRight(player,0,90);
+                directionToRight(player,0,90);
 
-                var last = Promise.resolve();
+                // var last = Promise.resolve();
+                // last=last.then(function(){
+                //     console.log(player.getDirection());
+                //     return changeDirect(player,50);
+                // }).then(function(){
+                //     console.log(player.getDirection());
+                //     return changeDirect(player,80);
+                // });
 
-                for(var i=0; i<nodes.length; i++){
-                    var coord_panorama = Array.from(nodes[i]._position).reverse();
-                    last=last.then(function(){
-                        directionToRight(player,0,90);
-                    }).then(function(){
-                        directionToLeft(player,90,0);
-                    }).then(function(){
-                            return new Promise(function(resolve, reject) {
-                                player.moveTo(coord_panorama);
-                                resolve();
-                            });
-                        });
-
-
-                }
+                // for(var i=0; i<nodes.length; i++){
+                //     var coord_panorama = Array.from(nodes[i]._position).reverse();
+                //     last=last.then(function(){
+                //         directionToRight(player,0,90);
+                //     }).then(function(){
+                //         directionToLeft(player,90,0);
+                //     }).then(function(){
+                //             return new Promise(function(resolve, reject) {
+                //                 player.moveTo(coord_panorama);
+                //                 resolve();
+                //             });
+                //         });
+                //
+                //
+                // }
 
 
 
