@@ -22,7 +22,7 @@ $(function(){
     }
 
 function directionToRight(player,angleFrom, angleTo){
-    // return new Promise(function(resolve, reject) {
+    return new Promise(function(resolve, reject) {
         var last = Promise.resolve(angleFrom);
         for (var direct = angleFrom; direct < angleTo; direct++) {
             last=last.then(function(angle){
@@ -32,19 +32,26 @@ function directionToRight(player,angleFrom, angleTo){
                 return changeDirect(player,agl);
             });
         }
-        console.log(last);
-        return last;
+        last.then(function(){
+           resolve();
+        });
 
-    // });
+    });
 }
 function directionToLeft(player,angleFrom, angleTo) {
-    var last = Promise.resolve();
     return new Promise(function(resolve, reject) {
+        var last = Promise.resolve(angleFrom);
         for (var direct = angleFrom; direct > angleTo; direct--) {
-            last=last.then(function(angle){
+            last = last.then(function (angle) {
+                var agl = --angle;
+                console.log(agl);
                 console.log(player.getDirection());
-                return changeDirect(player,direct,angleFrom)}.apply(direct));
+                return changeDirect(player, agl);
+            });
         }
+        last.then(function(){
+            resolve();
+        });
     });
 }
 
@@ -95,32 +102,43 @@ ymaps.ready(function () {
                 // }
 
 
-                directionToRight(player,0,90);
+
+
 
                 // var last = Promise.resolve();
                 // last=last.then(function(){
-                //     console.log(player.getDirection());
-                //     return changeDirect(player,50);
+                //     return directionToRight(player,0,90);
                 // }).then(function(){
                 //     console.log(player.getDirection());
-                //     return changeDirect(player,80);
+                //     return directionToLeft(player,90,0);
                 // });
+                var ind=1;
+                var last = Promise.resolve();
+                for(var i=0; i<nodes.length; i++){
+                    last=last.then(function(){
+                        return delay(8000);
+                    }).then(function(){
+                       return directionToRight(player,0,60);
+                    }).then(function(){
+                        return delay(8000);
+                    }).then(function(){
+                        return directionToRight(player,60,120);
+                    }).then(function(){
+                        return delay(8000);
+                    }).then(function(){
+                       return directionToLeft(player,360,300);
+                    }).then(function(){
+                        return delay(8000);
+                    }).then(function(){
+                        return new Promise(function(resolve, reject) {
+                            var coord_panorama = Array.from(nodes[ind]._position).reverse();
+                            player.moveTo(coord_panorama);
+                            ind++;
+                            resolve();
+                        });
+                    });
 
-                // for(var i=0; i<nodes.length; i++){
-                //     var coord_panorama = Array.from(nodes[i]._position).reverse();
-                //     last=last.then(function(){
-                //         directionToRight(player,0,90);
-                //     }).then(function(){
-                //         directionToLeft(player,90,0);
-                //     }).then(function(){
-                //             return new Promise(function(resolve, reject) {
-                //                 player.moveTo(coord_panorama);
-                //                 resolve();
-                //             });
-                //         });
-                //
-                //
-                // }
+                }
 
 
 
