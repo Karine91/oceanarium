@@ -7,7 +7,7 @@ $(function(){
            setTimeout(function() {
                player.setDirection([angle, 0]);
                resolve(angle);
-           }, 20);
+           }, 100);
            // setTimeout(function(direct){
            //     player.setDirection([direct, 0]);
            //     resolve();

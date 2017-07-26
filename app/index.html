@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <!--Просим IE переключиться в последний режим-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Oceanarium</title>
+    <!--SEO-->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <!--favicon.ico--><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <!--FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Underdog&amp;amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <!--build:css css/vendor.css-->
     <!--bower:css-->
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
@@ -16,23 +28,28 @@
   <body>
     <header>
       <div id="player1" class="player"></div>
+      <div class="header_wrapper">
+        <div class="container">
+          <nav class="header-navigation_panel">
+            <div class="header_logo"><a href="#" class="header_logo__link"><span class="header_logo__link-blue">Океан</span>ариум</a></div>
+            <ul class="header_menu">
+              <li class="header_menu__item"><a href="#" class="header_menu-link">Blog</a></li>
+              <li class="header_menu__item"><a href="#" class="header_menu-link">News</a></li>
+              <li class="header_menu__item"><a href="#" class="header_menu-link">Gallery</a></li>
+              <li class="header_menu__item"><a href="#" class="header_menu-link">Price</a></li>
+              <li class="header_menu__item"><a href="#" class="header_menu-link">Services</a></li>
+              <li class="header_menu__item active"><a href="#" class="header_menu-link">Shedule</a></li>
+              <li class="header_menu__item"><a href="#" class="header_menu-link">Contacts</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
     </header>
-    <nav>
-      <ul>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Price</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Shedule</a></li>
-        <li><a href="#">Contacts</a></li>
-      </ul>
-    </nav>
     <footer>
-      <ul>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="#">Contacts</a></li>
+      <ul class="footer_menu">
+        <li class="footer_menu__item"><a href="#" class="footer_menu-link">Blog</a></li>
+        <li class="footer_menu__item"><a href="#" class="footer_menu-link">News</a></li>
+        <li class="footer_menu__item"><a href="#" class="footer_menu-link">Contacts</a></li>
       </ul>
     </footer>
     <!--build:js scripts/vendor.js-->

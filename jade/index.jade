@@ -1,0 +1,60 @@
+doctype html
+- var user="Karine G"
+- var menuItem = ["Blog", "News", "Gallery", "Price", "Services", "Shedule", "Contacts"]
+- var menuFooter = ["Blog", "News", "Contacts"]
+mixin menu(items, blockName)
+    ul(class="#{blockName}")
+        each item, ind in items
+            if ind==5
+                li(class="#{blockName}__item active")
+                    a(href="#", class="#{blockName}-link") #{item}
+            else
+                li(class="#{blockName}__item")
+                    a(href="#", class="#{blockName}-link") #{item}
+
+html
+    head
+        meta(charset="UTF-8")
+        //Просим IE переключиться в последний режим
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        title Oceanarium
+        //SEO
+        meta(name="description" content="")
+        meta(name="keywords" content="")
+        meta(name="author" content="")
+        //favicon.ico
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        //FONTS
+        link(href="https://fonts.googleapis.com/css?family=Underdog&amp;subset=cyrillic" rel="stylesheet")
+        link(href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet")
+        //build:css css/vendor.css
+        //bower:css
+        //endbower
+        //endbuild
+        //build:css css/style.css
+        link(rel="stylesheet", media="all", type="text/css", href="css/style.css")
+        //endbuild
+    body
+        header
+           #player1.player
+           .header_wrapper
+               .container
+                   nav.header-navigation_panel
+                       .header_logo
+                           a(href="#").header_logo__link
+                                span.header_logo__link-blue Океан
+                                |ариум
+                       +menu(menuItem, "header_menu")
+
+        footer
+            +menu(menuFooter, "footer_menu")
+        //build:js scripts/vendor.js
+        //bower:js
+        //endbower
+        //endbuild
+        //build:js js/main.js
+        script(src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;load=package.full")
+        script(src="js/main.js")
+        script(src="js/plugins.js")
+        //endbuild

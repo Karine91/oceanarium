@@ -20,6 +20,7 @@ var useref = require('gulp-useref'),
 var sftp = require('gulp-sftp');
 var clean = require('gulp-clean');
 var sass = require("gulp-sass");
+var compass = require('gulp-compass');
 //Build
 gulp.task('build',['clean'], function () {
     return gulp.src('app/*.html')
@@ -44,12 +45,12 @@ gulp.task('jade',['clean_jade'], function() {
 });
 //css
 gulp.task('css',['sass'], function () {
-    return gulp.src('scss/*.css')
-        .pipe(concatCss("style.css"))
-        .pipe(autoprefixer({
-            browsers: ['last 15 versions'],
-            cascade: false
-        }))
+    return gulp.src('./app/css/*.css')
+        // .pipe(concatCss("style.css"))
+        // .pipe(autoprefixer({
+        //     browsers: ['last 20 versions'],
+        //     cascade: false
+        // }))
         .pipe(gulp.dest('app/css/'))
 });
 
@@ -122,12 +123,21 @@ gulp.task('bower', function () {
         }))
         .pipe(gulp.dest('./app'))
 });
-
+//COMPASS
+gulp.task('compass', function() {
+    gulp.src('./scss/*.scss')
+        .pipe(compass({
+            config_file: './config.rb',
+            css: 'css',
+            sass: 'scss'
+        }))
+        .pipe(gulp.dest('app/css'));
+});
 
 //watch
 gulp.task('watch', function(){
     gulp.watch('jade/**/*.jade', ['jade_bower']);
-    gulp.watch('./scss/**/*.scss', ['css']);
+    gulp.watch('./scss/**/*.scss', ['compass']);
     // gulp.watch('app/css/*.css', ['rev_all']);
     gulp.watch([
         'app/*.html',
