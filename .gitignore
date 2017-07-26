@@ -4,5 +4,5 @@ jade/
 scss/
 smartgrid.js
 config.rb
-.sass-cache/
-bower_components/modernizr/
+/.sass-cache/
+app/bower_components/modernizr/
