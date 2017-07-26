@@ -29,6 +29,8 @@ html
         link(href="https://fonts.googleapis.com/css?family=Underdog&amp;subset=cyrillic" rel="stylesheet")
         link(href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet")
         //build:css css/vendor.css
+        link(href="css/fractionslider.css" rel="stylesheet")
+
         //bower:css
         //endbower
         //endbuild
@@ -37,8 +39,13 @@ html
         //endbuild
     body
         header
-           #player1.player
-           .header_wrapper
+            .slider_block
+                .slider_block__item(style="background-image: url(img/slider/slide1.jpg)")
+
+                .slider_block__item(style="background-image: url(img/slider/slide2.jpg)")
+                .slider_block__item(style="background-image: url(img/slider/slide3.jpg)")
+                .fs_loader
+            .header_wrapper
                .container
                    nav.header-navigation_panel
                        .header_logo
@@ -52,6 +59,7 @@ html
         //build:js scripts/vendor.js
         //bower:js
         //endbower
+        script(type="text/javascript" src="js/jquery.fractionslider.js")
         //endbuild
         //build:js js/main.js
         script(src="js/main.js")

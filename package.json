@@ -5,7 +5,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean": "^0.3.2",
-    "gulp-clean-css": "^3.5.0",
+    "gulp-clean-css": "^3.7.0",
     "gulp-compass": "^2.1.0",
     "gulp-concat-css": "^2.3.0",
     "gulp-connect": "^5.0.0",
@@ -24,7 +24,8 @@
     "gulp-util": "^3.0.8",
     "path": "^0.12.7",
     "rimraf": "^2.6.1",
-    "through2": "^2.0.3"
+    "through2": "^2.0.3",
+    "wiredep": "^4.0.0"
   },
   "dependencies": {
     "gulp-rev-collector": "^1.2.2",

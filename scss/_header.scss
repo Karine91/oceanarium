@@ -1,4 +1,3 @@
-@import "_menu";
 header{
  position: relative;
 }
@@ -18,6 +17,8 @@ header{
  background-color: #fff;
  @include border-radius(10px);
  margin-top: 45px;
+ position: relative;
+ z-index: 999999;
 }
 
 .header_logo{
@@ -37,3 +38,6 @@ header{
 .header_logo__link-blue{
  color: $colorBlue;
 }
+@import "_slider";
+@import "_menu";
+

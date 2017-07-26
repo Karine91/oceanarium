@@ -15,10 +15,10 @@
     <link href="https://fonts.googleapis.com/css?family=Underdog&amp;amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <!--build:css css/vendor.css-->
+    <link href="css/fractionslider.css" rel="stylesheet">
     <!--bower:css-->
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
     <link rel="stylesheet" href="bower_components/tooltipster/dist/css/tooltipster.bundle.css" />
-    <link rel="stylesheet" href="bower_components/pannellum/css/pannellum.css" />
     <!--endbower-->
     <!--endbuild-->
     <!--build:css css/style.css-->
@@ -27,7 +27,12 @@
   </head>
   <body>
     <header>
-      <div id="player1" class="player"></div>
+      <div class="slider_block">
+        <div style="background-image: url(img/slider/slide1.jpg)" class="slider_block__item"></div>
+        <div style="background-image: url(img/slider/slide2.jpg)" class="slider_block__item"></div>
+        <div style="background-image: url(img/slider/slide3.jpg)" class="slider_block__item"></div>
+        <div class="fs_loader"></div>
+      </div>
       <div class="header_wrapper">
         <div class="container">
           <nav class="header-navigation_panel">
@@ -56,13 +61,10 @@
     <!--bower:js-->
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/tooltipster/dist/js/tooltipster.bundle.js"></script>
-    <script src="bower_components/pannellum/js/libpannellum.js"></script>
-    <script src="bower_components/pannellum/js/RequestAnimationFrame.js"></script>
-    <script src="bower_components/pannellum/js/pannellum.js"></script>
     <!--endbower-->
+    <script type="text/javascript" src="js/jquery.fractionslider.js"></script>
     <!--endbuild-->
     <!--build:js js/main.js-->
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;amp;load=package.full"></script>
     <script src="js/main.js"></script>
     <script src="js/plugins.js"></script>
     <!--endbuild-->

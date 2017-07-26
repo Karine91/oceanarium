@@ -1,8 +1,7 @@
 var gulp = require('gulp');
-var concatCss = require('gulp-concat-css');
 var rename = require('gulp-rename');
 var cleanCSS = require('gulp-clean-css');
-var autoprefixer = require('gulp-autoprefixer');
+//var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var jade = require('gulp-jade');
 // var rev_append = require('gulp-rev-append');
@@ -17,7 +16,6 @@ var wiredep = require('wiredep').stream;
 var useref = require('gulp-useref'),
     gulpif = require('gulp-if'),
     uglify = require('gulp-uglify');
-var sftp = require('gulp-sftp');
 var clean = require('gulp-clean');
 var sass = require("gulp-sass");
 var compass = require('gulp-compass');
