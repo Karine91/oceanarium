@@ -40,7 +40,7 @@ header {
   word-wrap: break-word;
   padding-left: 1.875rem;
   padding-right: 1.875rem;
-  background-color: #fff;
+  background-color: #f2f2f2;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -80,6 +80,7 @@ header {
 .slider_block {
   height: 100vh;
   position: relative;
+  overflow: hidden;
 }
 
 .slider_block__item {
@@ -99,6 +100,41 @@ header {
   width: 100%;
   background-image: url(../img/slider/pattern.png);
   background-repeat: repeat;
+}
+
+.slider_block__text {
+  max-width: 1170px;
+  text-align: center;
+}
+
+.slider_block__text_bottom {
+  background-color: #f2f2f2;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  padding: 50px 30px 60px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+.slider_block__text_bottom:after {
+  content: '';
+  display: inline-block;
+  width: 48px;
+  height: 21px;
+  background-image: url(../img/slider/triangle.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -24px;
+}
+
+.slider_block__image_fish {
+  margin-top: -150px;
+  display: none;
 }
 
 .header_menu {
@@ -149,7 +185,7 @@ header {
   left: -1px;
 }
 
-.header_menu-link {
+.header_menu__link {
   text-decoration: none;
   color: #000;
   display: block;

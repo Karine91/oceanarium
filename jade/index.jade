@@ -7,10 +7,10 @@ mixin menu(items, blockName)
         each item, ind in items
             if ind==5
                 li(class="#{blockName}__item active")
-                    a(href="#", class="#{blockName}-link") #{item}
+                    a(href="#", class="#{blockName}__link") #{item}
             else
                 li(class="#{blockName}__item")
-                    a(href="#", class="#{blockName}-link") #{item}
+                    a(href="#", class="#{blockName}__link") #{item}
 
 html
     head
@@ -40,10 +40,19 @@ html
     body
         header
             .slider_block
-                .slider_block__item(style="background-image: url(img/slider/slide1.jpg)")
-
-                .slider_block__item(style="background-image: url(img/slider/slide2.jpg)")
-                .slider_block__item(style="background-image: url(img/slider/slide3.jpg)")
+                .slider_block__item(style="background-image: url(img/slider/slide1.jpg)" data-in="fade")
+                    .slider_block__text.slider_block__text_bottom(data-in="bottom" data-delay="200" data-out="top" data-step="1" data-time="5250").
+                        We are an oceanarium on the Golden Beach. Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                        qui officia deserunt mollit anim id est laborum.
+                    .slider_block__image_fish(data-special="cycle" data-delay="2000" data-in="right" data-step="2" data-time="6000"): img(src="img/slider/fish_many.png")
+                .slider_block__item(style="background-image: url(img/slider/slide2.jpg)" data-in="fade")
+                    .slider_block__image_skat(data-in="left" data-step="1" data-time="6000"): img(src="img/slider/skat.png")
+                .slider_block__item(style="background-image: url(img/slider/slide3.jpg)" data-in="fade")
                 .fs_loader
             .header_wrapper
                .container

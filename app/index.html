@@ -28,9 +28,22 @@
   <body>
     <header>
       <div class="slider_block">
-        <div style="background-image: url(img/slider/slide1.jpg)" class="slider_block__item"></div>
-        <div style="background-image: url(img/slider/slide2.jpg)" class="slider_block__item"></div>
-        <div style="background-image: url(img/slider/slide3.jpg)" class="slider_block__item"></div>
+        <div style="background-image: url(img/slider/slide1.jpg)" data-in="fade" class="slider_block__item">
+          <div data-in="bottom" data-delay="200" data-out="top" data-step="1" data-time="5250" class="slider_block__text slider_block__text_bottom">
+            We are an oceanarium on the Golden Beach. Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation
+            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+            in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa
+            qui officia deserunt mollit anim id est laborum.
+          </div>
+          <div data-special="cycle" data-delay="2000" data-in="right" data-step="2" data-time="6000" class="slider_block__image_fish"><img src="img/slider/fish_many.png"></div>
+        </div>
+        <div style="background-image: url(img/slider/slide2.jpg)" data-in="fade" class="slider_block__item">
+          <div data-in="left" data-step="1" data-time="6000" class="slider_block__image_skat"><img src="img/slider/skat.png"></div>
+        </div>
+        <div style="background-image: url(img/slider/slide3.jpg)" data-in="fade" class="slider_block__item"></div>
         <div class="fs_loader"></div>
       </div>
       <div class="header_wrapper">
@@ -38,13 +51,13 @@
           <nav class="header-navigation_panel">
             <div class="header_logo"><a href="#" class="header_logo__link"><span class="header_logo__link-blue">Океан</span>ариум</a></div>
             <ul class="header_menu">
-              <li class="header_menu__item"><a href="#" class="header_menu-link">Blog</a></li>
-              <li class="header_menu__item"><a href="#" class="header_menu-link">News</a></li>
-              <li class="header_menu__item"><a href="#" class="header_menu-link">Gallery</a></li>
-              <li class="header_menu__item"><a href="#" class="header_menu-link">Price</a></li>
-              <li class="header_menu__item"><a href="#" class="header_menu-link">Services</a></li>
-              <li class="header_menu__item active"><a href="#" class="header_menu-link">Shedule</a></li>
-              <li class="header_menu__item"><a href="#" class="header_menu-link">Contacts</a></li>
+              <li class="header_menu__item"><a href="#" class="header_menu__link">Blog</a></li>
+              <li class="header_menu__item"><a href="#" class="header_menu__link">News</a></li>
+              <li class="header_menu__item"><a href="#" class="header_menu__link">Gallery</a></li>
+              <li class="header_menu__item"><a href="#" class="header_menu__link">Price</a></li>
+              <li class="header_menu__item"><a href="#" class="header_menu__link">Services</a></li>
+              <li class="header_menu__item active"><a href="#" class="header_menu__link">Shedule</a></li>
+              <li class="header_menu__item"><a href="#" class="header_menu__link">Contacts</a></li>
             </ul>
           </nav>
         </div>
@@ -52,9 +65,9 @@
     </header>
     <footer>
       <ul class="footer_menu">
-        <li class="footer_menu__item"><a href="#" class="footer_menu-link">Blog</a></li>
-        <li class="footer_menu__item"><a href="#" class="footer_menu-link">News</a></li>
-        <li class="footer_menu__item"><a href="#" class="footer_menu-link">Contacts</a></li>
+        <li class="footer_menu__item"><a href="#" class="footer_menu__link">Blog</a></li>
+        <li class="footer_menu__item"><a href="#" class="footer_menu__link">News</a></li>
+        <li class="footer_menu__item"><a href="#" class="footer_menu__link">Contacts</a></li>
       </ul>
     </footer>
     <!--build:js scripts/vendor.js-->

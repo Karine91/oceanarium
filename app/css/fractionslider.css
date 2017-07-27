@@ -49,7 +49,7 @@
 
 .fraction-slider .prev{
 	left:10px; top:50%;
-	margin-top: 22px;
+	margin-top: -22px;
 	background:url(../img/slider/fs.prevnext.png) 0px 0px no-repeat transparent;
 	
 }
@@ -59,7 +59,7 @@
 
 .fraction-slider .next{
 	right:10px; top:50%;
-	margin-top: 22px;
+	margin-top: -22px;
 	background:url(../img/slider/fs.prevnext.png) -45px 0px no-repeat transparent;
 }
 .fraction-slider .next:hover{
