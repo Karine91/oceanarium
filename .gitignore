@@ -6,4 +6,4 @@ smartgrid.js
 config.rb
 /.sass-cache/
 app/bower_components/modernizr/
-slider/
+./slider/
