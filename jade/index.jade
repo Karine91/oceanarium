@@ -49,10 +49,16 @@ html
                         in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa
                         qui officia deserunt mollit anim id est laborum.
-                    .slider_block__image_fish(data-special="cycle" data-delay="2000" data-in="right" data-step="2" data-time="6000"): img(src="img/slider/fish_many.png")
+                    .slider_block__image.slider_block__image_fish(data-special="cycle" data-delay="200" data-in="right" data-step="2" data-time="6000"): img(src="img/slider/fish_many.png")
                 .slider_block__item(style="background-image: url(img/slider/slide2.jpg)" data-in="fade")
-                    .slider_block__image_skat(data-in="left" data-step="1" data-time="6000"): img(src="img/slider/skat.png")
+                    .slider_block__text_item(data-in="right" data-step="1") Text1
+                    .slider_block__text_item(data-in="right" data-step="2") Text2
+                    .slider_block__text_item(data-in="right" data-step="3") Text3
+                    .slider_block__text_item(data-in="right" data-step="4") Text4
                 .slider_block__item(style="background-image: url(img/slider/slide3.jpg)" data-in="fade")
+                    .slider_block__image.slider_block__image_fish1-slide3(data-delay="2000" data-in="right" data-out="none" data-step="1" data-time="4500"): img(src="img/slider/fish2.png")
+                    .slider_block__image.slider_block__image_fish2-slide3(data-delay="2000" data-in="bottomLeft" data-out="none" data-step="2" data-time="4500"): img(src="img/slider/fish3.png")
+                    .slider_block__image.slider_block__image_fish3-slide3(data-delay="4000" data-in="topLeft" data-out="none" data-step="2" data-time="8500"): img(src="img/slider/fish4.png")
                 .fs_loader
             .header_wrapper
                .container

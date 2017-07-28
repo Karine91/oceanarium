@@ -102,12 +102,9 @@ header {
   background-repeat: repeat;
 }
 
-.slider_block__text {
+.slider_block__text, .slider_block__text_bottom, .slider_block__text_item {
   max-width: 1170px;
   text-align: center;
-}
-
-.slider_block__text_bottom {
   background-color: #f2f2f2;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -116,6 +113,9 @@ header {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+.slider_block__text_bottom {
   position: relative;
 }
 .slider_block__text_bottom:after {
@@ -132,9 +132,18 @@ header {
   margin-left: -24px;
 }
 
+.slider_block__text_item {
+  padding: 10px 25px;
+  width: 100px;
+}
+
 .slider_block__image_fish {
   margin-top: -150px;
   display: none;
+}
+
+.slider_block__image_fish2-slide3 {
+  width: 300px;
 }
 
 .header_menu {
