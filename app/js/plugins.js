@@ -38,8 +38,11 @@ jQuery(window).load(function(){
 
     ///SLIDE 1
     var fishPosition = percentToPixelVert(50) +","+ percentToPixelHoryz(101);
+    var maintextPosition = percentToPixelVert(40)+","+ 0;
     var elementFish = $('.slider_block__image_fish');
+    var elemMaintext = $('.slider_block__maintext');
     elementFish.attr('data-position',fishPosition);
+    elemMaintext.attr('data-position',maintextPosition);
     centeredBottomElement(slideElement);
     ///SLIDE 2
 
