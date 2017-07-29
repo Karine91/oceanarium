@@ -1,3 +1,59 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
 body {
   font-size: 16px;
   line-height: 1.6;
@@ -18,6 +74,11 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   max-width: 1170px;
   margin: 0 auto;
+}
+.container::after {
+  display: block;
+  content: "";
+  clear: both;
 }
 
 header {
@@ -292,4 +353,60 @@ header {
 }
 .header_menu__item:hover:before {
   left: -1px;
+}
+
+.icons-sprite, .block_categories__picture_birds {
+  background-image: url('../../img/icons-s7fafa32254.png');
+  background-repeat: no-repeat;
+}
+
+.block_categories_background_nowhite {
+  background: #f2f2f2;
+}
+
+.block_categories__row::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.block_categories__item {
+  box-sizing: border-box;
+  margin-left: 0px;
+  margin-right: 0px;
+  word-wrap: break-word;
+  float: left;
+  width: calc(33.33333% - 0px);
+  padding: 5%;
+  text-align: center;
+}
+
+.block_categories__item a {
+  text-decoration: none;
+  display: block;
+}
+
+.block_categories__picture {
+  margin: 0 auto;
+}
+
+.block_categories__picture_birds {
+  background-position: 0 0;
+  height: 158px;
+  width: 230px;
+}
+
+.block_categories__name {
+  text-align: center;
+}
+
+.block_categories__name a {
+  color: #362d2a;
+  text-transform: uppercase;
+  font-size: 1.875rem;
+}
+
+.block_categories__name:after {
+  content: "\2022";
+  display: block;
 }

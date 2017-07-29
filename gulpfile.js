@@ -126,7 +126,7 @@ gulp.task('compass', function() {
     gulp.src('./scss/*.scss')
         .pipe(compass({
             config_file: './config.rb',
-            css: 'css',
+            css: 'app/css',
             sass: 'scss'
         }))
         .pipe(gulp.dest('app/css'));
@@ -145,4 +145,4 @@ gulp.task('watch', function(){
 });
 
 //default
-gulp.task('default', ['server','jade','watch']);
+gulp.task('default', ['server','jade','compass','watch']);
