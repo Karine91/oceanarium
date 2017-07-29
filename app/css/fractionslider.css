@@ -43,27 +43,25 @@
 .fraction-slider .next{
 	display:none;
 	position:absolute;
-	width:45px; height:45px;
 	z-index:9999;
 }
 
 .fraction-slider .prev{
 	left:10px; top:50%;
-	margin-top: -22px;
-	background:url(../img/slider/fs.prevnext.png) 0px 0px no-repeat transparent;
+	/*background:url(../img/slider/prevnext.png) 0px -83px no-repeat transparent;*/
 	
 }
 .fraction-slider .prev:hover{
-	background:url(../img/slider/fs.prevnext.png) 0px -45px no-repeat transparent;
+	/*background:url(../img/slider/prevnext.png) -83px -83px no-repeat transparent;*/
 }
 
 .fraction-slider .next{
 	right:10px; top:50%;
-	margin-top: -22px;
-	background:url(../img/slider/fs.prevnext.png) -45px 0px no-repeat transparent;
+	/*background:url(../img/slider/prevnext.png)0px 0px no-repeat transparent;*/
+
 }
 .fraction-slider .next:hover{
-	background:url(../img/slider/fs.prevnext.png) -45px -45px no-repeat transparent;
+	/*background:url(../img/slider/prevnext.png) -83px 0px no-repeat transparent;*/
 }
 
 .fraction-slider:hover .prev,
@@ -73,18 +71,18 @@
 
 /** PAGER **/
 
-.fs-pager-wrapper{
-	position:absolute;
-	left:10px; bottom:10px;
-	z-index:9999;	
-}
+/*.fs-pager-wrapper{*/
+	/*position:absolute;*/
+	/*left:10px; bottom:10px;*/
+	/*z-index:9999;	*/
+/*}*/
 
-.fs-pager-wrapper a{
-	display:inline-block;
-	width:14px; height:14px;
-	margin:0 5px 0 0;
-	background:url(../img/slider/fs.pager.png) 0px -14px no-repeat transparent;
-}
-.fs-pager-wrapper .active{
-	background:url(../img/slider/fs.pager.png) 0px 0px no-repeat transparent;
-}
+/*.fs-pager-wrapper a{*/
+	/*display:inline-block;*/
+	/*width:14px; height:14px;*/
+	/*margin:0 5px 0 0;*/
+	/*background:url(../img/slider/fs.pager.png) 0px -14px no-repeat transparent;*/
+/*}*/
+/*.fs-pager-wrapper .active{*/
+	/*background:url(../img/slider/fs.pager.png) 0px 0px no-repeat transparent;*/
+/*}*/

@@ -136,7 +136,7 @@
 			
 			// controls
 			if(options['controls']){
-				slider.append('<a href="#" class="prev"></a><a href="#" class="next" ></a>');
+				slider.append('<a href="#" class="prev"><i class="icon-left-dir slider-icon-left"></i></a><a href="#" class="next" ><i class="icon-right-dir slider-icon-right"></i></a>');
 				
 				slider.find('.next').bind('click', function(){
 					return nextBtnPressed();
