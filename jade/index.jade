@@ -32,7 +32,6 @@ html
         //[if IE 7]link(rel="stylesheet" href="css/fontello-ie7.css")//[endif]
         //build:css css/vendor.css
         link(href="css/fractionslider.css" rel="stylesheet")
-
         //bower:css
         //endbower
         //endbuild
@@ -40,57 +39,98 @@ html
         link(rel="stylesheet", media="all", type="text/css", href="css/style.css")
         //endbuild
     body
-        header
-            .slider_block
-                .slider_block__item(style="background-image: url(img/slider/slide1.jpg)" data-in="fade")
-                    .slider_block__maintext(data-in="top" data-delay="200" data-out="top" data-step="1" data-time="2250")
-                        h1.slider_block__heading oceanarium
-                        h2.slider_block__subheading on the golden beach
+        .main
+            header.section-page
+                .slider_block
+                    .slider_block__item(style="background-image: url(img/slider/slide1.jpg)" data-in="fade")
+                        .slider_block__maintext(data-in="top" data-delay="200" data-out="top" data-step="1" data-time="2250")
+                            h1.slider_block__heading oceanarium
+                            h2.slider_block__subheading on the golden beach
 
-                    .slider_block__text.slider_block__text_bottom(data-in="bottom" data-delay="200" data-out="top" data-step="2" data-time="5250").
-                        We are an oceanarium on the Golden Beach. Lorem ipsum dolor sit amet, consectetur
-                        adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                        qui officia deserunt mollit anim id est laborum.
-                    .slider_block__image.slider_block__image_fish(data-special="cycle" data-delay="200" data-in="right" data-step="3" data-time="6000"): img(src="img/slider/fish_many.png")
-                .slider_block__item(style="background-image: url(img/slider/slide2.jpg)" data-in="fade")
-                    .slider_block__text_item(data-in="right" data-step="1") Text1
-                    .slider_block__text_item(data-in="right" data-step="2") Text2
-                    .slider_block__text_item(data-in="right" data-step="3") Text3
-                    .slider_block__text_item(data-in="right" data-step="4") Text4
-                .slider_block__item(style="background-image: url(img/slider/slide3.jpg)" data-in="fade")
-                    .slider_block__image.slider_block__image_fish1-slide3(data-delay="2000" data-in="right" data-out="none" data-step="1" data-time="4500"): img(src="img/slider/fish2.png")
-                    .slider_block__image.slider_block__image_fish2-slide3(data-delay="2000" data-in="bottomLeft" data-out="none" data-step="2" data-time="4500"): img(src="img/slider/fish3.png")
-                    .slider_block__image.slider_block__image_fish3-slide3(data-delay="2500" data-in="topLeft" data-out="none" data-step="2" data-time="8500"): img(src="img/slider/fish4.png")
-                .fs_loader
-            .header_wrapper
-               .container
-                   nav.header-navigation_panel
-                       .header_logo
-                           a(href="#").header_logo__link
-                                span.header_logo__link-blue Океан
-                                |ариум
-                       +menu(menuItem, "header_menu")
-        section.block_categories.block_categories_background_nowhite
-            .container
-                .block_categories__row
-                    .block_categories__item
-                        a(href="#").block_categories__picture.block_categories__picture_birds
-                        h2.block_categories__name: a(href="#") bad birds
-                        p.block_categories__text.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
-                            Alias deleniti ducimus eaque eius id, iste minima nobis nulla rem temporibus vel?
+                        .slider_block__text.slider_block__text_bottom(data-in="bottom" data-delay="200" data-out="top" data-step="2" data-time="5250").
+                            We are an oceanarium on the Golden Beach. Lorem ipsum dolor sit amet, consectetur
+                            adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                            in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                            Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                            qui officia deserunt mollit anim id est laborum.
+                        .slider_block__image.slider_block__image_fish(data-special="cycle" data-delay="200" data-in="right" data-step="3" data-time="6000"): img(src="img/slider/fish_many.png")
+                    .slider_block__item(style="background-image: url(img/slider/slide2.jpg)" data-in="fade")
+                        .slider_block__text_item(data-in="right" data-step="1") Text1
+                        .slider_block__text_item(data-in="right" data-step="2") Text2
+                        .slider_block__text_item(data-in="right" data-step="3") Text3
+                        .slider_block__text_item(data-in="right" data-step="4") Text4
+                    .slider_block__item(style="background-image: url(img/slider/slide3.jpg)" data-in="fade")
+                        .slider_block__image.slider_block__image_fish1-slide3(data-delay="2000" data-in="right" data-out="none" data-step="1" data-time="4500"): img(src="img/slider/fish2.png")
+                        .slider_block__image.slider_block__image_fish2-slide3(data-delay="2000" data-in="bottomLeft" data-out="none" data-step="2" data-time="4500"): img(src="img/slider/fish3.png")
+                        .slider_block__image.slider_block__image_fish3-slide3(data-delay="2500" data-in="topLeft" data-out="none" data-step="2" data-time="8500"): img(src="img/slider/fish4.png")
+                    .fs_loader
+                .header_wrapper
+                   .container
+                       nav.header-navigation_panel
+                           .header_logo
+                               a(href="#").header_logo__link
+                                    span.header_logo__link-blue Океан
+                                    |ариум
+                           +menu(menuItem, "header_menu")
+            section.section-page.block_categories.block_categories_background_nowhite
+                .container
+                    h2.section_header we work every day
+                    .block_categories__row
+                        .block_categories__item
+                            a(href="#").block_categories__picture-wrap
+                                .block_categories__picture.block_categories__picture_birds
+                            h3.block_categories__name: a(href="#") bad birds
+                            p.block_categories__text.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+                        .block_categories__item
+                            a(href="#").block_categories__picture-wrap
+                                .block_categories__picture.block_categories__picture_whales
+                            h3.block_categories__name: a(href="#") nice mammals
+                            p.block_categories__text.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+                        .block_categories__item
+                            a(href="#").block_categories__picture-wrap
+                                .block_categories__picture.block_categories__picture_reptiles
+                            h3.block_categories__name: a(href="#") funny reptiles
+                            p.block_categories__text.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+                    .block_categories__row
+                        .block_categories__item
+                            a(href="#").block_categories__picture-wrap
+                                .block_categories__picture.block_categories__picture_insects
+                            h3.block_categories__name: a(href="#") fast insects
+                            p.block_categories__text.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+                        .block_categories__item
+                            a(href="#").block_categories__picture-wrap
+                                .block_categories__picture.block_categories__picture_great-animals
+                            h3.block_categories__name: a(href="#") Great animals
+                            p.block_categories__text.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+                        .block_categories__item
+                            a(href="#").block_categories__picture-wrap
+                                .block_categories__picture.block_categories__picture_clams
+                            h3.block_categories__name: a(href="#") suspicious clams
+                            p.block_categories__text.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+            section.section-page.gallery-shark
+                .container
 
-        footer
-            +menu(menuFooter, "footer_menu")
+            footer.section-page
+                +menu(menuFooter, "footer_menu")
         //build:js scripts/vendor.js
         //bower:js
         //endbower
         script(type="text/javascript" src="js/jquery.fractionslider.js")
+        script(type="text/javascript" src="js/jquery.ripples.js")
         //endbuild
         //build:js js/main.js
         script(src="js/main.js")

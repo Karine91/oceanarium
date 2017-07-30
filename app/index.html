@@ -21,6 +21,7 @@
     <!--bower:css-->
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
     <link rel="stylesheet" href="bower_components/tooltipster/dist/css/tooltipster.bundle.css" />
+    <link rel="stylesheet" href="bower_components/onepage-scroll/onepage-scroll.css" />
     <!--endbower-->
     <!--endbuild-->
     <!--build:css css/style.css-->
@@ -28,82 +29,131 @@
     <!--endbuild-->
   </head>
   <body>
-    <header>
-      <div class="slider_block">
-        <div style="background-image: url(img/slider/slide1.jpg)" data-in="fade" class="slider_block__item">
-          <div data-in="top" data-delay="200" data-out="top" data-step="1" data-time="2250" class="slider_block__maintext">
-            <h1 class="slider_block__heading">oceanarium</h1>
-            <h2 class="slider_block__subheading">on the golden beach</h2>
+    <div class="main">
+      <header class="section-page">
+        <div class="slider_block">
+          <div style="background-image: url(img/slider/slide1.jpg)" data-in="fade" class="slider_block__item">
+            <div data-in="top" data-delay="200" data-out="top" data-step="1" data-time="2250" class="slider_block__maintext">
+              <h1 class="slider_block__heading">oceanarium</h1>
+              <h2 class="slider_block__subheading">on the golden beach</h2>
+            </div>
+            <div data-in="bottom" data-delay="200" data-out="top" data-step="2" data-time="5250" class="slider_block__text slider_block__text_bottom">
+              We are an oceanarium on the Golden Beach. Lorem ipsum dolor sit amet, consectetur
+              adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation
+              ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+              in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa
+              qui officia deserunt mollit anim id est laborum.
+            </div>
+            <div data-special="cycle" data-delay="200" data-in="right" data-step="3" data-time="6000" class="slider_block__image slider_block__image_fish"><img src="img/slider/fish_many.png"></div>
           </div>
-          <div data-in="bottom" data-delay="200" data-out="top" data-step="2" data-time="5250" class="slider_block__text slider_block__text_bottom">
-            We are an oceanarium on the Golden Beach. Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa
-            qui officia deserunt mollit anim id est laborum.
+          <div style="background-image: url(img/slider/slide2.jpg)" data-in="fade" class="slider_block__item">
+            <div data-in="right" data-step="1" class="slider_block__text_item">Text1</div>
+            <div data-in="right" data-step="2" class="slider_block__text_item">Text2</div>
+            <div data-in="right" data-step="3" class="slider_block__text_item">Text3</div>
+            <div data-in="right" data-step="4" class="slider_block__text_item">Text4</div>
           </div>
-          <div data-special="cycle" data-delay="200" data-in="right" data-step="3" data-time="6000" class="slider_block__image slider_block__image_fish"><img src="img/slider/fish_many.png"></div>
+          <div style="background-image: url(img/slider/slide3.jpg)" data-in="fade" class="slider_block__item">
+            <div data-delay="2000" data-in="right" data-out="none" data-step="1" data-time="4500" class="slider_block__image slider_block__image_fish1-slide3"><img src="img/slider/fish2.png"></div>
+            <div data-delay="2000" data-in="bottomLeft" data-out="none" data-step="2" data-time="4500" class="slider_block__image slider_block__image_fish2-slide3"><img src="img/slider/fish3.png"></div>
+            <div data-delay="2500" data-in="topLeft" data-out="none" data-step="2" data-time="8500" class="slider_block__image slider_block__image_fish3-slide3"><img src="img/slider/fish4.png"></div>
+          </div>
+          <div class="fs_loader"></div>
         </div>
-        <div style="background-image: url(img/slider/slide2.jpg)" data-in="fade" class="slider_block__item">
-          <div data-in="right" data-step="1" class="slider_block__text_item">Text1</div>
-          <div data-in="right" data-step="2" class="slider_block__text_item">Text2</div>
-          <div data-in="right" data-step="3" class="slider_block__text_item">Text3</div>
-          <div data-in="right" data-step="4" class="slider_block__text_item">Text4</div>
+        <div class="header_wrapper">
+          <div class="container">
+            <nav class="header-navigation_panel">
+              <div class="header_logo"><a href="#" class="header_logo__link"><span class="header_logo__link-blue">Океан</span>ариум</a></div>
+              <ul class="header_menu">
+                <li class="header_menu__item"><a href="#" class="header_menu__link">Blog</a></li>
+                <li class="header_menu__item"><a href="#" class="header_menu__link">News</a></li>
+                <li class="header_menu__item"><a href="#" class="header_menu__link">Gallery</a></li>
+                <li class="header_menu__item"><a href="#" class="header_menu__link">Price</a></li>
+                <li class="header_menu__item"><a href="#" class="header_menu__link">Services</a></li>
+                <li class="header_menu__item active"><a href="#" class="header_menu__link">Shedule</a></li>
+                <li class="header_menu__item"><a href="#" class="header_menu__link">Contacts</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
-        <div style="background-image: url(img/slider/slide3.jpg)" data-in="fade" class="slider_block__item">
-          <div data-delay="2000" data-in="right" data-out="none" data-step="1" data-time="4500" class="slider_block__image slider_block__image_fish1-slide3"><img src="img/slider/fish2.png"></div>
-          <div data-delay="2000" data-in="bottomLeft" data-out="none" data-step="2" data-time="4500" class="slider_block__image slider_block__image_fish2-slide3"><img src="img/slider/fish3.png"></div>
-          <div data-delay="2500" data-in="topLeft" data-out="none" data-step="2" data-time="8500" class="slider_block__image slider_block__image_fish3-slide3"><img src="img/slider/fish4.png"></div>
-        </div>
-        <div class="fs_loader"></div>
-      </div>
-      <div class="header_wrapper">
+      </header>
+      <section class="section-page block_categories block_categories_background_nowhite">
         <div class="container">
-          <nav class="header-navigation_panel">
-            <div class="header_logo"><a href="#" class="header_logo__link"><span class="header_logo__link-blue">Океан</span>ариум</a></div>
-            <ul class="header_menu">
-              <li class="header_menu__item"><a href="#" class="header_menu__link">Blog</a></li>
-              <li class="header_menu__item"><a href="#" class="header_menu__link">News</a></li>
-              <li class="header_menu__item"><a href="#" class="header_menu__link">Gallery</a></li>
-              <li class="header_menu__item"><a href="#" class="header_menu__link">Price</a></li>
-              <li class="header_menu__item"><a href="#" class="header_menu__link">Services</a></li>
-              <li class="header_menu__item active"><a href="#" class="header_menu__link">Shedule</a></li>
-              <li class="header_menu__item"><a href="#" class="header_menu__link">Contacts</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
-    <section class="block_categories block_categories_background_nowhite">
-      <div class="container">
-        <div class="block_categories__row">
-          <div class="block_categories__item"><a href="#" class="block_categories__picture block_categories__picture_birds"></a>
-            <h2 class="block_categories__name"><a href="#">bad birds</a></h2>
-            <p class="block_categories__text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
-              Alias deleniti ducimus eaque eius id, iste minima nobis nulla rem temporibus vel?
-              
-            </p>
+          <h2 class="section_header">we work every day</h2>
+          <div class="block_categories__row">
+            <div class="block_categories__item"><a href="#" class="block_categories__picture-wrap">
+                <div class="block_categories__picture block_categories__picture_birds"></div></a>
+              <h3 class="block_categories__name"><a href="#">bad birds</a></h3>
+              <p class="block_categories__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+              </p>
+            </div>
+            <div class="block_categories__item"><a href="#" class="block_categories__picture-wrap">
+                <div class="block_categories__picture block_categories__picture_whales"></div></a>
+              <h3 class="block_categories__name"><a href="#">nice mammals</a></h3>
+              <p class="block_categories__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+              </p>
+            </div>
+            <div class="block_categories__item"><a href="#" class="block_categories__picture-wrap">
+                <div class="block_categories__picture block_categories__picture_reptiles"></div></a>
+              <h3 class="block_categories__name"><a href="#">funny reptiles</a></h3>
+              <p class="block_categories__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+              </p>
+            </div>
+          </div>
+          <div class="block_categories__row">
+            <div class="block_categories__item"><a href="#" class="block_categories__picture-wrap">
+                <div class="block_categories__picture block_categories__picture_insects"></div></a>
+              <h3 class="block_categories__name"><a href="#">fast insects</a></h3>
+              <p class="block_categories__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+              </p>
+            </div>
+            <div class="block_categories__item"><a href="#" class="block_categories__picture-wrap">
+                <div class="block_categories__picture block_categories__picture_great-animals"></div></a>
+              <h3 class="block_categories__name"><a href="#">Great animals</a></h3>
+              <p class="block_categories__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+              </p>
+            </div>
+            <div class="block_categories__item"><a href="#" class="block_categories__picture-wrap">
+                <div class="block_categories__picture block_categories__picture_clams"></div></a>
+              <h3 class="block_categories__name"><a href="#">suspicious clams</a></h3>
+              <p class="block_categories__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <footer>
-      <ul class="footer_menu">
-        <li class="footer_menu__item"><a href="#" class="footer_menu__link">Blog</a></li>
-        <li class="footer_menu__item"><a href="#" class="footer_menu__link">News</a></li>
-        <li class="footer_menu__item"><a href="#" class="footer_menu__link">Contacts</a></li>
-      </ul>
-    </footer>
+      </section>
+      <section class="section-page gallery-shark">
+        <div class="container"></div>
+      </section>
+      <footer class="section-page">
+        <ul class="footer_menu">
+          <li class="footer_menu__item"><a href="#" class="footer_menu__link">Blog</a></li>
+          <li class="footer_menu__item"><a href="#" class="footer_menu__link">News</a></li>
+          <li class="footer_menu__item"><a href="#" class="footer_menu__link">Contacts</a></li>
+        </ul>
+      </footer>
+    </div>
     <!--build:js scripts/vendor.js-->
     <!--bower:js-->
-    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/tooltipster/dist/js/tooltipster.bundle.js"></script>
+    <script src="bower_components/onepage-scroll/jquery.onepage-scroll.js"></script>
     <!--endbower-->
     <script type="text/javascript" src="js/jquery.fractionslider.js"></script>
+    <script type="text/javascript" src="js/jquery.ripples.js"></script>
     <!--endbuild-->
     <!--build:js js/main.js-->
     <script src="js/main.js"></script>

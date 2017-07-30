@@ -74,6 +74,7 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   max-width: 1170px;
   margin: 0 auto;
+  height: 100%;
 }
 .container::after {
   display: block;
@@ -81,7 +82,28 @@ h1, h2, h3, h4, h5, h6 {
   clear: both;
 }
 
-header {
+.onepage-pagination {
+  top: auto;
+  bottom: 1%;
+}
+
+.onepage-pagination li a.active:before {
+  border-color: #00c0ff;
+}
+
+.onepage-pagination li a:before {
+  background: #00c0ff;
+}
+
+.section_header {
+  font-size: 3rem;
+  color: #272727;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 3.125rem 0;
+}
+
+.header {
   position: relative;
 }
 
@@ -355,8 +377,8 @@ header {
   left: -1px;
 }
 
-.icons-sprite, .block_categories__picture_birds {
-  background-image: url('../../img/icons-s7fafa32254.png');
+.icons-sprite, .block_categories__picture_birds, .block_categories__picture_whales, .block_categories__picture_reptiles, .block_categories__picture_insects, .block_categories__picture_great-animals, .block_categories__picture_clams {
+  background-image: url('../../img/icons-sf3dd38d0ee.png');
   background-repeat: no-repeat;
 }
 
@@ -377,7 +399,7 @@ header {
   word-wrap: break-word;
   float: left;
   width: calc(33.33333% - 0px);
-  padding: 5%;
+  padding: 1% 5%;
   text-align: center;
 }
 
@@ -386,14 +408,65 @@ header {
   display: block;
 }
 
+.block_categories__picture-wrap {
+  height: 160px;
+  position: relative;
+}
+
 .block_categories__picture {
-  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 .block_categories__picture_birds {
   background-position: 0 0;
   height: 158px;
   width: 230px;
+  margin-top: -79px;
+  margin-left: -115px;
+}
+
+.block_categories__picture_whales {
+  background-position: 0 -624px;
+  height: 136px;
+  width: 206px;
+  margin-top: -68px;
+  margin-left: -103px;
+}
+
+.block_categories__picture_reptiles {
+  background-position: 0 -528px;
+  height: 96px;
+  width: 195px;
+  margin-top: -48px;
+  margin-left: -98px;
+}
+
+.block_categories__picture_insects {
+  background-position: 0 -404px;
+  height: 124px;
+  width: 217px;
+  margin-top: -62px;
+  margin-left: -109px;
+}
+
+.block_categories__picture_great-animals {
+  background-position: 0 -267px;
+  height: 137px;
+  width: 202px;
+  margin-top: -70px;
+  margin-left: -101px;
+}
+
+.block_categories__picture_clams {
+  background-position: 0 -158px;
+  height: 109px;
+  width: 193px;
+  margin-top: -55px;
+  margin-left: -97px;
 }
 
 .block_categories__name {
@@ -404,9 +477,38 @@ header {
   color: #362d2a;
   text-transform: uppercase;
   font-size: 1.875rem;
+  line-height: 1;
 }
 
 .block_categories__name:after {
   content: "\2022";
+  font-size: 1.875rem;
   display: block;
+}
+
+.block_categories__picture-wrap:hover + .block_categories__name:after,
+.block_categories__name:hover {
+  color: #00c0ff;
+}
+
+.block_categories__text {
+  font-size: 0.875rem;
+  color: #202020;
+}
+
+.gallery-shark {
+  background-image: url(../img/shark.jpg);
+  background-size: cover;
+  background-position: 50% 0;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+}
+
+.gallery-shark:hover {
+  -moz-transform: scale(1.02, 1.02);
+  -ms-transform: scale(1.02, 1.02);
+  -webkit-transform: scale(1.02, 1.02);
+  transform: scale(1.02, 1.02);
 }

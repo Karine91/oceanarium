@@ -26,7 +26,25 @@ h1,h2,h3,h4,h5,h6{
 .container{
  max-width: 1170px;
  margin: 0 auto;
+  height:100%;
  @include clearfix;
 }
 
+.onepage-pagination {
+  top: auto;
+  bottom: 1%;
+}
+.onepage-pagination li a.active:before {
+  border-color: #00c0ff;
+}
+.onepage-pagination li a:before {
+  background: #00c0ff;
+}
 
+.section_header{
+  font-size: rem(48);
+  color: #272727;
+  text-transform: uppercase;
+  text-align: center;
+  margin: rem(50) 0;
+}
