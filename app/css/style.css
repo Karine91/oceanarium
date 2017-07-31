@@ -95,12 +95,32 @@ h1, h2, h3, h4, h5, h6 {
   background: #00c0ff;
 }
 
-.section_header {
+.section_header, .section_header_white {
   font-size: 3rem;
   color: #272727;
   text-transform: uppercase;
   text-align: center;
-  margin: 3.125rem 0;
+}
+
+.section_header_white {
+  color: #fff;
+}
+
+.relative_block {
+  position: relative;
+}
+
+.relative_block__item {
+  position: absolute;
+}
+
+.relative_block__item_centered {
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .header {
@@ -377,30 +397,43 @@ h1, h2, h3, h4, h5, h6 {
   left: -1px;
 }
 
-.icons-sprite, .block_categories__picture_birds, .block_categories__picture_whales, .block_categories__picture_reptiles, .block_categories__picture_insects, .block_categories__picture_great-animals, .block_categories__picture_clams {
+.icons-sprite {
   background-image: url('../../img/icons-sf3dd38d0ee.png');
   background-repeat: no-repeat;
+}
+
+.block_categories__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .block_categories_background_nowhite {
   background: #f2f2f2;
 }
 
-.block_categories__row::after {
-  display: block;
-  content: "";
-  clear: both;
+.block_categories__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0px;
+  margin-right: 0px;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-grow: 1;
+  max-height: 40%;
 }
 
 .block_categories__item {
-  box-sizing: border-box;
-  margin-left: 0px;
-  margin-right: 0px;
-  word-wrap: break-word;
-  float: left;
-  width: calc(33.33333% - 0px);
-  padding: 1% 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 20%;
+  padding: 1%;
   text-align: center;
+  flex-grow: 1;
 }
 
 .block_categories__item a {
@@ -409,64 +442,43 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .block_categories__picture-wrap {
-  height: 160px;
-  position: relative;
+  flex-basis: 90px;
+  width: 100%;
+  height: 90px;
+  max-height: 160px;
+  flex-grow: 1;
 }
 
 .block_categories__picture {
-  height: 100%;
   width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
 }
 
 .block_categories__picture_birds {
-  background-position: 0 0;
-  height: 158px;
-  width: 230px;
-  margin-top: -79px;
-  margin-left: -115px;
+  background-image: url("../img/icons/birds.png");
 }
 
 .block_categories__picture_whales {
-  background-position: 0 -624px;
-  height: 136px;
-  width: 206px;
-  margin-top: -68px;
-  margin-left: -103px;
+  background-image: url("../img/icons/whales.png");
 }
 
 .block_categories__picture_reptiles {
-  background-position: 0 -528px;
-  height: 96px;
-  width: 195px;
-  margin-top: -48px;
-  margin-left: -98px;
+  background-image: url("../img/icons/reptiles.png");
 }
 
 .block_categories__picture_insects {
-  background-position: 0 -404px;
-  height: 124px;
-  width: 217px;
-  margin-top: -62px;
-  margin-left: -109px;
+  background-image: url("../img/icons/insects.png");
 }
 
 .block_categories__picture_great-animals {
-  background-position: 0 -267px;
-  height: 137px;
-  width: 202px;
-  margin-top: -70px;
-  margin-left: -101px;
+  background-image: url("../img/icons/greatAnimals.png");
 }
 
 .block_categories__picture_clams {
-  background-position: 0 -158px;
-  height: 109px;
-  width: 193px;
-  margin-top: -55px;
-  margin-left: -97px;
+  background-image: url("../img/icons/clams.png");
 }
 
 .block_categories__name {
@@ -484,6 +496,7 @@ h1, h2, h3, h4, h5, h6 {
   content: "\2022";
   font-size: 1.875rem;
   display: block;
+  line-height: 1;
 }
 
 .block_categories__picture-wrap:hover + .block_categories__name:after,
@@ -496,7 +509,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #202020;
 }
 
+.gallery-shark-wrap {
+  height: 100%;
+  overflow: hidden;
+}
+
 .gallery-shark {
+  height: 100%;
   background-image: url(../img/shark.jpg);
   background-size: cover;
   background-position: 50% 0;
@@ -506,9 +525,19 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 2s ease-in-out;
 }
 
-.gallery-shark:hover {
-  -moz-transform: scale(1.02, 1.02);
-  -ms-transform: scale(1.02, 1.02);
-  -webkit-transform: scale(1.02, 1.02);
-  transform: scale(1.02, 1.02);
+.gallery-shark__text {
+  top: 65%;
+  text-align: center;
+}
+
+.gallery-shark__btn {
+  border: 2px solid #ffffff;
+  font-family: "Underdog", cursive;
+  text-transform: uppercase;
+  color: #ffffff;
+  outline: none;
+  background: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  margin-top: 3.125rem;
 }

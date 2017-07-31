@@ -114,7 +114,7 @@ jQuery(window).load(function(){
         $('.gallery-shark').ripples({
             resolution: 512,
             dropRadius: 20, //px
-            perturbance: 0.02,
+            perturbance: 0.01,
             interactive: false
         });
     }
@@ -128,7 +128,7 @@ jQuery(window).load(function(){
         var x = Math.random() * $el.outerWidth();
         var y = Math.random() * $el.outerHeight();
         var dropRadius = 20;
-        var strength = 0.02 + Math.random() * 0.02;
+        var strength = 0.01 + Math.random() * 0.01;
         $el.ripples('drop', x, y, dropRadius, strength);
     }, 2000);
 

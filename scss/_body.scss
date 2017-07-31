@@ -46,5 +46,20 @@ h1,h2,h3,h4,h5,h6{
   color: #272727;
   text-transform: uppercase;
   text-align: center;
-  margin: rem(50) 0;
+  //margin: rem(50) 0;
+}
+.section_header_white{
+  @extend .section_header;
+  color: #fff;
+}
+.relative_block{
+  position: relative;
+}
+.relative_block__item{
+  position: absolute;
+}
+.relative_block__item_centered{
+  top: 50%;
+  left: 50%;
+  @include translate(-50%, -50%);
 }
