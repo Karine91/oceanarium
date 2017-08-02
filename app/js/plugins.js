@@ -104,18 +104,21 @@ jQuery(window).load(function(){
         // the browser's width is less than 600, the fallback will kick in.
         direction: "vertical"            // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".
     });
-
+    var galleryShark = $('.gallery-shark');
     try {
-        // $('body').ripples({
-        //     resolution: 512,
-        //     dropRadius: 20, //px
-        //     perturbance: 0.04,
-        // });
-        $('.gallery-shark').ripples({
+        galleryShark.ripples({
             resolution: 512,
             dropRadius: 20, //px
             perturbance: 0.01,
-            interactive: false
+            interactive: true
+        });
+    $('.gallery-shark__btn').on('mouseover', function(event){
+        galleryShark.ripples('set', 'interactive', false);
+        galleryShark.addClass('gallery-shark-scale');
+
+    }).on('mouseleave', function(event){
+        galleryShark.ripples('set', 'interactive', true);
+        galleryShark.removeClass('gallery-shark-scale');
         });
     }
     catch (e) {
@@ -124,11 +127,11 @@ jQuery(window).load(function(){
 
     // Automatic drops
     setInterval(function() {
-        var $el = $('.gallery-shark');
+        var $el = galleryShark;
         var x = Math.random() * $el.outerWidth();
         var y = Math.random() * $el.outerHeight();
         var dropRadius = 20;
-        var strength = 0.01 + Math.random() * 0.01;
+        var strength = 0.03 + Math.random() * 0.03;
         $el.ripples('drop', x, y, dropRadius, strength);
     }, 2000);
 
