@@ -75,7 +75,7 @@ html
                                     |ариум
                            +menu(menuItem, "header_menu")
             section.section-page.block_categories.block_categories_background_nowhite
-                .container.block_categories__container
+                .section-container
                     h2.section_header we work every day
                     .block_categories__row
                         .block_categories__item
@@ -126,7 +126,79 @@ html
                 .gallery-shark__text.relative_block__item.relative_block__item_centered
                         h2.section_header.section_header_white.section_header_text_centered and very good shark
                         button.gallery-shark__btn view gallery
-
+            section.section-page.future_events
+                .section-container
+                    h2.section_header future events
+                    .future-events_period
+                        a(href="#").future-events_period__item
+                            span.future-events_period__item-text This week
+                        a(href="#").future-events_period__item
+                            span.future-events_period__item-text.active This month
+                                span.future-events_period__item-update +2
+                        a(href="#").future-events_period__item
+                            span.future-events_period__item-text This year
+                    .future-events_pagination
+                        a(href="#").future-events_pagination__prev.icon-left-dir
+                        span.future-events_pagination__page-number 1
+                        span.future-events_pagination__total-pages 26
+                        a(href="#").future-events_pagination__next.icon-right-dir
+                    .future-events_block
+                        .future-events_block__row
+                            .future-events_item
+                                .future-events_item__picture-wrap
+                                    .future-events_item__picture(style="background-image: url(img/future-events/eventpost1.jpg);")
+                                    .future-events_date
+                                        .future-events_date__day 26
+                                        .future-events_date__monthYear feb, 2017
+                                .future-events_item__text
+                                    .future-events_item__header Lorem ipsum dolor sit amet
+                                    .future-events_item__description Consectetur adipisicing elit, sed do adipisicing elit sed do
+                            .future-events_item
+                                .future-events_item__picture-wrap
+                                    .future-events_item__picture(style="background-image: url(img/future-events/eventpost2.jpg);")
+                                    .future-events_date
+                                        .future-events_date__day 27
+                                        .future-events_date__monthYear feb, 2017
+                                .future-events_item__text
+                                    .future-events_item__header Lorem ipsum dolor sit amet
+                                    .future-events_item__description Consectetur adipisicing elit, sed do consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+                            .future-events_item
+                                .future-events_item__picture-wrap
+                                    .future-events_item__picture(style="background-image: url(img/future-events/eventpost3.jpg);")
+                                    .future-events_date
+                                        .future-events_date__day 1
+                                        .future-events_date__monthYear mar, 2017
+                                .future-events_item__text
+                                    .future-events_item__header Lorem ipsum dolor sit amet
+                                    .future-events_item__description Consectetur adipisicing elit, sed do consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+                        .future-events_block__row
+                            .future-events_item
+                                .future-events_item__picture-wrap
+                                    .future-events_item__picture(style="background-image: url(img/future-events/eventpost4.jpg);")
+                                    .future-events_date
+                                        .future-events_date__day 2
+                                        .future-events_date__monthYear mar, 2017
+                                .future-events_item__text
+                                    .future-events_item__header Lorem ipsum dolor sit amet
+                                    .future-events_item__description Consectetur adipisicing elit, sed do consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+                            .future-events_item
+                                .future-events_item__picture-wrap
+                                    .future-events_item__picture(style="background-image: url(img/future-events/eventpost5.jpg);")
+                                    .future-events_date
+                                        .future-events_date__day 6
+                                        .future-events_date__monthYear mar, 2017
+                                .future-events_item__text
+                                    .future-events_item__header Lorem ipsum dolor sit amet
+                                    .future-events_item__description Consectetur adipisicing elit, sed do consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+                            .future-events_item
+                                .future-events_item__picture-wrap
+                                    .future-events_item__picture(style="background-image: url(img/future-events/eventpost6.jpg);")
+                                    .future-events_date
+                                        .future-events_date__day 10
+                                        .future-events_date__monthYear mar, 2017
+                                .future-events_item__text
+                                    .future-events_item__header Lorem ipsum dolor sit amet
+                                    .future-events_item__description Consectetur adipisicing elit, sed do consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
             footer.section-page
                 +menu(menuFooter, "footer_menu")
         //build:js scripts/vendor.js

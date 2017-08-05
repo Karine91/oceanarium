@@ -7,7 +7,10 @@ $colorBlue: #00c0ff;
 @function rem($px){
   @return $px/($bodyFSTypeNumber) + rem;
 }
-
+@mixin size_custom($n, $margin){
+  $value: $atom * $n;
+  width: #{calc(#{$value} - #{$margin})};
+}
 body{
   font-size: $bodyFontSize;
   line-height: 1.6;
@@ -26,8 +29,14 @@ h1,h2,h3,h4,h5,h6{
 .container{
  max-width: 1170px;
  margin: 0 auto;
+}
+.section-container{
+  @extend .container;
   height:100%;
- @include clearfix;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .onepage-pagination {
@@ -46,7 +55,7 @@ h1,h2,h3,h4,h5,h6{
   color: #272727;
   text-transform: uppercase;
   text-align: center;
-  //margin: rem(50) 0;
+  margin: rem(40) 0;
 }
 .section_header_white{
   @extend .section_header;
