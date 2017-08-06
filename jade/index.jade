@@ -74,7 +74,7 @@ html
                                     span.header_logo__link-blue Океан
                                     |ариум
                            +menu(menuItem, "header_menu")
-            section.section-page.block_categories.block_categories_background_nowhite
+            section.section-page.block_categories
                 .section-container
                     h2.section_header we work every day
                     .block_categories__row
@@ -199,6 +199,77 @@ html
                                 .future-events_item__text
                                     .future-events_item__header Lorem ipsum dolor sit amet
                                     .future-events_item__description Consectetur adipisicing elit, sed do consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
+            section.section-page.todays-events
+                .section-container
+                    h2.section_header todays events
+                    .todays-events_block
+                        .today-events_calendar-block
+                            table.today-events_calendar
+                                thead.today-events_calendar-nav
+                                    tr
+                                        td(colspan=7)
+                                            .today-events_calendar-header-month
+                                                a(href="#").today-events_calendar-header-month__month-prev.icon-left-dir
+                                                .today-events_calendar-header-month__current
+                                                    .today-events_calendar-header-month__current-month August
+                                                    .today-events_calendar-header-month__current-year 2017
+                                                    .today-events_calendar-header-month__current-fulldate today is
+                                                        span.today-events_calendar-header-month__current-fulldate.today-events_calendar-header-month__current-fulldate_content 23 aug 2017
+                                                a(href="#").today-events_calendar-header-month__month-next.icon-right-dir
+                                thead.today-events_calendar__header-daysofweek
+                                    tr
+                                        th.today-events_calendar__dayofweek mon
+                                        th.today-events_calendar__dayofweek tue
+                                        th.today-events_calendar__dayofweek wed
+                                        th.today-events_calendar__dayofweek thu
+                                        th.today-events_calendar__dayofweek fri
+                                        th.today-events_calendar__dayofweek sat
+                                        th.today-events_calendar__dayofweek sun
+                                tbody.today-events_calendar__body
+                                    tr
+                                        td 30
+                                        td 31
+                                        td 1
+                                        td 2
+                                        td 3
+                                        td 4
+                                        td 5
+                                    tr
+                                        td 6
+                                        td 7
+                                        td 8
+                                        td 9
+                                        td 10
+                                        td 11
+                                        td 12
+                                    tr
+                                        td 13
+                                        td 14
+                                        td 15
+                                        td 16
+                                        td 17
+                                        td 18
+                                        td 19
+                                    tr
+                                        td 20
+                                        td 21
+                                        td 22
+                                        td 23
+                                        td 24
+                                        td 25
+                                        td 26
+                                    tr
+                                        td 27
+                                        td 28
+                                        td 29
+                                        td 30
+                                        td 31
+                                        td 1
+                                        td 2
+                            .today-events_prices
+                        .today-events_events-block
+
+
             footer.section-page
                 +menu(menuFooter, "footer_menu")
         //build:js scripts/vendor.js

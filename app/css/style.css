@@ -58,6 +58,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   font-family: "Roboto", sans-serif;
+  background: #f2f2f2;
 }
 
 html, body, .player {
@@ -102,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #272727;
   text-transform: uppercase;
   text-align: center;
-  margin: 2.5rem 0;
+  margin: 2% 0;
 }
 
 .section_header_white {
@@ -126,6 +127,12 @@ h1, h2, h3, h4, h5, h6 {
   transform: translate(-50%, -50%);
 }
 
+@media screen and (max-width: 1100px) {
+  .container, .section-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+}
 .header {
   position: relative;
 }
@@ -405,10 +412,6 @@ h1, h2, h3, h4, h5, h6 {
   background-repeat: no-repeat;
 }
 
-.block_categories_background_nowhite {
-  background: #f2f2f2;
-}
-
 .block_categories__row {
   display: flex;
   flex-wrap: wrap;
@@ -606,7 +609,7 @@ a.future-events_period__item, a.future-events_period__item-text {
   display: none;
 }
 
-.future-events_block {
+.future-events_block, .todays-events_block {
   align-self: stretch;
   overflow: hidden;
   -moz-border-radius: 10px;
@@ -648,17 +651,21 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover {
   flex-grow: 1;
   display: flex;
   flex-direction: row;
-  margin: 0 -5px 5px;
+  margin-bottom: 5px;
 }
 .future-events_block__row:last-child {
   margin-bottom: 0;
 }
 
 .future-events_item {
-  width: calc(33.33333% - 10px);
+  width: calc(33.33333% - 3px);
   display: flex;
-  margin: 0 5px;
+  margin-right: 5px;
   flex-direction: column;
+  flex-grow: 1;
+}
+.future-events_item:last-child {
+  margin-right: 0;
 }
 
 .future-events_item:hover {
@@ -670,6 +677,10 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover {
   height: 80%;
   position: relative;
   overflow: hidden;
+  -moz-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
 }
 
 .future-events_item__picture {
@@ -677,10 +688,10 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover {
   background-position: center center;
   width: 100%;
   height: 100%;
-  -moz-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  -webkit-transition: all 500ms ease;
-  transition: all 500ms ease;
+  -moz-transition: -moz-transform 500ms ease;
+  -o-transition: -o-transform 500ms ease;
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
 }
 
 .future-events_item:hover .future-events_item__picture {
@@ -688,6 +699,10 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover {
   -ms-transform: scale(1.1, 1.1);
   -webkit-transform: scale(1.1, 1.1);
   transform: scale(1.1, 1.1);
+  -moz-transition: -moz-transform 500ms ease;
+  -o-transition: -o-transform 500ms ease;
+  -webkit-transition: -webkit-transform 500ms ease;
+  transition: transform 500ms ease;
 }
 
 .future-events_date {
@@ -698,7 +713,7 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover {
   -webkit-border-top-right-radius: 10px;
   border-top-right-radius: 10px;
   background-color: #00c0ff;
-  padding: 1.25rem 0.75rem 0.9375rem;
+  padding: 2% 1.5%;
   box-sizing: border-box;
   text-align: center;
   color: #ffffff;
@@ -718,7 +733,7 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover {
 
 .future-events_item__text {
   background-color: #22262e;
-  padding: 1.5625rem 1.25rem;
+  padding: 3.2% 3%;
   box-sizing: border-box;
 }
 
@@ -733,4 +748,61 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.todays-events_block {
+  flex-direction: row;
+}
+
+.today-events_calendar-block {
+  flex-basis: 30%;
+  max-width: 368px;
+}
+
+.today-events_events-block {
+  flex-basis: 70%;
+}
+
+.today-events_calendar {
+  width: 100%;
+}
+
+.today-events_calendar-nav {
+  background-color: #00c0ff;
+}
+
+.today-events_calendar-header-month {
+  text-align: center;
+  font-size: 0;
+}
+
+[class*="today-events_calendar-header-month__"] {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+[class*="today-events_calendar-header-month__current-"] {
+  display: block;
+}
+
+a.today-events_calendar-header-month__month-prev,
+a.today-events_calendar-header-month__month-next {
+  width: 20%;
+  font-size: 1.5rem;
+  color: #22262e;
+  text-decoration: none;
+  -moz-transition: color 300ms ease;
+  -o-transition: color 300ms ease;
+  -webkit-transition: color 300ms ease;
+  transition: color 300ms ease;
+}
+
+a.today-events_calendar-header-month__month-prev:hover,
+a.today-events_calendar-header-month__month-next:hover {
+  color: #ffffff;
+}
+
+.today-events_calendar-header-month__current {
+  width: 60%;
+  font-size: 1.125rem;
 }
