@@ -11,6 +11,28 @@ $colorBlue: #00c0ff;
   $value: $atom * $n;
   width: #{calc(#{$value} - #{$margin})};
 }
+@mixin width-respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: 479px) { @content; }
+  }
+  @else if $media == wide-handhelds {
+    @media only screen and (min-width: 480px) and (max-width: 767px) { @content; }
+  }
+  @else if $media == tablets {
+    @media only screen and (min-width: 768px) and (max-width: 959px) { @content; }
+  }
+}
+@mixin height-respond-to($media) {
+  @if $media == h700 {
+    @media only screen and (max-height: 700px) { @content; }
+  }
+  @else if $media == wide-handhelds {
+    @media only screen and (min-height: 569px) and (max-height: 640px) { @content; }
+  }
+  @else if $media == tablets {
+    @media only screen and (min-height: 641px) and (max-height: 732px) { @content; }
+  }
+}
 body{
   font-size: $bodyFontSize;
   line-height: 1.6;
@@ -29,6 +51,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .container{
  max-width: 1170px;
+  width:80%;
  margin: 0 auto;
 }
 .section-container{
@@ -75,9 +98,3 @@ h1,h2,h3,h4,h5,h6{
 }
 
 
-@media screen and (max-width: 1100px){
-  .container{
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-}

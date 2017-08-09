@@ -858,7 +858,7 @@ $break_xs: 560px;
 }
 @mixin clearfix(){
     &::after{
-        display: block;
+        display: table;
         content: "";
         clear: both;
     }
