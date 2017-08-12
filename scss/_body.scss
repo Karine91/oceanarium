@@ -21,6 +21,19 @@ $colorBlue: #00c0ff;
   @else if $media == tablets {
     @media only screen and (min-width: 768px) and (max-width: 959px) { @content; }
   }
+  @else if $media == lg {
+    @media only screen and (max-width: 1370px) { @content; }
+  }
+}
+@mixin width-respond-max($max) {
+    @media only screen and (max-width: $max) {
+      @content;
+    }
+}
+@mixin width-respond-min($min) {
+  @media only screen and (min-width: $min) {
+    @content;
+  }
 }
 @mixin height-respond-to($media) {
   @if $media == h700 {
@@ -59,7 +72,6 @@ h1,h2,h3,h4,h5,h6{
   height:100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 

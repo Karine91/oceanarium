@@ -1,15 +1,29 @@
 $(function(){
     $(window).bind('mousewheel DOMMouseScroll MozMousePixelScroll', function(event){
+        //GALLERY-SHARK
         if($(document).scrollTop() >=$('.gallery-shark-wrap').offset().top -$(window).innerHeight()){
            setTimeout(function(){
                $('.gallery-shark__text .section_header').animate({
                    opacity: "1"
-               },2500,"easeOutQuart", function(){
+               },800,"easeOutQuart", function(){
                    $('.gallery-shark__btn').animate({
                        opacity: "1"
-                   },1000);
+                   },800);
                });
            }, 1000);
+        }
+        //GUIDES
+        if($(document).scrollTop() >=$('.section-guides').offset().top -$(window).innerHeight()){
+            $('.section-guides_item').each(function(ind){
+                var item = $(this);
+                setTimeout(function() {
+                    item.delay(500).animate({
+                        opacity: "1"
+                    },700);
+                },400*ind);
+            });
+
+
         }
     });
 

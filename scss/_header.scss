@@ -9,30 +9,28 @@
  height: 100%;
 }
 .header-navigation_panel{
- @include col-12();
- @include col;
+ display: flex;
  padding-left: rem(30);
  padding-right: rem(30);
- @include clearfix;
  background-color: #f2f2f2;
  @include border-radius(10px);
  margin-top: 45px;
+ height: 70px;
  position: relative;
  z-index: 999999;
  line-height: 1.6em;
 }
 
 .header_logo{
- @include col;
- @include col-3;
- @include col-float;
+display: flex;
+ align-items: center;
+ justify-content: center;
  font-family: $fontHeading;
  text-transform: uppercase;
  font-size: rem(30);
+ padding-right: rem(30);
 }
 .header_logo__link{
- display: inline-block;
- padding: rem(30) 0;
  color: #000;
  text-decoration: none;
 }
