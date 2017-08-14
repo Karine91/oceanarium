@@ -1,0 +1,82 @@
+@import "icons/*.png";
+$icons-sprite-dimensions: true;
+
+.block_categories__row{
+  @include row-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-grow: 1;
+  max-height: 40%;
+}
+.block_categories__item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 20%;
+  padding: 1%;
+  text-align: center;
+  flex-grow: 1;
+
+}
+
+.block_categories__item a{
+  text-decoration: none;
+  display: block;
+}
+.block_categories__picture-wrap{
+  flex-basis: 90px;
+  width: 100%;
+  height: 90px;
+  max-height: 160px;
+  flex-grow: 1;
+}
+.block_categories__picture{
+  width: 100%;
+  height:100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+.block_categories__picture_birds{
+ background-image: url("../img/icons/birds.png");
+}
+.block_categories__picture_whales{
+  background-image: url("../img/icons/whales.png");
+}
+.block_categories__picture_reptiles{
+  background-image: url("../img/icons/reptiles.png");
+}
+.block_categories__picture_insects{
+  background-image: url("../img/icons/insects.png");
+}
+.block_categories__picture_great-animals{
+  background-image: url("../img/icons/greatAnimals.png");
+}
+.block_categories__picture_clams{
+  background-image: url("../img/icons/clams.png");
+}
+.block_categories__name,  .block_categories__name a{
+  text-align: center;
+  color: #362d2a;
+  text-transform: uppercase;
+  font-size: rem(30);
+  line-height: 1;
+ }
+
+.block_categories__name:after{
+  content: "\2022";
+  font-size: rem(30);
+  display: block;
+  line-height: 1;
+  @include transition(color 300ms ease);
+}
+.block_categories__picture-wrap:hover + .block_categories__name:after,
+.block_categories__name:hover{
+  color: #00c0ff;
+}
+.block_categories__text{
+  font-size: rem(14);
+  color: #202020;
+}

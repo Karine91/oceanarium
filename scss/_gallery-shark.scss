@@ -1,0 +1,34 @@
+.gallery-shark-wrap{
+  height:100%;
+  overflow: hidden;
+}
+.gallery-shark{
+  height:100%;
+  background-image: url(../img/shark.jpg);
+  background-size: cover;
+  background-position: 50% 0;
+  @include scale(1.02,1.02);
+  @include transition(all 1s ease-in-out);
+}
+.gallery-shark__text{
+  top:65%;
+  text-align: center;
+  .section_header{
+    opacity: 0;
+  }
+}
+.gallery-shark__btn{
+  border: 2px solid #ffffff;
+  font-family: $fontHeading;
+  text-transform: uppercase;
+  color: #ffffff;
+  outline: none;
+  background: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  margin-top: rem(50);
+  opacity: 0;
+}
+.gallery-shark-scale{
+  @include scale(1.12,1.12);
+}

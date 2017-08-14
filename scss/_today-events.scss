@@ -1,0 +1,323 @@
+.todays-events_block{
+  @extend .future-events_block;
+  overflow: visible;
+  flex-direction: row;
+}
+.today-events_calendar-block{
+  flex-basis: 35%;
+  max-width: 368px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.today-events_events-block{
+  flex-basis: 65%;
+}
+.today-events_calendar{
+  width: 100%;
+  height: 70%;
+}
+.today-events_calendar-nav{
+
+}
+.today-events_calendar-header-month{
+  text-align: center;
+  font-size: 0;
+  padding: 10% 0;
+  @include border-top-left-radius(10px);
+  background-color: #00c0ff;
+  @include height-respond-to(h810){
+    padding: 2% 0;
+  }
+}
+[class*="today-events_calendar-header-month__"]{
+  display: inline-block;
+  vertical-align: middle;
+}
+[class*="today-events_calendar-header-month__current-"]{
+  display: block;
+}
+a.today-events_calendar-header-month__month-prev,
+a.today-events_calendar-header-month__month-next{
+  width: 20%;
+  font-size: rem(24);
+  color: #22262e;
+  text-decoration: none;
+  @include transition(color 300ms ease);
+}
+a.today-events_calendar-header-month__month-prev:hover,
+a.today-events_calendar-header-month__month-next:hover{
+  color: #ffffff;
+}
+.today-events_calendar-header-month__current{
+  width: 60%;
+  font-size: rem(18);
+  color: #fff;
+}
+
+.today-events_calendar-header-month__current-month{
+  text-transform: uppercase;
+  font-family: $fontHeading;
+  font-size: rem(38);
+}
+.today-events_calendar-header-month__current-year{
+  color: #22262e;
+  font-size: rem(18);
+}
+.today-events_calendar-header-month__current-fulldate{
+  font-size: rem(18);
+  text-transform: uppercase;
+  display: inline-block;
+  vertical-align: baseline;
+  font-weight: 300;
+  line-height: 1.3;
+}
+.today-events_calendar-header-month__current-fulldate_content{
+  font-weight: 600;
+  margin-left: 0.2em;
+}
+
+.today-events_calendar__header-daysofweek{
+  text-transform: uppercase;
+  color: #22262e;
+  font-size: rem(13);
+}
+.today-events_calendar__dayofweek{
+  padding-top: 2em;
+  padding-bottom: 1.5em;
+  width: 2em;
+  text-align: center;
+  font-weight: 600;
+  border-right: 1px solid #e0e0e0;
+  &:last-child{
+    border-right: none;
+  }
+}
+.today-events_calendar__day{
+  text-align: center;
+  border-right: 1px solid #e0e0e0;
+  color: #7c7c7c;
+  position: relative;
+  width: 2em;
+  height: 2em;
+  &:last-child{
+    border-right: none;
+  }
+}
+.today-events_calendar__row{
+  border-bottom: 1px solid #e0e0e0;
+  &:last-child{
+    border-bottom: none;
+    td{
+      padding-bottom: 25%;
+      @include height-respond-to(h810){
+        padding-bottom: 10%;
+      }
+    }
+    td:last-child{
+      &:after{
+        display: none;
+      }
+    }
+    td:first-child{
+      &:before{
+        display: none;
+      }
+    }
+  }
+  td:last-child{
+   display: inline-block;
+    position: relative;
+    width:100%;
+    height: 100%;
+    line-height: 2em;
+    &:after{
+      content: "";
+      position: absolute;
+      display: table-cell;
+      width: 100%;
+      height: 100%;
+      top:0;
+      left:100%;
+      border-bottom: 1px solid #e0e0e0;
+    }
+  }
+  td:first-child{
+    display: inline-block;
+    position: relative;
+    width:100%;
+    height: 100%;
+    line-height: 2em;
+    &:before{
+      content: "";
+      position: absolute;
+      display: table-cell;
+      height: 100%;
+      width: 100%;
+      left:-100%;
+      border-bottom: 1px solid #e0e0e0;
+    }
+  }
+}
+
+.today-events_calendar__day_othermonth{
+  color: #d3d3d3;
+}
+.today-events_calendar__day_future{
+ &:after{
+   display: inline-block;
+   width: 1.5em;
+   height: 1.5em;
+   content: "";
+   @include border-radius(50%);
+   border: 2px solid #00c0ff;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   @include translate(-50%, -50%);
+ }
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.today-events_calendar__day_present{
+  color: #ffffff;
+  &:after{
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    content: "";
+    @include border-radius(50%);
+    background-color: #00c0ff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include translate(-50%, -50%);
+    z-index: -1;
+  }
+}
+
+.today-events_prices{
+  background-color: #22262e;
+  @include border-bottom-left-radius(10px);
+  padding: 10% 1em;
+  @include height-respond-to(h810){
+    padding: 5% 1em;
+  }
+  color: #b7b7b7;
+}
+.today-events_prices__item{
+  height: 1.5rem;
+  font-size: 0;
+  border-bottom: 1px dotted darken(#b7b7b7, 45%);
+  &:last-child{
+    border-bottom: none;
+  }
+}
+.today-events_prices__item-name{
+  font-weight: 300;
+  width: 65%;
+  font-size: rem(18);
+  line-height: 0.9;
+  display: inline-block;
+  box-sizing: border-box;
+  &:before{
+    content: "\2022";
+    color: #00c0ff;
+    font-size: rem(24);
+    padding-right: 0.2em;
+  }
+}
+.today-events_prices__item-price{
+  font-weight: 300;
+  text-align: right;
+  width: 35%;
+  display: inline-block;
+  font-size: rem(14);
+}
+.today-events_prices__price-value{
+  margin-left: 0.2em;
+}
+
+//EVENTS BLOCK
+.today-events_events-block{
+  padding-left: 40px;
+  box-sizing: border-box;
+}
+.today-events_session-start{
+  @include clearfix;
+}
+.today-events_session-clock{
+  width: 36px;
+  height: 36px;
+  float: left;
+  font-size: 0;
+  @include border-radius(50%);
+  @include box-shadow(-1px 2px 2px rgba(196,196,196,0.75) inset);
+  background-color: #ffffff;
+  position: relative;
+}
+.today-events_session-clock__arrow{
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url(../img/clock_arrow.png);
+  position: absolute;
+  top:0;
+  left: 0;
+}
+.today-events_session-header{
+  font-family: $fontHeading;
+  font-size: rem(30);
+  float: left;
+  width: calc(100% - 36px);
+  line-height: 36px;
+  padding-left: 0.5em;
+  box-sizing: border-box;
+}
+.today-events_session-header__time{
+  margin-right: 0.2em;
+}
+
+.today-events_session-content{
+  padding-left: 25%;
+  @include height-respond-to(h810){
+    padding-left: 10%;
+  }
+}
+.today-events_session-content-prices{
+  margin: 15px 0;
+  @include height-respond-to(h810){
+    margin: 0;
+  }
+}
+.today-events_session-content-prices__item{
+  text-transform: uppercase;
+  font-size: rem(18);
+  box-sizing: border-box;
+  color: #22262e;
+  &:before{
+    content: "\2022";
+    color: #000000;
+    font-size: rem(24);
+    padding-right: 0.5em;
+  }
+}
+.today-events_session-content-prices__value{
+  margin-left: 0.2em;
+  font-weight: 600;
+}
+.today-events_session-content__text{
+  color: #747474;
+  font-size: rem(18);
+  font-weight: 300;
+  height: 100px;
+  overflow: hidden;
+  @include height-respond-to(h810){
+    height: 70px;
+    font-size: 1rem;
+  }
+}
+

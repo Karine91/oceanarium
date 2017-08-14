@@ -1,0 +1,48 @@
+.section-contacts_block{
+  @extend .future-events_block;
+  flex-direction: row;
+  margin-top: 2.5rem;
+  flex-grow: 0;
+}
+.contacts_form{
+  @include size_custom(8, "60px");
+  margin-right: 60px;
+  display: flex;
+  flex-direction: column;
+}
+[class*="contacts_form__"]{
+  background-color: #ffffff;
+  color: #5f5c6c;
+  font-family: $fontBase;
+  font-size: rem(24);
+  font-weight: 300;
+  padding: 35px 50px 25px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid rgba(188, 188, 188, 0.20);
+  outline: none;
+  max-height: 80px;
+  @include input-placeholder {
+    color: rgba(95, 92, 108, 0.35);
+    position: relative;
+    left: 0;   transition: left 0.3s ease;
+  }
+  &:focus{
+    @include input-placeholder {
+      left: calc(100% + 50px); transition: left 0.3s ease;
+    }
+  }
+}
+.contacts_form__message{
+  height: 300px;
+  max-height: 300px;
+  max-width: 100%;
+  overflow-x: hidden;
+  @include height-respond-to(h810){
+    height: 140px;
+    max-height: 140px;
+  }
+}
+.contacts_info{
+  @include size(4);
+}
