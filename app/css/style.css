@@ -718,7 +718,7 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover {
 
 .future-events_item__text, .section-guides_info {
   background-color: #22262e;
-  padding: 3.2% 3%;
+  padding: 1em 0.8em;
   box-sizing: border-box;
 }
 
@@ -867,6 +867,7 @@ a.today-events_calendar-header-month__month-next:hover {
 }
 .today-events_calendar__row:last-child td {
   padding-bottom: 25%;
+  vertical-align: baseline;
 }
 @media only screen and (max-height: 810px) {
   .today-events_calendar__row:last-child td {
@@ -965,12 +966,12 @@ a.today-events_calendar-header-month__month-next:hover {
   -moz-border-radius-bottomleft: 10px;
   -webkit-border-bottom-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  padding: 10% 1em;
+  padding: 2em 1em;
   color: #b7b7b7;
 }
 @media only screen and (max-height: 810px) {
   .today-events_prices {
-    padding: 5% 1em;
+    padding: 1em 1em;
   }
 }
 
@@ -1143,7 +1144,7 @@ a.today-events_calendar-header-month__month-next:hover {
 
 .section-guides_info {
   display: flex;
-  padding: 5% 5% 8%;
+  padding: 1em 1em 1.7em;
 }
 @media only screen and (max-width: 1370px) {
   .section-guides_info {

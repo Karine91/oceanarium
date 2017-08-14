@@ -32,7 +32,7 @@
 .section-guides_info{
   @extend .future-events_item__text;
   display: flex;
-  padding: 5% 5% 8%;
+  padding: 1em 1em 1.7em;
   @include width-respond-to(lg){
     min-height: 90px;
   }

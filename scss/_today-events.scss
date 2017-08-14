@@ -110,6 +110,7 @@ a.today-events_calendar-header-month__month-next:hover{
     border-bottom: none;
     td{
       padding-bottom: 25%;
+      vertical-align: baseline;
       @include height-respond-to(h810){
         padding-bottom: 10%;
       }
@@ -201,9 +202,9 @@ a.today-events_calendar-header-month__month-next:hover{
 .today-events_prices{
   background-color: #22262e;
   @include border-bottom-left-radius(10px);
-  padding: 10% 1em;
+  padding: 2em 1em;
   @include height-respond-to(h810){
-    padding: 5% 1em;
+    padding: 1em 1em;
   }
   color: #b7b7b7;
 }
