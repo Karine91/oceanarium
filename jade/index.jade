@@ -3,6 +3,7 @@ doctype html
 - var menuItem = ["Blog", "News", "Gallery", "Price", "Services", "Shedule", "Contacts"]
 - var menuFooter = ["Blog", "News", "Contacts"]
 - var socialsItem = ["facebook", "twitter", "gplus-1"]
+- var socialsContactsItem = [ "twitter", "facebook", "google", "skype-1"]
 mixin menu(items, blockName)
     ul(class="#{blockName}")
         each item, ind in items
@@ -376,7 +377,31 @@ html
                                         .section-guides_info__name Vanessa Delphino
                                         .section-guides_info__activities trainer
                                     +socials(socialsItem,"section-guides_socials")
+            section.section-page.contacts
+                .section-container
+                    h2.section_header Contact us
+                    p.section-guides_text.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua.
+                    .section-contacts_block
 
+                        form(action="" method="post" name="form").contacts_form
+                            input(type="text" name="name" placeholder="Name").contacts_form__name
+                            input(type="email" name="mail" placeholder="Email").contacts_form__mail
+                            textarea(placeholder="Message" name="message").contacts_form__message
+                            button(type="submit").contacts_form__btn Contact
+                        .contacts_info
+                            .contacts_info__phone
+                                h3 Telephone
+                                p.
+                                  +08 (123) 234 567 <br>
+                                  +08 (321) 123 876
+                            .contacts_info__adress
+                                h3 Adress
+                                ul
+                                    li Golden Beach florencia  north frlicjita lorem
+                            .contacts_info__socials
+                                +socials(socialsContactsItem,"contacts_socials-list")
             footer.section-page
                 +menu(menuFooter, "footer_menu")
         //build:js scripts/vendor.js

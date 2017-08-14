@@ -83,6 +83,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .onepage-pagination {
@@ -459,11 +460,8 @@ h1, h2, h3, h4, h5, h6 {
   background-image: url("../img/icons/clams.png");
 }
 
-.block_categories__name {
+.block_categories__name, .block_categories__name a {
   text-align: center;
-}
-
-.block_categories__name a {
   color: #362d2a;
   text-transform: uppercase;
   font-size: 1.875rem;
@@ -475,6 +473,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.875rem;
   display: block;
   line-height: 1;
+  -moz-transition: color 300ms ease;
+  -o-transition: color 300ms ease;
+  -webkit-transition: color 300ms ease;
+  transition: color 300ms ease;
 }
 
 .block_categories__picture-wrap:hover + .block_categories__name:after,
@@ -588,7 +590,7 @@ a.future-events_period__item, a.future-events_period__item-text {
   display: none;
 }
 
-.future-events_block, .todays-events_block, .section-guides_block {
+.future-events_block, .todays-events_block, .section-guides_block, .section-contacts_block {
   align-self: stretch;
   overflow: hidden;
   -moz-border-radius: 10px;
@@ -764,7 +766,7 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover {
   border-top-left-radius: 10px;
   background-color: #00c0ff;
 }
-@media only screen and (max-height: 700px) {
+@media only screen and (max-height: 810px) {
   .today-events_calendar-header-month {
     padding: 2% 0;
   }
@@ -866,7 +868,7 @@ a.today-events_calendar-header-month__month-next:hover {
 .today-events_calendar__row:last-child td {
   padding-bottom: 25%;
 }
-@media only screen and (max-height: 700px) {
+@media only screen and (max-height: 810px) {
   .today-events_calendar__row:last-child td {
     padding-bottom: 10%;
   }
@@ -966,7 +968,7 @@ a.today-events_calendar-header-month__month-next:hover {
   padding: 10% 1em;
   color: #b7b7b7;
 }
-@media only screen and (max-height: 700px) {
+@media only screen and (max-height: 810px) {
   .today-events_prices {
     padding: 5% 1em;
   }
@@ -1062,7 +1064,7 @@ a.today-events_calendar-header-month__month-next:hover {
 .today-events_session-content {
   padding-left: 25%;
 }
-@media only screen and (max-height: 700px) {
+@media only screen and (max-height: 810px) {
   .today-events_session-content {
     padding-left: 10%;
   }
@@ -1071,7 +1073,7 @@ a.today-events_calendar-header-month__month-next:hover {
 .today-events_session-content-prices {
   margin: 15px 0;
 }
-@media only screen and (max-height: 700px) {
+@media only screen and (max-height: 810px) {
   .today-events_session-content-prices {
     margin: 0;
   }
@@ -1102,7 +1104,7 @@ a.today-events_calendar-header-month__month-next:hover {
   height: 100px;
   overflow: hidden;
 }
-@media only screen and (max-height: 700px) {
+@media only screen and (max-height: 810px) {
   .today-events_session-content__text {
     height: 70px;
     font-size: 1rem;
@@ -1197,4 +1199,88 @@ a.today-events_calendar-header-month__month-next:hover {
 }
 .section-guides_socials__items-icon:hover {
   color: #00c0ff;
+}
+
+.section-contacts_block {
+  flex-direction: row;
+  margin-top: 2.5rem;
+  flex-grow: 0;
+}
+
+.contacts_form {
+  width: calc(66.66667% - 60px);
+  margin-right: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+[class*="contacts_form__"] {
+  background-color: #ffffff;
+  color: #5f5c6c;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  padding: 35px 50px 25px;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid rgba(188, 188, 188, 0.2);
+  outline: none;
+  max-height: 80px;
+}
+[class*="contacts_form__"]:-moz-placeholder {
+  color: rgba(95, 92, 108, 0.35);
+  position: relative;
+  left: 0;
+  transition: left 0.3s ease;
+}
+[class*="contacts_form__"]::-moz-placeholder {
+  color: rgba(95, 92, 108, 0.35);
+  position: relative;
+  left: 0;
+  transition: left 0.3s ease;
+}
+[class*="contacts_form__"]:-ms-input-placeholder {
+  color: rgba(95, 92, 108, 0.35);
+  position: relative;
+  left: 0;
+  transition: left 0.3s ease;
+}
+[class*="contacts_form__"]::-webkit-input-placeholder {
+  color: rgba(95, 92, 108, 0.35);
+  position: relative;
+  left: 0;
+  transition: left 0.3s ease;
+}
+[class*="contacts_form__"]:focus:-moz-placeholder {
+  left: calc(100% + 50px);
+  transition: left 0.3s ease;
+}
+[class*="contacts_form__"]:focus::-moz-placeholder {
+  left: calc(100% + 50px);
+  transition: left 0.3s ease;
+}
+[class*="contacts_form__"]:focus:-ms-input-placeholder {
+  left: calc(100% + 50px);
+  transition: left 0.3s ease;
+}
+[class*="contacts_form__"]:focus::-webkit-input-placeholder {
+  left: calc(100% + 50px);
+  transition: left 0.3s ease;
+}
+
+.contacts_form__message {
+  height: 300px;
+  max-height: 300px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+@media only screen and (max-height: 810px) {
+  .contacts_form__message {
+    height: 140px;
+    max-height: 140px;
+  }
+}
+
+.contacts_info {
+  width: calc(33.33333% - 0px);
 }
