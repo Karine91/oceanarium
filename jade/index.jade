@@ -17,7 +17,10 @@ mixin socials(items, blockName)
     ul(class="#{blockName}")
         each item in items
             li(class="#{blockName}__items")
-                a(href="#", class="#{blockName}__items-icon icon-#{item}")
+                if items==socialsContactsItem
+                    a(href="#", class="#{blockName}__items-icon #{blockName}__items-icon_#{item}")
+                else
+                    a(href="#", class="#{blockName}__items-icon icon-#{item}")
 html
     head
         meta(charset="UTF-8")
@@ -392,14 +395,14 @@ html
                             button(type="submit").contacts_form__btn Contact
                         .contacts_info
                             .contacts_info__phone
-                                h3 Telephone
-                                p.
+                                h3.contacts_info__header Telephone
+                                p.contacts_info__txt.
                                   +08 (123) 234 567 <br>
                                   +08 (321) 123 876
                             .contacts_info__adress
-                                h3 Adress
-                                ul
-                                    li Golden Beach florencia  north frlicjita lorem
+                                h3.contacts_info__header Adress
+                                ul.contacts_info__adress-list
+                                    li.contacts_info__adress-item Golden Beach florencia  north frlicjita lorem
                             .contacts_info__socials
                                 +socials(socialsContactsItem,"contacts_socials-list")
             footer.section-page

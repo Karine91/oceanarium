@@ -43,6 +43,80 @@
     max-height: 140px;
   }
 }
+.contacts_form__btn{
+  padding: 25px 0;
+  box-sizing: border-box;
+  font-size: rem(30);
+  color: #ffffff;
+  background-color: #00c0ff;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: $fontHeading;
+}
 .contacts_info{
   @include size(4);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.contacts_info__phone{
+  margin-bottom: 10px;
+}
+.contacts_info__header{
+ text-align: left;
+  margin-bottom: 10px;
+}
+.contacts_info__txt{
+  padding-left: 70px;
+  color: #747474;
+  font-weight: 300;
+  font-size: rem(24);
+}
+.contacts_info__adress{
+  margin-bottom: auto;
+}
+.contacts_info__adress-list{
+  @extend .contacts_info__txt;
+}
+.contacts_info__adress-item{
+  position: relative;
+  margin-left: 0.7em;
+  &:before{
+    content: "\2022";
+    color: #000000;
+    font-size: rem(24);
+    position: absolute;
+    left: -0.7em;
+  }
+}
+
+.contacts_socials-list{
+  font-size: 0;
+  display: flex;
+  justify-content: space-between;
+}
+.contacts_socials-list__items{
+  width: 72px;
+  height: 67px;
+  display: inline-block;
+
+}
+
+.contacts_socials-list__items-icon{
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  &_facebook{
+    background-image: url("../img/socials/facebook.jpg");
+  }
+  &_twitter{
+    background-image: url("../img/socials/twitter.jpg");
+  }
+  &_google{
+    background-image: url("../img/socials/google.jpg");
+  }
+  &_skype-1{
+    background-image: url("../img/socials/skype.jpg");
+  }
 }
