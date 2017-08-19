@@ -4,11 +4,11 @@
   font-weight: 300;
   color: #000000;
   font-size: rem(18);
+  width:100%;
 }
 .section-guides_block{
   @extend .future-events_block;
   margin-top: 2.5rem;
-  max-height: 60%;
 }
 .section-guides_block__row{
   @extend .future-events_block__row;
@@ -18,6 +18,7 @@
   @include size_custom(3, 3px);
   flex-grow: 0;
   opacity: 0;
+  max-height: 80%;
   &:hover{
     cursor: default;
   }
@@ -27,7 +28,7 @@
   background-position: center center;
   width: 100%;
   flex-grow: 1;
-  height: 80%;
+  height: 90%;
 }
 .section-guides_info{
   @extend .future-events_item__text;
@@ -53,6 +54,7 @@
 }
 .section-guides_socials{
   font-size: 0;
+  width: auto;
 }
 .section-guides_socials__items{
   display: inline-block;

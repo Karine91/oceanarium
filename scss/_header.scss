@@ -22,13 +22,14 @@
 }
 
 .header_logo{
-display: flex;
+ display: flex;
  align-items: center;
  justify-content: center;
  font-family: $fontHeading;
  text-transform: uppercase;
  font-size: rem(30);
  padding-right: rem(30);
+ width: auto;
 }
 .header_logo__link{
  color: #000;

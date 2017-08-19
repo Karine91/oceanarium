@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var rename = require('gulp-rename');
 var cleanCSS = require('gulp-clean-css');
-//var autoprefixer = require('gulp-autoprefixer');
+var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var jade = require('gulp-jade');
 // var rev_append = require('gulp-rev-append');
@@ -19,6 +19,8 @@ var useref = require('gulp-useref'),
 var clean = require('gulp-clean');
 var sass = require("gulp-sass");
 var compass = require('gulp-compass');
+var postcss    = require('gulp-postcss');
+var sourcemaps = require('gulp-sourcemaps');
 //Build
 gulp.task('build',['clean'], function () {
     return gulp.src('app/*.html')
@@ -42,13 +44,13 @@ gulp.task('jade',['clean_jade'], function() {
         .pipe(gulp.dest('app/'))
 });
 //css
-gulp.task('css',['sass'], function () {
-    return gulp.src('./app/css/*.css')
+gulp.task('css',['compass'], function () {
+    return gulp.src('./app/css/style.css')
         // .pipe(concatCss("style.css"))
-        // .pipe(autoprefixer({
-        //     browsers: ['last 20 versions'],
-        //     cascade: false
-        // }))
+           .pipe(autoprefixer({
+            browsers: ['last 20 versions'],
+            cascade: false
+        }))
         .pipe(gulp.dest('app/css/'))
 });
 
@@ -129,13 +131,21 @@ gulp.task('compass', function() {
             css: 'app/css',
             sass: 'scss'
         }))
-        .pipe(gulp.dest('app/css'));
+        .pipe(gulp.dest('./app/css/'));
+});
+//POSTCSS
+gulp.task('postcss',['compass'], function () {
+    return gulp.src('./app/css/style.css')
+        .pipe( sourcemaps.init() )
+        .pipe( postcss([ require('precss'), require('autoprefixer'), require('postcss-flexibility')]) )
+        .pipe( sourcemaps.write('.') )
+        .pipe( gulp.dest('./app/css/'));
 });
 
 //watch
 gulp.task('watch', function(){
     gulp.watch('jade/**/*.jade', ['jade_bower']);
-    gulp.watch('./scss/**/*.scss', ['compass']);
+    gulp.watch('./scss/**/*.scss', ['postcss']);
     // gulp.watch('app/css/*.css', ['rev_all']);
     gulp.watch([
         'app/*.html',
@@ -145,4 +155,4 @@ gulp.task('watch', function(){
 });
 
 //default
-gulp.task('default', ['server','jade','compass','watch']);
+gulp.task('default', ['server','jade','postcss','watch']);

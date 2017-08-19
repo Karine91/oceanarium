@@ -1,6 +1,7 @@
 @import "compass/reset";
 @import "compass/css3";
 @import "compass/utilities";
+@import "compass/support";
 @import "_smart-grid";
 @import "_body";
 @import "_header";
@@ -10,3 +11,4 @@
 @import "_today-events";
 @import "_section-guides";
 @import "_contacts";
+@import "_gallery";

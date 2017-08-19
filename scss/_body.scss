@@ -7,6 +7,13 @@ $colorBlue: #00c0ff;
 @function rem($px){
   @return $px/($bodyFSTypeNumber) + rem;
 }
+@mixin polyfill_flex($prop, $value){
+  @if $prop==display{
+    -js-#{$prop}: $value;
+    #{$prop}: $value;
+  }
+}
+
 @mixin size_custom($n, $margin){
   $value: $atom * $n;
   width: #{calc(#{$value} - #{$margin})};
@@ -46,18 +53,24 @@ $colorBlue: #00c0ff;
     @media only screen and (min-height: 641px) and (max-height: 732px) { @content; }
   }
 }
+*{
+  box-sizing: border-box;
+}
 body{
-  font-size: $bodyFontSize;
+  font-size: 100%;
   line-height: 1.6;
   font-family: $fontBase;
   background: #f2f2f2;
 }
 
-html, body, .player {
+html, body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
+  #{elements-of-type(block)} {
+    width: 100%;
+  }
 }
 h1,h2,h3,h4,h5,h6{
   font-family: $fontHeading;
@@ -79,6 +92,7 @@ h1,h2,h3,h4,h5,h6{
 .onepage-pagination {
   top: auto;
   bottom: 1%;
+  width: auto;
 }
 .onepage-pagination li a.active:before {
   border-color: #00c0ff;
@@ -86,7 +100,9 @@ h1,h2,h3,h4,h5,h6{
 .onepage-pagination li a:before {
   background: #00c0ff;
 }
-
+.onepage-pagination li a{
+  box-sizing: content-box;
+}
 .section_header{
   font-size: rem(48);
   color: #272727;

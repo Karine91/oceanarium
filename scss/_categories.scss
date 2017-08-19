@@ -3,11 +3,11 @@ $icons-sprite-dimensions: true;
 
 .block_categories__row{
   @include row-flex;
-  flex-direction: row;
+  flex-direction:row;
   justify-content: space-around;
   align-items: stretch;
   flex-grow: 1;
-  max-height: 40%;
+  //max-height: 40%;
 }
 .block_categories__item{
   display: flex;
@@ -17,7 +17,7 @@ $icons-sprite-dimensions: true;
   flex-basis: 20%;
   padding: 1%;
   text-align: center;
-  flex-grow: 1;
+  flex-grow:1;
 
 }
 

@@ -1,3 +1,24 @@
+if (Modernizr.flexbox && Modernizr.flexwrap) {
+    // Modern Flexbox with `flex-wrap` is supported
+} else {
+    flexibility(document.body);
+    var onresizeTimeout;
+    window.onresize = onresize;
+}
+function onresize() {
+    window.onresize = null;
+
+    if (!onresizeTimeout) {
+        onresizeTimeout = setTimeout(function () {
+            onresizeTimeout = null;
+
+            flexibility(container);
+
+            window.onresize = onresize;
+        }, 1000 / 60);
+    }
+}
+
 var windowHeight = $(window).outerHeight();
 var windowWidth = $(window).width();
 var contentContainerWidth = 1170;
@@ -25,7 +46,7 @@ function percentToPixelHoryz(val){
     return val/100*windowWidth;
 }
 
-jQuery(window).load(function(){
+$(window).load(function(){
     //Slider
     //Посчитаем позицию нижнего блока первый слайд
 

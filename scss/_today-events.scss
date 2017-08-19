@@ -284,6 +284,7 @@ a.today-events_calendar-header-month__month-next:hover{
 
 .today-events_session-content{
   padding-left: 25%;
+  box-sizing: border-box;
   @include height-respond-to(h810){
     padding-left: 10%;
   }
