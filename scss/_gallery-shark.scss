@@ -1,6 +1,11 @@
+@keyframes bubble {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
 .gallery-shark-wrap{
   height:100%;
   overflow: hidden;
+  position: relative;
 }
 .gallery-shark{
   height:100%;
@@ -15,7 +20,21 @@
   text-align: center;
   .section_header{
     opacity: 0;
+    position: relative;
   }
+}
+.gallery-shark__text .section_header:before{
+  position: absolute;
+  top:0;
+  left: 60%;
+  opacity: 0;
+  margin-top: -107px;
+  content: "";
+  display: inline-block;
+  width: 123px;
+  height: 107px;
+  background-image: url("../img/bubble.png");
+  background-repeat: no-repeat;
 }
 .gallery-shark__btn{
   border: 2px solid #ffffff;
@@ -28,6 +47,9 @@
   cursor: pointer;
   margin-top: rem(50);
   opacity: 0;
+}
+.animated:before{
+  animation: bubble 800ms ease-in-out 0.8s forwards;
 }
 .gallery-shark-scale{
   @include scale(1.12,1.12);

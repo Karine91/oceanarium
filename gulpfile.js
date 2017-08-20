@@ -131,11 +131,11 @@ gulp.task('compass', function() {
             css: 'app/css',
             sass: 'scss'
         }))
-        .pipe(gulp.dest('./app/css/'));
+        .pipe(gulp.dest('app/css/'));
 });
 //POSTCSS
-gulp.task('postcss',['compass'], function () {
-    return gulp.src('./app/css/style.css')
+gulp.task('postcss', function () {
+    gulp.src('./app/css/style.css')
         .pipe( sourcemaps.init() )
         .pipe( postcss([ require('precss'), require('autoprefixer'), require('postcss-flexibility')]) )
         .pipe( sourcemaps.write('.') )
@@ -145,8 +145,8 @@ gulp.task('postcss',['compass'], function () {
 //watch
 gulp.task('watch', function(){
     gulp.watch('jade/**/*.jade', ['jade_bower']);
-    gulp.watch('./scss/**/*.scss', ['postcss']);
-    // gulp.watch('app/css/*.css', ['rev_all']);
+    gulp.watch('./scss/**/*.scss', ['compass']);
+    gulp.watch('app/css/style.css', ['postcss']);
     gulp.watch([
         'app/*.html',
         'app/css/**/*.css',

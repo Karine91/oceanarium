@@ -130,9 +130,9 @@ html
                             p.block_categories__text.
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.
-            section.section-page.gallery-shark-wrap.relative_block
+            section.section-page.gallery-shark-wrap
                 .gallery-shark
-                .gallery-shark__text.relative_block__item.relative_block__item_centered
+                .gallery-shark__text.item-centered
                         h2.section_header.section_header_white.section_header_text_centered and very good shark
                         button.gallery-shark__btn view gallery
             section.section-page.future_events
@@ -405,15 +405,50 @@ html
                                     li.contacts_info__adress-item Golden Beach florencia  north frlicjita lorem
                             .contacts_info__socials
                                 +socials(socialsContactsItem,"contacts_socials-list")
-            section.section-page.gallery
-                .gallery_row
-                    .gallery_item
-                        .gallery_item__pic-wrapper
-                            .gallery_item__picture(style="background-image: url(img/gallery/gallery1.jpg);")
-                            .gallery_item__hover-text view
-
-            footer.section-page
-                +menu(menuFooter, "footer_menu")
+            section.section-page
+                .gallery
+                    .gallery-inner
+                        .gallery_item
+                            a(href="#").gallery_item__pic-wrapper
+                                .gallery_item__picture(style="background-image: url(img/gallery/gallery1.jpg);")
+                                .gallery_item__hover
+                                    .gallery_item__hover-text.item-centered view
+                        .gallery_item
+                            a(href="#").gallery_item__pic-wrapper
+                                .gallery_item__picture(style="background-image: url(img/gallery/gallery2.jpg);")
+                                .gallery_item__hover
+                                    .gallery_item__hover-text.item-centered view
+                        .gallery_item
+                            a(href="#").gallery_item__pic-wrapper
+                                .gallery_item__picture(style="background-image: url(img/gallery/gallery3.jpg);")
+                                    .gallery_item__hover
+                                        .gallery_item__hover-text.item-centered view
+                        .gallery_item
+                            a(href="#").gallery_item__pic-wrapper
+                                .gallery_item__picture(style="background-image: url(img/gallery/gallery4.jpg);")
+                                .gallery_item__hover
+                                    .gallery_item__hover-text.item-centered view
+                        .gallery_item
+                            a(href="#").gallery_item__pic-wrapper
+                                .gallery_item__picture(style="background-image: url(img/gallery/gallery5.jpg);")
+                                .gallery_item__hover
+                                    .gallery_item__hover-text.item-centered view
+                        .gallery_item
+                            a(href="#").gallery_item__pic-wrapper
+                                .gallery_item__picture(style="background-image: url(img/gallery/gallery6.jpg);")
+                                .gallery_item__hover
+                                    .gallery_item__hover-text.item-centered view
+                        .gallery_item
+                            a(href="#").gallery_item__pic-wrapper
+                                .gallery_item__picture(style="background-image: url(img/gallery/gallery7.jpg);")
+                                    .gallery_item__hover
+                                        .gallery_item__hover-text.item-centered view
+                        .gallery_item
+                            a(href="#").gallery_item__pic-wrapper
+                                .gallery_item__picture(style="background-image: url(img/gallery/gallery8.jpg);")
+                                .gallery_item__hover
+                                    .gallery_item__hover-text.item-centered view
+                footer.footer © 2013-2017 Dalechuk Inna, Inc. All rights reserved
         //build:js scripts/vendor.js
         //bower:js
         //endbower

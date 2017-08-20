@@ -126,6 +126,7 @@ $(window).load(function(){
         direction: "vertical"            // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".
     });
     var galleryShark = $('.gallery-shark');
+    var gallerySharkText = $('.gallery-shark__text .section_header');
     try {
         galleryShark.ripples({
             resolution: 512,
@@ -136,10 +137,12 @@ $(window).load(function(){
     $('.gallery-shark__btn').on('mouseover', function(event){
         galleryShark.ripples('set', 'interactive', false);
         galleryShark.addClass('gallery-shark-scale');
+        gallerySharkText.addClass('animated');
 
     }).on('mouseleave', function(event){
         galleryShark.ripples('set', 'interactive', true);
         galleryShark.removeClass('gallery-shark-scale');
+        gallerySharkText.removeClass('animated');
         });
     }
     catch (e) {

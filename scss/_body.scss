@@ -114,13 +114,9 @@ h1,h2,h3,h4,h5,h6{
   @extend .section_header;
   color: #fff;
 }
-.relative_block{
-  position: relative;
-}
-.relative_block__item{
+
+.item-centered{
   position: absolute;
-}
-.relative_block__item_centered{
   top: 50%;
   left: 50%;
   @include translate(-50%, -50%);
