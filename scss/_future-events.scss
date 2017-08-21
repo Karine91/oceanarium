@@ -102,21 +102,22 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover{
 .future-events_item__picture-wrap{
   flex-grow: 1;
   height: 80%;
+  perspective: 1000px;
   max-height: 80%;
   position: relative;
   overflow: hidden;
-  @include scale(1, 1);
 }
 .future-events_item__picture{
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  @include scale(1.1,1.1);
-  @include transition(transform 500ms ease);
+  min-height: 100%;
+  position: absolute;
+  display: block;
+  top:50%;
+  left:50%;
+  transform: translate3d(-50%, -50%, 0);
+  @include transition(transform 200ms ease);
 }
 .future-events_item:hover .future-events_item__picture{
-  @include scale(1.2, 1.2);
+  transform: translate3d(-50%,-50%,150px);
   @include transition(transform 500ms ease);
 }
 

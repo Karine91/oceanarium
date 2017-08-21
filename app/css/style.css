@@ -467,6 +467,10 @@ h1, h2, h3, h4, h5, h6 {
           flex-grow: 1;
 }
 
+.block_categories__item:hover .block_categories__picture-hover {
+  opacity: 1;
+}
+
 .block_categories__item a {
   text-decoration: none;
   display: block;
@@ -481,9 +485,10 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  position: relative;
 }
 
-.block_categories__picture {
+.block_categories__picture, .block_categories__picture-hover {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
@@ -491,28 +496,59 @@ h1, h2, h3, h4, h5, h6 {
   background-size: contain;
 }
 
+.block_categories__picture-hover {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .block_categories__picture_birds {
   background-image: url("../img/icons/birds.png");
+}
+
+.block_categories__picture_birds-hover {
+  background-image: url("../img/icons/birds-hover.png");
 }
 
 .block_categories__picture_whales {
   background-image: url("../img/icons/whales.png");
 }
 
+.block_categories__picture_whales-hover {
+  background-image: url("../img/icons/whales-hover.png");
+}
+
 .block_categories__picture_reptiles {
   background-image: url("../img/icons/reptiles.png");
+}
+
+.block_categories__picture_reptiles-hover {
+  background-image: url("../img/icons/reptiles-hover.png");
 }
 
 .block_categories__picture_insects {
   background-image: url("../img/icons/insects.png");
 }
 
+.block_categories__picture_insects-hover {
+  background-image: url("../img/icons/insects-hover.png");
+}
+
 .block_categories__picture_great-animals {
   background-image: url("../img/icons/greatAnimals.png");
 }
 
+.block_categories__picture_great-animals-hover {
+  background-image: url("../img/icons/greatAnimals-hover.png");
+}
+
 .block_categories__picture_clams {
   background-image: url("../img/icons/clams.png");
+}
+
+.block_categories__picture_clams-hover {
+  background-image: url("../img/icons/clams-hover.png");
 }
 
 .block_categories__name, .contacts_info__header, .block_categories__name a {
@@ -772,29 +808,30 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover {
       -ms-flex-positive: 1;
           flex-grow: 1;
   height: 80%;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
   max-height: 80%;
   position: relative;
   overflow: hidden;
-  -webkit-transform: scale(1, 1);
-  transform: scale(1, 1);
 }
 
 .future-events_item__picture {
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
-  -webkit-transform: scale(1.1, 1.1);
-  transform: scale(1.1, 1.1);
-  -webkit-transition: -webkit-transform 500ms ease;
-  transition: -webkit-transform 500ms ease;
-  transition: transform 500ms ease;
-  transition: transform 500ms ease, -webkit-transform 500ms ease;
+  min-height: 100%;
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  -webkit-transition: -webkit-transform 200ms ease;
+  transition: -webkit-transform 200ms ease;
+  transition: transform 200ms ease;
+  transition: transform 200ms ease, -webkit-transform 200ms ease;
 }
 
 .future-events_item:hover .future-events_item__picture, .section-guides_item:hover .future-events_item__picture {
-  -webkit-transform: scale(1.2, 1.2);
-  transform: scale(1.2, 1.2);
+  -webkit-transform: translate3d(-50%, -50%, 150px);
+          transform: translate3d(-50%, -50%, 150px);
   -webkit-transition: -webkit-transform 500ms ease;
   transition: -webkit-transform 500ms ease;
   transition: transform 500ms ease;
@@ -1585,6 +1622,8 @@ a.today-events_calendar-header-month__month-prev:hover, a.today-events_calendar-
   display: block;
   overflow: hidden;
   position: relative;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
 }
 
 .gallery_item__pic-wrapper:hover .gallery_item__hover {
@@ -1594,8 +1633,8 @@ a.today-events_calendar-header-month__month-prev:hover, a.today-events_calendar-
 }
 
 .gallery_item__pic-wrapper:hover .gallery_item__picture {
-  -webkit-transform: scale(1, 1);
-  transform: scale(1, 1);
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
   -webkit-transition: -webkit-transform 500ms ease;
   transition: -webkit-transform 500ms ease;
   transition: transform 500ms ease;
@@ -1608,15 +1647,15 @@ a.today-events_calendar-header-month__month-prev:hover, a.today-events_calendar-
 }
 
 .gallery_item__picture {
-  background-size: cover;
-  background-position: center center;
-  width: 100%;
-  height: 100%;
+  min-height: 100%;
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
   -webkit-transition: opacity 500ms ease;
   transition: opacity 500ms ease;
-  position: relative;
-  -webkit-transform: scale(1.1, 1.1);
-  transform: scale(1.1, 1.1);
+  -webkit-transform: translate3d(-50%, -50%, 150px);
+          transform: translate3d(-50%, -50%, 150px);
   -webkit-transition: -webkit-transform 500ms ease;
   transition: -webkit-transform 500ms ease;
   transition: transform 500ms ease;
@@ -1646,9 +1685,10 @@ a.today-events_calendar-header-month__month-prev:hover, a.today-events_calendar-
 .gallery_item__hover-text:before {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
   opacity: 0;
   margin-top: -107px;
+  margin-left: -62px;
   content: "";
   display: inline-block;
   width: 123px;
