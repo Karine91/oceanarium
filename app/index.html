@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
     <link href="css/fontello.css" rel="stylesheet">
     <!--[if IE 7]link(rel="stylesheet" href="css/fontello-ie7.css")//[endif]-->
-    <!--build:css css/vendor.css-->
+    <!--build:css css/vendor.css--><link rel="stylesheet" href="css/idangerous.chopslider-3.4.css"/>
     <link href="css/fractionslider.css" rel="stylesheet">
     <!--bower:css-->
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
@@ -30,35 +30,53 @@
   </head>
   <body>
     <div class="main">
-      <header class="section-page">
-        <div class="slider_block">
-          <div style="background-image: url(img/slider/slide1.jpg)" data-in="fade" class="slider_block__item">
-            <div data-in="top" data-delay="200" data-out="top" data-step="1" data-time="2250" class="slider_block__maintext">
-              <h1 class="slider_block__heading">oceanarium</h1>
-              <h2 class="slider_block__subheading">on the golden beach</h2>
+      <header class="section-page"><a href="#" class="cs3-slide-next"><i class="icon-right-dir"></i></a><a href="#" class="cs3-slide-prev"><i class="icon-left-dir"></i></a>
+        <div class="cs3 slider_block">
+          <div class="cs3-slide slider_block__item"><img src="img/slider/slide1.jpg" width="100%" alt="photo #1" class="slider_image"></div>
+          <div class="cs3-slide slider_block__item"><img src="img/slider/slide2.jpg" width="100%" alt="photo #2" class="slider_image"></div>
+          <div class="cs3-slide slider_block__item"><img src="img/slider/slide3.jpg" width="100%" alt="photo #3" class="slider_image"></div>
+          <div class="cs3-captions">
+            <div class="cs3-caption">
+              <div class="slider_block__maintext">
+                <h1 class="slider_block__heading">oceanarium</h1>
+                <h2 class="slider_block__subheading">on the golden beach</h2>
+              </div>
+              <p class="slider_block__text_bottom">
+                We are an oceanarium on the Golden Beach. Lorem ipsum dolor sit amet, consectetur
+                adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui officia deserunt mollit anim id est laborum.
+              </p>
             </div>
-            <div data-in="bottom" data-delay="200" data-out="top" data-step="2" data-time="5250" class="slider_block__text slider_block__text_bottom">
-              We are an oceanarium on the Golden Beach. Lorem ipsum dolor sit amet, consectetur
-              adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation
-              ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-              in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa
-              qui officia deserunt mollit anim id est laborum.
-            </div>
-            <div data-special="cycle" data-delay="200" data-in="right" data-step="3" data-time="6000" class="slider_block__image slider_block__image_fish"><img src="img/slider/fish_many.png"></div>
+            <div class="cs3-caption">Thailand, There are very many different ATM 2 in one place</div>
+            <div class="cs3-caption">Thailand, There are very many different ATM 3 in one place</div>
           </div>
-          <div style="background-image: url(img/slider/slide2.jpg)" data-in="fade" class="slider_block__item">
-            <div data-in="right" data-step="1" class="slider_block__text_item">Text1</div>
-            <div data-in="right" data-step="2" class="slider_block__text_item">Text2</div>
-            <div data-in="right" data-step="3" class="slider_block__text_item">Text3</div>
-            <div data-in="right" data-step="4" class="slider_block__text_item">Text4</div>
-          </div>
-          <div style="background-image: url(img/slider/slide3.jpg)" data-in="fade" class="slider_block__item">
-            <div data-delay="2000" data-in="right" data-out="none" data-step="1" data-time="4500" class="slider_block__image slider_block__image_fish1-slide3"><img src="img/slider/fish2.png"></div>
-            <div data-delay="2000" data-in="bottomLeft" data-out="none" data-step="2" data-time="4500" class="slider_block__image slider_block__image_fish2-slide3"><img src="img/slider/fish3.png"></div>
-            <div data-delay="2500" data-in="topLeft" data-out="none" data-step="2" data-time="8500" class="slider_block__image slider_block__image_fish3-slide3"><img src="img/slider/fish4.png"></div>
-          </div>
+          <!--.slider_block__item(style="background-image: url(img/slider/slide1.jpg)" data-in="fade")-->
+          <!--    .slider_block__maintext(data-in="top" data-delay="200" data-out="top" data-step="1" data-time="2250")-->
+          <!--        h1.slider_block__heading oceanarium-->
+          <!--        h2.slider_block__subheading on the golden beach-->
+          <!---->
+          <!--    .slider_block__text.slider_block__text_bottom(data-in="bottom" data-delay="200" data-out="top" data-step="2" data-time="5250").-->
+          <!--        We are an oceanarium on the Golden Beach. Lorem ipsum dolor sit amet, consectetur-->
+          <!--        adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.-->
+          <!--        Ut enim ad minim veniam, quis nostrud exercitation-->
+          <!--        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit-->
+          <!--        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.-->
+          <!--        Excepteur sint occaecat cupidatat non proident, sunt in culpa-->
+          <!--        qui officia deserunt mollit anim id est laborum.-->
+          <!--    .slider_block__image.slider_block__image_fish(data-special="cycle" data-delay="200" data-in="right" data-step="3" data-time="6000"): img(src="img/slider/fish_many.png")-->
+          <!--.slider_block__item(style="background-image: url(img/slider/slide2.jpg)" data-in="fade")-->
+          <!--    .slider_block__text_item(data-in="right" data-step="1") Text1-->
+          <!--    .slider_block__text_item(data-in="right" data-step="2") Text2-->
+          <!--    .slider_block__text_item(data-in="right" data-step="3") Text3-->
+          <!--    .slider_block__text_item(data-in="right" data-step="4") Text4-->
+          <!--.slider_block__item(style="background-image: url(img/slider/slide3.jpg)" data-in="fade")-->
+          <!--    .slider_block__image.slider_block__image_fish1-slide3(data-delay="2000" data-in="right" data-out="none" data-step="1" data-time="4500"): img(src="img/slider/fish2.png")-->
+          <!--    .slider_block__image.slider_block__image_fish2-slide3(data-delay="2000" data-in="bottomLeft" data-out="none" data-step="2" data-time="4500"): img(src="img/slider/fish3.png")-->
+          <!--    .slider_block__image.slider_block__image_fish3-slide3(data-delay="2500" data-in="topLeft" data-out="none" data-step="2" data-time="8500"): img(src="img/slider/fish4.png")-->
           <div class="fs_loader"></div>
         </div>
         <div class="header_wrapper">
@@ -497,13 +515,13 @@
               </div>
               <div class="contacts_info__socials">
                 <ul class="contacts_socials-list">
-                  <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_twitter"></a>
+                  <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_twitter icon-twitter"></a>
                   </li>
-                  <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_facebook"></a>
+                  <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_facebook icon-facebook"></a>
                   </li>
-                  <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_google"></a>
+                  <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_google icon-google"></a>
                   </li>
-                  <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_skype-1"></a>
+                  <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_skype-1 icon-skype-1"></a>
                   </li>
                 </ul>
               </div>
@@ -559,7 +577,7 @@
     <script src="bower_components/onepage-scroll/jquery.onepage-scroll.js"></script>
     <script src="bower_components/flexibility/dist/flexibility.js"></script>
     <!--endbower-->
-    <script type="text/javascript" src="js/jquery.fractionslider.js"></script>
+    <script type="text/javascript" src="js/jquery.fractionslider.js"></script><script src="js/idangerous.chopslider-3.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.ripples.js"></script>
     <!--endbuild-->
     <!--build:js js/main.js-->

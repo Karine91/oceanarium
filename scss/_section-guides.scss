@@ -34,7 +34,7 @@
   @extend .future-events_item__text;
   display: flex;
   padding: 1em 1em 1.7em;
-  @include width-respond-to(lg){
+  @include mediaW(1370px){
     min-height: 90px;
   }
 }

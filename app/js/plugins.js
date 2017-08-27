@@ -50,63 +50,91 @@ $(window).load(function(){
     //Slider
     //Посчитаем позицию нижнего блока первый слайд
 
-    var slider = $('.slider_block');
-    var slideElement = $('.slider_block__text_bottom');
-
-
-    // $(window).resize(function(){
-    //     centered(slideElement);
+    // var slider = $('.slider_block');
+    // var slideElement = $('.slider_block__text_bottom');
+    //
+    //
+    // // $(window).resize(function(){
+    // //     centered(slideElement);
+    // // });
+    //
+    // ///SLIDE 1
+    // var fishPosition = percentToPixelVert(50) +","+ percentToPixelHoryz(101);
+    // var maintextPosition = percentToPixelVert(40)+","+ 0;
+    // var elementFish = $('.slider_block__image_fish');
+    // var elemMaintext = $('.slider_block__maintext');
+    // elementFish.attr('data-position',fishPosition);
+    // elemMaintext.attr('data-position',maintextPosition);
+    // centeredBottomElement(slideElement);
+    // ///SLIDE 2
+    //
+    //
+    // var textItems = $('.slider_block__text_item');
+    // var positionTop= percentToPixelVert(50);
+    // textItems.each(function(){
+    //     var that = $(this);
+    //     var itemWidth = that.outerWidth();
+    //     var itemHeight = that.outerHeight();
+    //     var positionLeft = contentContainerRight -itemWidth;
+    //     var position = positionTop+","+ positionLeft;
+    //     that.attr('data-position',position);
+    //     positionTop +=10+itemHeight;
     // });
-
-    ///SLIDE 1
-    var fishPosition = percentToPixelVert(50) +","+ percentToPixelHoryz(101);
-    var maintextPosition = percentToPixelVert(40)+","+ 0;
-    var elementFish = $('.slider_block__image_fish');
-    var elemMaintext = $('.slider_block__maintext');
-    elementFish.attr('data-position',fishPosition);
-    elemMaintext.attr('data-position',maintextPosition);
-    centeredBottomElement(slideElement);
-    ///SLIDE 2
-
-
-    var textItems = $('.slider_block__text_item');
-    var positionTop= percentToPixelVert(50);
-    textItems.each(function(){
-        var that = $(this);
-        var itemWidth = that.outerWidth();
-        var itemHeight = that.outerHeight();
-        var positionLeft = contentContainerRight -itemWidth;
-        var position = positionTop+","+ positionLeft;
-        that.attr('data-position',position);
-        positionTop +=10+itemHeight;
-    });
-
-
-    ///SLIDE 3
-
-    var fish1_slide3 = $('.slider_block__image_fish1-slide3');
-    fishPosition = percentToPixelVert(50) +","+ percentToPixelHoryz(101);
-    fish1_slide3.attr('data-position',fishPosition);
-
-    var fish2_slide3 = $('.slider_block__image_fish2-slide3');
-    fishPosition = percentToPixelVert(10) +","+ percentToPixelHoryz(-40);
-    fish2_slide3.attr('data-position',fishPosition);
-
-    var fish3_slide3 = $('.slider_block__image_fish3-slide3');
-    fishPosition = percentToPixelVert(90) +","+ percentToPixelHoryz(-40);
-    fish3_slide3.attr('data-position',fishPosition);
+    //
+    //
+    // ///SLIDE 3
+    //
+    // var fish1_slide3 = $('.slider_block__image_fish1-slide3');
+    // fishPosition = percentToPixelVert(50) +","+ percentToPixelHoryz(101);
+    // fish1_slide3.attr('data-position',fishPosition);
+    //
+    // var fish2_slide3 = $('.slider_block__image_fish2-slide3');
+    // fishPosition = percentToPixelVert(10) +","+ percentToPixelHoryz(-40);
+    // fish2_slide3.attr('data-position',fishPosition);
+    //
+    // var fish3_slide3 = $('.slider_block__image_fish3-slide3');
+    // fishPosition = percentToPixelVert(90) +","+ percentToPixelHoryz(-40);
+    // fish3_slide3.attr('data-position',fishPosition);
 
     //Init slider
-    slider.fractionSlider({
-        'fullWidth': 			true,
-        'controls': 			true,
-        'pager': 				false,
-        'slideEndAnimation':    true
-        // 'responsive':  			true,
-        // 'dimensions':  			containerWidth+","+containerHeight
-
+    // slider.fractionSlider({
+    //     'fullWidth': 			true,
+    //     'controls': 			true,
+    //     'pager': 				false,
+    //     'slideEndAnimation':    true
+    //     // 'responsive':  			true,
+    //     // 'dimensions':  			containerWidth+","+containerHeight
+    //
+    // });
+    $(".cs3").cs3({
+        responsive: true,
+        effects : 'random-2d, galaxy, explosion, random-canvas',
+        // effectsGroupLock : {
+        //     support3d : 'threeD',
+        //     support2d : 'canvas,twoD',
+        //     supportCanvasNoCSS3 : 'canvas'
+        //     },
+        captions:{
+            enabled: true,
+            multi: false,
+            duration: 300
+        },
+        navigation: {
+            next: ".cs3-slide-next",
+            prev: ".cs3-slide-prev",
+            hideOnStart: true,
+            showOnlyOnHover: false
+        },
+        touch:{
+            enabled: true,
+            effect : 'slide-s'
+        },
+        autoplay : {
+            enabled : true,
+            delay : 5000,
+            disableOnInteraction : true
+        }
     });
-
 //ONEPAGE-SCROLL
 
     $(".main").onepage_scroll({
@@ -159,6 +187,29 @@ $(window).load(function(){
         $el.ripples('drop', x, y, dropRadius, strength);
     }, 2000);
 
-
+    $("#slider").chopSlider({
+    /* Слайд элемент */
+    slide : ".slide",
+        // * Регуляторы * /
+        nextTrigger : "a#slide-next",
+        prevTrigger : "a#slide-prev",
+        hideTriggers : true,
+        sliderPagination : ".slider-pagination",
+        // * Подписи * /
+        useCaptions : true,
+        everyCaptionIn : ".sl-descr",
+        showCaptionIn : ".caption",
+        captionTransform : "scale(0) translate(-600px,0px) rotate(45deg)",
+        /* Автопроигрывание */
+        autoplay : true,
+        autoplayDelay : 5000,
+        /* Для браузеров, которые поддерживают 3D трансформации */
+    t3D : csTransitions['3DFlips']['random'],
+        t2D : [ csTransitions['multi']['random'], csTransitions['vertical']['random'] ],
+        noCSS3 : csTransitions['noCSS3']['random'],
+        mobile : csTransitions['mobile']['random'],
+        onStart: function(){},
+    onEnd: function(){}
+});
 
 });
