@@ -1,0 +1,38 @@
+- var socialsItem = ["facebook", "twitter", "gplus-1"]
+section.section-page.section-guides
+    .section-container
+        h2.section_header Meet our guides
+        p.section-guides_text.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+        .section-guides_block
+            .section-guides_block__row
+                .section-guides_item
+                    .section-guides_item__picture(style="background-image: url(img/guid/guid1.jpg);")
+                    .section-guides_info
+                        .section-guides_info__txt
+                            .section-guides_info__name Anastasia Lakomaja
+                            .section-guides_info__activities trainer
+                        +socials(socialsItem,"section-guides_socials")
+                .section-guides_item
+                    .section-guides_item__picture(style="background-image: url(img/guid/guid2.jpg);")
+                    .section-guides_info
+                        .section-guides_info__txt
+                            .section-guides_info__name James Calabrio
+                            .section-guides_info__activities PhD
+                        +socials(socialsItem,"section-guides_socials")
+                .section-guides_item
+                    .section-guides_item__picture(style="background-image: url(img/guid/guid3.jpg);")
+                    .section-guides_info
+                        .section-guides_info__txt
+                            .section-guides_info__name Nicol Mira
+                            .section-guides_info__activities trainer
+                        +socials(socialsItem,"section-guides_socials")
+                .section-guides_item
+                    .section-guides_item__picture(style="background-image: url(img/guid/guid4.jpg);")
+                    .section-guides_info
+                        .section-guides_info__txt
+                            .section-guides_info__name Vanessa Delphino
+                            .section-guides_info__activities trainer
+                        +socials(socialsItem,"section-guides_socials")

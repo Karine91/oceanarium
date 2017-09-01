@@ -19,93 +19,9 @@ function onresize() {
     }
 }
 
-var windowHeight = $(window).outerHeight();
-var windowWidth = $(window).width();
-var contentContainerWidth = 1170;
-var contentContainerLeft = (windowWidth - contentContainerWidth)/2;
-var contentContainerRight = contentContainerLeft + contentContainerWidth;
-function centeredBottomElement(element){
-
-    var positionElementTextTop = windowHeight-(element.outerHeight()+21)/2-35;
-    var positionElementTextLeft = windowWidth/2;
-    var position = positionElementTextTop+","+positionElementTextLeft;
-    element.attr('data-position',position);
-    centered(element);
-}
-
-function centered(element){
-    var elementWidthHalf = element.outerWidth()/2;
-    var elementHeightHalf = (element.outerHeight()+21)/2;
-    element.css('margin-left', "-"+elementWidthHalf+"px");
-    element.css('margin-top', "-"+elementHeightHalf+"px");
-}
-function percentToPixelVert(val){
-    return val/100*windowHeight;
-}
-function percentToPixelHoryz(val){
-    return val/100*windowWidth;
-}
 
 $(window).load(function(){
-    //Slider
-    //Посчитаем позицию нижнего блока первый слайд
 
-    // var slider = $('.slider_block');
-    // var slideElement = $('.slider_block__text_bottom');
-    //
-    //
-    // // $(window).resize(function(){
-    // //     centered(slideElement);
-    // // });
-    //
-    // ///SLIDE 1
-    // var fishPosition = percentToPixelVert(50) +","+ percentToPixelHoryz(101);
-    // var maintextPosition = percentToPixelVert(40)+","+ 0;
-    // var elementFish = $('.slider_block__image_fish');
-    // var elemMaintext = $('.slider_block__maintext');
-    // elementFish.attr('data-position',fishPosition);
-    // elemMaintext.attr('data-position',maintextPosition);
-    // centeredBottomElement(slideElement);
-    // ///SLIDE 2
-    //
-    //
-    // var textItems = $('.slider_block__text_item');
-    // var positionTop= percentToPixelVert(50);
-    // textItems.each(function(){
-    //     var that = $(this);
-    //     var itemWidth = that.outerWidth();
-    //     var itemHeight = that.outerHeight();
-    //     var positionLeft = contentContainerRight -itemWidth;
-    //     var position = positionTop+","+ positionLeft;
-    //     that.attr('data-position',position);
-    //     positionTop +=10+itemHeight;
-    // });
-    //
-    //
-    // ///SLIDE 3
-    //
-    // var fish1_slide3 = $('.slider_block__image_fish1-slide3');
-    // fishPosition = percentToPixelVert(50) +","+ percentToPixelHoryz(101);
-    // fish1_slide3.attr('data-position',fishPosition);
-    //
-    // var fish2_slide3 = $('.slider_block__image_fish2-slide3');
-    // fishPosition = percentToPixelVert(10) +","+ percentToPixelHoryz(-40);
-    // fish2_slide3.attr('data-position',fishPosition);
-    //
-    // var fish3_slide3 = $('.slider_block__image_fish3-slide3');
-    // fishPosition = percentToPixelVert(90) +","+ percentToPixelHoryz(-40);
-    // fish3_slide3.attr('data-position',fishPosition);
-
-    //Init slider
-    // slider.fractionSlider({
-    //     'fullWidth': 			true,
-    //     'controls': 			true,
-    //     'pager': 				false,
-    //     'slideEndAnimation':    true
-    //     // 'responsive':  			true,
-    //     // 'dimensions':  			containerWidth+","+containerHeight
-    //
-    // });
     $(".cs3").cs3({
         responsive: true,
         effects : 'random-2d, galaxy, explosion, random-canvas',
@@ -131,7 +47,7 @@ $(window).load(function(){
         },
         autoplay : {
             enabled : true,
-            delay : 5000,
+            delay : 2000,
             disableOnInteraction : true
         }
     });
@@ -187,29 +103,388 @@ $(window).load(function(){
         $el.ripples('drop', x, y, dropRadius, strength);
     }, 2000);
 
-    $("#slider").chopSlider({
-    /* Слайд элемент */
-    slide : ".slide",
-        // * Регуляторы * /
-        nextTrigger : "a#slide-next",
-        prevTrigger : "a#slide-prev",
-        hideTriggers : true,
-        sliderPagination : ".slider-pagination",
-        // * Подписи * /
-        useCaptions : true,
-        everyCaptionIn : ".sl-descr",
-        showCaptionIn : ".caption",
-        captionTransform : "scale(0) translate(-600px,0px) rotate(45deg)",
-        /* Автопроигрывание */
-        autoplay : true,
-        autoplayDelay : 5000,
-        /* Для браузеров, которые поддерживают 3D трансформации */
-    t3D : csTransitions['3DFlips']['random'],
-        t2D : [ csTransitions['multi']['random'], csTransitions['vertical']['random'] ],
-        noCSS3 : csTransitions['noCSS3']['random'],
-        mobile : csTransitions['mobile']['random'],
-        onStart: function(){},
-    onEnd: function(){}
-});
 
+//POP-UP FUTURE-EVENTS
+    var popupW = $('.pop-up').outerWidth();
+    var popupH = $('.pop-up').outerHeight();
+
+    var speed = 1,
+        pieceW = 30,
+        pieceH = 30,
+        pieces = popupW/pieceW * popupH/pieceH;
+
+
+    for (var i = pieces - 1; i >= 0; i--) {
+        $('.pop-up').prepend('<div class="piece" style="width:'+pieceW+'px; height:'+pieceH+'px"></div>');
+    };
+
+    function breakGlass(from){
+        if (from === "reverse"){
+            $('.piece').each(function(){
+                TweenLite.to($(this), speed, {x:0, y:0, rotationX:0, rotationY:0, opacity: 1, z: 0});
+                TweenLite.to($('.pop-up .pop-up_content'),0.2,{opacity:1, delay: speed});
+            });
+            return;
+        }
+
+        if(!from){
+            TweenLite.to($('.pop-up .pop-up_content'),0.2,{opacity:0});
+            setTimeout(function(){$('.pop-up-wrap').hide();},800);
+        } else {
+            TweenLite.from($('.pop-up .pop-up_content'),0.5,{opacity:0, delay: speed});
+        }
+
+        $('.piece').each(function(){
+            var distX = getRandomArbitrary(-250, 250),
+                distY = getRandomArbitrary(-250, 250),
+                rotY  = getRandomArbitrary(-720, 720),
+                rotX  = getRandomArbitrary(-720, 720),
+                z = getRandomArbitrary(-500, 500);
+
+            if(!from){
+                TweenLite.to($(this), speed, {x:distX, y:distY, rotationX:rotX, rotationY:rotY, opacity: 0, z: z});
+            } else {
+                TweenLite.from($(this), speed, {x:distX, y:distY, rotationX:rotX, rotationY:rotY, opacity: 0, z: z});
+            }
+        });
+    }
+
+    function getRandomArbitrary(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+
+    $('.close').click(function(){
+        $(this).hide();
+        breakGlass();
+    });
+    $('.future-events_item').click(function(){
+        $('.pop-up-wrap').show();
+        breakGlass('reverse');
+        setTimeout(function(){$('.close').show();},800);
+    });
+    breakGlass();
+
+///GALLERY_SHARK
+
+    $.fn.preload = function(options) {
+        var opts    = $.extend({}, $.fn.preload.defaults, options);
+        o           = $.meta ? $.extend({}, opts, this.data()) : opts;
+        var c       = this.length,
+            l       = 0;
+        return this.each(function() {
+            var $i  = $(this);
+            $('<img alt="">').load(function(i){
+                ++l;
+                if(l == c) o.onComplete();
+            }).attr('src',$i.attr('src'));
+        });
+    };
+    $.fn.preload.defaults = {
+        onComplete  : function(){return false;}
+    };
+
+
+    var $tf_bg				= $('#tf_bg'),
+        $tf_bg_images		= $tf_bg.find('img'),
+        $tf_bg_img			= $tf_bg_images.eq(0),
+        $tf_thumbs			= $('#tf_thumbs'),
+        total				= $tf_bg_images.length,
+        current				= 0,
+        $tf_content_wrapper	= $('#tf_content_wrapper'),
+        $tf_next			= $('#tf_next'),
+        $tf_prev			= $('#tf_prev'),
+        $tf_loading			= $('#tf_loading');
+
+    //preload the images
+    $('.gallery-shark__btn').click(function(){
+        galleryShark.ripples('pause');
+        galleryShark.css('visibility', 'hidden');
+        $('.tf_gallery').fadeIn();
+        $tf_bg_images.preload({
+            onComplete  : function(){
+                $tf_loading.hide();
+                init();
+            }
+        });
+    });
+
+    //shows the first image and initializes events
+    function init(){
+        //get dimentions for the image, based on the windows size
+        var dim	= getImageDim($tf_bg_img);
+        //set the returned values and show the image
+        $tf_bg_img.css({
+            width	: dim.width,
+            height	: dim.height,
+            left	: dim.left,
+            top		: dim.top
+        }).fadeIn();
+
+        //resizing the window resizes the $tf_bg_img
+        $(window).bind('resize',function(){
+            var dim	= getImageDim($tf_bg_img);
+            $tf_bg_img.css({
+                width	: dim.width,
+                height	: dim.height,
+                left	: dim.left,
+                top		: dim.top
+            });
+        });
+
+        //expand and fit the image to the screen
+        $('#tf_zoom').on('click',
+            function(){
+                if($tf_bg_img.is(':animated'))
+                    return false;
+
+                var $this	= $(this);
+                if($this.hasClass('tf_zoom')){
+                    resize($tf_bg_img);
+                    $this.addClass('tf_fullscreen')
+                        .removeClass('tf_zoom');
+                }
+                else{
+                    var dim	= getImageDim($tf_bg_img);
+                    $tf_bg_img.animate({
+                        width	: dim.width,
+                        height	: dim.height,
+                        top		: dim.top,
+                        left	: dim.left
+                    },350);
+                    $this.addClass('tf_zoom')
+                        .removeClass('tf_fullscreen');
+                }
+            }
+        );
+
+        //click the arrow down, scrolls down
+        $tf_next.bind('click',function(){
+            if($tf_bg_img.is(':animated'))
+                return false;
+            scroll('tb');
+        });
+
+        //click the arrow up, scrolls up
+        $tf_prev.bind('click',function(){
+            if($tf_bg_img.is(':animated'))
+                return false;
+            scroll('bt');
+        });
+        //
+        // //mousewheel events - down / up button trigger the scroll down / up
+        // $(document).mousewheel(function(e, delta) {
+        //     if($tf_bg_img.is(':animated'))
+        //         return false;
+        //
+        //     if(delta > 0)
+        //         scroll('bt');
+        //     else
+        //         scroll('tb');
+        //     return false;
+        // });
+        //
+        // //key events - down / up button trigger the scroll down / up
+        // $(document).keydown(function(e){
+        //     if($tf_bg_img.is(':animated'))
+        //         return false;
+        //
+        //     switch(e.which){
+        //         case 38:
+        //             scroll('bt');
+        //             break;
+        //
+        //         case 40:
+        //             scroll('tb');
+        //             break;
+        //     }
+        // });
+    }
+
+    // $tf_thumbs.flip({
+    //     axis	: 'x',
+    //     speed: 400,
+    //     front: ".tf_thumbs__img",
+    //     trigger: 'click',
+    //     reverse : false,
+    //     onBefore	: function(){
+    //         //the new thumb is set here
+    //         var content	= '';
+    //         content		+='<img src="' + $tf_bg_images.eq(current).attr('longdesc') + '" alt="Thumb' + (current+1) + '"/>';
+    //         $tf_thumbs.html(content);
+    //     }
+    // });
+    //show next / prev image
+    $tf_thumbs.flip({axis: 'x',
+        speed: 500,
+        trigger: 'manual'
+    });
+    var flip = $tf_thumbs.data("flip-model");
+    function scroll(dir){
+        //if dir is "tb" (top -> bottom) increment current,
+        //else if "bt" decrement it
+        current	= (dir == 'tb')?current + 1:current - 1;
+        var con_next = (dir == 'tb')?current - 1:current + 1;
+
+        //we want a circular slideshow,
+        //so we need to check the limits of current
+        if(current == total) current = 0;
+        else if(current < 0) current = total - 1;
+        if(con_next  >= total) con_next  = 0;
+        else if(con_next  < 0) con_next  = total - 1;
+        //flip the thumb
+        var content_current	= '';
+        var content_next ="";
+        content_current +='<img src="' + $tf_bg_images.eq(current).attr('longdesc') + '" alt="Thumb' + (current+1) + '" class="tf_thumbs__img"/>';
+        content_next +='<img src="' + $tf_bg_images.eq(con_next).attr('longdesc') + '" alt="Thumb' + (con_next+1) + '" class="tf_thumbs__img"/>';
+        $tf_thumbs.find('.front').html(content_current);
+        $tf_thumbs.find('.back').html(content_current);
+        $tf_thumbs.find('.front').css('transition', "all ease 0.5s");
+        $tf_thumbs.find('.back').css('transition', "all ease 0.5s");
+        console.log(": " + flip.isFlipped);
+        if(!flip.isFlipped){
+            $tf_thumbs.find('.front').css('transition', "none");
+            $tf_thumbs.find('.back').css('transition', "none");
+        }
+        $tf_thumbs.flip(true);
+            if(dir == 'tb'){
+                    $tf_thumbs.find('.front').css('transition', "all ease 0.5s");
+                    $tf_thumbs.find('.back').css('transition', "all ease 0.5s");
+                    $tf_thumbs.flip(false);
+
+                setTimeout(function(){
+                    $tf_thumbs.find('.front').html(content_next);
+                    $tf_thumbs.find('.front').css('transition', 'none');
+                    $tf_thumbs.find('.back').css('transition', 'none');
+                    $tf_thumbs.flip(true);
+                    console.log("down: " + flip.isFlipped);
+                }, 500);
+
+            }else{
+                $tf_thumbs.flip(true);
+                console.log("up: " + flip.isFlipped);
+                $tf_thumbs.find('.front').css('transition', 'none');
+                $tf_thumbs.find('.back').css('transition', 'none');
+                $tf_thumbs.find('.front').html(content_current);
+                $tf_thumbs.find('.back').html(content_next);
+
+                setTimeout(function(){
+                    $tf_thumbs.find('.front').css('transition', "all ease 0.5s");
+                    $tf_thumbs.find('.back').css('transition', "all ease 0.5s");
+                    $tf_thumbs.flip(false);
+                    console.log(flip.isFlipped);
+                }, 400);
+                console.log(flip.isFlipped);
+            }
+
+
+
+
+        //we get the next image
+        var $tf_bg_img_next	= $tf_bg_images.eq(current),
+            //its dimentions
+            dim				= getImageDim($tf_bg_img_next),
+            //the top should be one that makes the image out of the viewport
+            //the image should be positioned up or down depending on the direction
+            top	= (dir == 'tb')?$(window).height() + 'px':-parseFloat(dim.height,10) + 'px';
+
+        //set the returned values and show the next image
+        $tf_bg_img_next.css({
+            width	: dim.width,
+            height	: dim.height,
+            left	: dim.left,
+            top		: top
+        }).show();
+
+        //now slide it to the viewport
+        $tf_bg_img_next.stop().animate({
+            top 	: dim.top
+        },1000);
+
+        //we want the old image to slide in the same direction, out of the viewport
+        var slideTo	= (dir == 'tb')?-$tf_bg_img.height() + 'px':$(window).height() + 'px';
+        $tf_bg_img.stop().animate({
+            top 	: slideTo
+        },1000,function(){
+            //hide it
+            $(this).hide();
+            //the $tf_bg_img is now the shown image
+            $tf_bg_img	= $tf_bg_img_next;
+            //show the description for the new image
+            $tf_content_wrapper.children()
+                .eq(current)
+                .show();
+        });
+        //hide the current description
+        $tf_content_wrapper.children(':visible')
+            .hide()
+
+    }
+
+    //animate the image to fit in the viewport
+    function resize($img){
+        var w_w	= $(window).width(),
+            w_h	= $(window).height(),
+            i_w	= $img.width(),
+            i_h	= $img.height(),
+            r_i	= i_h / i_w,
+            new_w,new_h;
+
+        if(i_w > i_h){
+            new_w	= w_w;
+            new_h	= w_w * r_i;
+
+            if(new_h > w_h){
+                new_h	= w_h;
+                new_w	= w_h / r_i;
+            }
+        }
+        else{
+            new_h	= w_w * r_i;
+            new_w	= w_w;
+        }
+
+        $img.animate({
+            width	: new_w + 'px',
+            height	: new_h + 'px',
+            top		: '0px',
+            left	: '0px'
+        },350);
+    }
+
+    //get dimentions of the image,
+    //in order to make it full size and centered
+    function getImageDim($img){
+        var w_w	= $(window).width(),
+            w_h	= $(window).height(),
+            r_w	= w_h / w_w,
+            i_w	= $img.width(),
+            i_h	= $img.height(),
+            r_i	= i_h / i_w,
+            new_w,new_h,
+            new_left,new_top;
+
+        if(r_w > r_i){
+            new_h	= w_h;
+            new_w	= w_h / r_i;
+        }
+        else{
+            new_h	= w_w * r_i;
+            new_w	= w_w;
+        }
+
+
+        return {
+            width	: new_w + 'px',
+            height	: new_h + 'px',
+            left	: (w_w - new_w) / 2 + 'px',
+            top		: (w_h - new_h) / 2 + 'px'
+        };
+    }
+
+    $('#gallery_close').click(function(){
+        $('.tf_gallery').fadeOut();
+        galleryShark.ripples('play');
+        galleryShark.css('visibility', 'visible');
+    });
 });

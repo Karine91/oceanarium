@@ -20,7 +20,6 @@
     <link href="css/fractionslider.css" rel="stylesheet">
     <!--bower:css-->
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
-    <link rel="stylesheet" href="bower_components/tooltipster/dist/css/tooltipster.bundle.css" />
     <link rel="stylesheet" href="bower_components/onepage-scroll/onepage-scroll.css" />
     <!--endbower-->
     <!--endbuild-->
@@ -83,15 +82,15 @@
           <div class="container">
             <nav class="header-navigation_panel">
               <div class="header_logo"><a href="#" class="header_logo__link"><span class="header_logo__link-blue">Океан</span>ариум</a></div>
-              <ul class="header_menu">
-                <li class="header_menu__item"><a href="#" class="header_menu__link">Blog</a></li>
-                <li class="header_menu__item"><a href="#" class="header_menu__link">News</a></li>
-                <li class="header_menu__item"><a href="#" class="header_menu__link">Gallery</a></li>
-                <li class="header_menu__item"><a href="#" class="header_menu__link">Price</a></li>
-                <li class="header_menu__item"><a href="#" class="header_menu__link">Services</a></li>
-                <li class="header_menu__item active"><a href="#" class="header_menu__link">Shedule</a></li>
-                <li class="header_menu__item"><a href="#" class="header_menu__link">Contacts</a></li>
-              </ul>
+                    <ul class="header_menu">
+                      <li class="header_menu__item"><a href="#" class="header_menu__link">Blog</a></li>
+                      <li class="header_menu__item"><a href="#" class="header_menu__link">News</a></li>
+                      <li class="header_menu__item"><a href="#" class="header_menu__link">Gallery</a></li>
+                      <li class="header_menu__item"><a href="#" class="header_menu__link">Price</a></li>
+                      <li class="header_menu__item"><a href="#" class="header_menu__link">Services</a></li>
+                      <li class="header_menu__item active"><a href="#" class="header_menu__link">Shedule</a></li>
+                      <li class="header_menu__item"><a href="#" class="header_menu__link">Contacts</a></li>
+                    </ul>
             </nav>
           </div>
         </div>
@@ -158,6 +157,29 @@
         <div class="gallery-shark__text item-centered">
           <h2 class="section_header section_header_white section_header_text_centered">and very good shark</h2>
           <button class="gallery-shark__btn">view gallery</button>
+        </div>
+        <div class="tf_gallery">
+          <div id="tf_loading" class="tf_loading"></div>
+          <div id="tf_bg" class="tf_bg"><img src="img/gallery-shark/1.jpg" alt="Image 1" longdesc="img/gallery-shark/thumbs/1.jpg"><img src="img/gallery-shark/12.jpg" alt="Image 2" longdesc="img/gallery-shark/thumbs/12.jpg"><img src="img/gallery-shark/11.jpg" alt="Image 3" longdesc="img/gallery-shark/thumbs/11.jpg"><img src="img/gallery-shark/7.jpg" alt="Image 4" longdesc="img/gallery-shark/thumbs/7.jpg"><img src="img/gallery-shark/9.jpg" alt="Image 5" longdesc="img/gallery-shark/thumbs/9.jpg"><img src="img/gallery-shark/10.jpg" alt="Image 6" longdesc="img/gallery-shark/thumbs/10.jpg">
+            <div class="tf_pattern"></div>
+          </div>
+          <div id="tf_content_wrapper" class="tf_content_wrapper">
+            <div class="tf_content">
+              <h2>Dreamer</h2>
+              <p>Far far away, behind the word mountains, ...</p>
+            </div>
+            <div class="tf_content">
+              <h2>Dreamer 2</h2>
+              <p>Far far away, behind the word mountains, ... 2</p>
+            </div>
+          </div>
+          <div id="tf_thumbs" class="tf_thumbs">
+            <div class="front"><img src="img/gallery-shark/thumbs/1.jpg" alt="Thumb1" class="tf_thumbs__img"></div>
+            <div class="back"><img src="img/gallery-shark    /thumbs/1.jpg" alt="Thumb1" class="tf_thumbs__img"></div>
+          </div>
+          <div id="tf_next" class="tf_next"></div>
+          <div id="tf_prev" class="tf_prev"></div>
+          <div id="gallery_close"></div>
         </div>
       </section>
       <section class="section-page future_events">
@@ -241,6 +263,18 @@
                   <p class="future-events_item__description">Consectetur adipisicing elit, sed do consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.</p>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="pop-up-wrap">
+            <div class="pop-up">
+              <div class="pop-up_content">
+                <div class="pop-up__pic-holder"><img src="img/future-events/eventpost4.jpg" alt="" title="" class="pop-up__image"></div>
+                <div class="pop-up__text">
+                  <div class="pop-up__date">10 mar, 2017</div>
+                  <div class="pop-up__header">Lorem ipsum dolor sit amet</div>
+                  <p>Lorem ipsum dolor sit amet Consectetur adipisicing elit, sed do consequatur culpa deserunt dolore eius maiores neque omnis voluptatibus.</p>
+                </div>
+              </div><a href="#" class="close">✖</a>
             </div>
           </div>
         </div>
@@ -394,8 +428,6 @@
                   <p class="today-events_session-content__text">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
                     .
-                    
-                    
                   </p>
                 </div>
               </div>
@@ -569,16 +601,20 @@
         <footer class="footer">© 2013-2017 Dalechuk Inna, Inc. All rights reserved</footer>
       </section>
     </div>
-    <!--build:js scripts/vendor.js-->
     <!--bower:js-->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/tooltipster/dist/js/tooltipster.bundle.js"></script>
+    <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/modernizr/modernizr-custom.js"></script>
     <script src="bower_components/onepage-scroll/jquery.onepage-scroll.js"></script>
-    <script src="bower_components/flexibility/dist/flexibility.js"></script>
+    <script src="bower_components/flexibility/flexibility.js"></script>
+    <script src="bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/flip/dist/jquery.flip.js"></script>
     <!--endbower-->
-    <script type="text/javascript" src="js/jquery.fractionslider.js"></script><script src="js/idangerous.chopslider-3.4.min.js"></script>
+    <!--build:js scripts/vendor.js--><script src="js/idangerous.chopslider-3.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.ripples.js"></script>
+    <!--script(type="text/javascript" src="js/jquery.flip.js")-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>
     <!--endbuild-->
     <!--build:js js/main.js-->
     <script src="js/main.js"></script>

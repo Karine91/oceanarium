@@ -1,8 +1,9 @@
 # Support
 
-[![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
+<a href="https://github.com/jonathantneal/flexibility"><img src="https://jonathantneal.github.io/flexibility/logo.svg" alt="Flexibility Logo" width="60" height="60" align="right"></a>
 
-If you experience an issue, read the [contributing] section before creating an issue.
+[![npm][npm-image]][npm-url] [![bower][bower-image]][bower-url]
+[![ci][ci-image]][ci-url] [![gitter][gitter-image]][gitter-url]
 
 ## Supported Features
 
@@ -26,88 +27,106 @@ Name | Value
 ## Known Issues
 
 - The `flex` shorthand only supports `flex-grow` at this time.
-- The `flex-shrink` and `flex-basis` properties are not yet supported.
-- Changing an `align-items: stretch` container from `flex-direction: row` to `flex-direction: column` on the fly will sometimes fail to stretch the newly columned items.
-- In IE8, flex items whose widths are determined by inline text don’t always resize on resize.
-- In IE 11, pretending to be IE 8 or 9 will return a false positive.
+- Changing an `align-items: stretch` container from `flex-direction: row` to
+  `flex-direction: column` on the fly will sometimes fail to stretch the newly
+  columned items.
+- IE8 believes everything is `margin: auto` unless you first set `* { margin: 0; }`. Afterward, `margin: auto` will work as expected.
+- In IE8, flex items whose widths are determined by inline text don’t alway
+  resize on resize.
 
 ### How Flexibility Works
 
-The secret to flexibility is leveraging proprietary features in older Internet Explorers.
+Flexibility uses `data-style` attributes, inline and computed styles, and the
+proprietary Internet Explorer `currentStyle` property to determine the current
+flex styles of an element.
 
-Internet Explorer has a proprietary feature called [`currentStyle`] which returns the raw CSS applied to an element. While known properties (like `display`) are sanitized to return only valid values, “unknown” properties like `align-contents`, `justify-content`, and `flex` return exactly what they received. As a result, “unknown” flex properties can be easily read from any element without fetching or parsing stylesheets. In short, your cross domain CSS is safe.
+Internet Explorer’s proprietary [`currentStyle`] property returns the raw CSS
+applied to an element. While known properties (like `display`) are sanitized to
+return only valid values, “unknown” properties like `align-contents`,
+`justify-content`, and `flex` return exactly what they received. As a result,
+“unknown” flex properties can be easily read from any element without fetching
+or parsing stylesheets. In short, your cross domain CSS is safe.
 
-Once all of the flex values are processed, basic flex display is applied to the document. Then, [CSS Layout] calculates the positions for elements to simulate Flexbox.
+Once all of the flex values are processed, basic flex display is applied to the
+document. Then, [CSS Layout] calculates the positions for elements to simulate
+Flexbox.
 
-Overwriting style declarations can be tricky, especially when inline styles are considered, which is why another IE proprietary feature called [`runtimeStyle`] is used to assign new declarations without compromising inline styles. In short, no messy style attributes.
+### Detecting Flexbox Support
 
-## API
+Flexibility does not include a detection script. You may already have one if
+you use Modernizr.
 
-Flexibility creates a global `flexibility` object with methods you may hook into to customize your Flexbox experience.
+```js
+if (Modernizr.flexbox && Modernizr.flexwrap) {
+	// Modern Flexbox with `flex-wrap` is supported
+} else {
+	flexibility(document.documentElement);
+}
+```
 
-#### `detect`
+You could also include your basic test.
 
-Returns: `Boolean`
+```js
+function supportsFlexBox() {
+	var test = document.createElement('test');
 
-Return whether the browser supports prefix-less Flexbox.
+	test.style.display = 'flex';
 
-#### `init`
+	return test.style.display === 'flex';
+}
 
-Argument: `Element`  
-Returns: `Details Object`
+if (supportsFlexBox()) {
+	// Modern Flexbox is supported
+} else {
+	flexibility(document.documentElement);
+}
+```
 
-Initialize an element for Flexibility usage and return a Details Object.
+### Responding to Window Resize
 
-#### `onresize`
+If recalculating Flexbox on resizes, be mindful of infinite loops caused by
+Flexbox itself triggering a resize. A small debounce will resolve this.
 
-Argument: `Event { target: Element }`  
-Default: `document.documentElement`
+```js
+var onresizeTimeout;
 
-Temporarily suspend automatic resize detection and [walk][#walk] the target but only if the viewport width has changed.
+window.onresize = onresize;
 
-#### `updateFlexContainerCache`
+function onresize() {
+	window.onresize = null;
 
-Argument: `Details Object`  
-Default: `null`
+	if (!onresizeTimeout) {
+		onresizeTimeout = setTimeout(function () {
+			onresizeTimeout = null;
 
-Refresh any Flex Container CSS applied to the element of a Details Object.
+			flexibility(container);
 
-#### `updateFlexItemCache`
-
-Argument: `Details Object`  
-Default: `null`
-
-Refresh any Flex Item CSS applied to the element of a Details Object.
-
-#### `updateLengthCache`
-
-Argument: `Details Object`  
-Default: `null`
-
-Refresh width, height, etc. measurements applied to the element of a Details Object.
-
-#### `walk`
-
-Argument: `Element`  
-Default: `null`
-
-Walk the element and apply Flexbox layout to any matching elements.
+			window.onresize = onresize;
+		}, 1000 / 60);
+	}
+}
+```
 
 ---
 
-If you experience an issue, read the [contributing] section before creating an issue.
+If you experience an issue, read the [contributing] section before creating an
+issue.
 
-[ci]:      https://travis-ci.org/10up/flexibility
-[ci-img]:  https://img.shields.io/travis/10up/flexibility.svg
-[npm]:     https://www.npmjs.com/package/flexibility
-[npm-img]: https://img.shields.io/npm/v/flexibility.svg
+[bower-image]:  https://img.shields.io/bower/v/flexibility.svg?style=flat-square
+[bower-url]:    https://libraries.io/bower/flexibility
+[ci-image]:     https://img.shields.io/travis/jonathantneal/flexibility.svg?style=flat-square
+[ci-url]:       https://travis-ci.org/jonathantneal/flexibility
+[gitter-image]: https://img.shields.io/gitter/room/jonathantneal/flexibility.svg?style=flat-square
+[gitter-url]:   https://gitter.im/jonathantneal/flexibility
+[npm-image]:    https://img.shields.io/npm/v/flexibility.svg?style=flat-square
+[npm-url]:      https://www.npmjs.com/package/flexibility
 
-[Flexibility]: https://github.com/10up/flexibility
+[Flexibility]: https://github.com/jonathantneal/flexibility
 
 [contributing]: CONTRIBUTING.md
 
 [CSS Integer]: https://developer.mozilla.org/en-US/docs/Web/CSS/integer#Interpolation
-[CSS Layout]: https://github.com/10up/flexibility/tree/css-layout
+[CSS Layout]: https://github.com/jonathantneal/flexibility/tree/css-layout
 [CSS Length]: https://developer.mozilla.org/en-US/docs/Web/CSS/length
 
 [`currentStyle`]: http://help.dottoro.com/ljqkvomc.php

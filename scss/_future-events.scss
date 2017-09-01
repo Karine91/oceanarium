@@ -159,3 +159,93 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover{
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+//POPUP
+.pop-up-wrap{
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  overflow: hidden;
+  z-index: 8;
+  display: none;
+}
+.pop-up{
+  position: absolute;
+  width: 960px;
+  top:0;
+  bottom: 0;
+  left:0;
+  right:0;
+  margin: auto;
+  -webkit-perspective: 800px;
+  -webkit-perspective-origin: 50% 50px;
+  perspective: 800px;
+  perspective-origin: 50% 50px;
+  z-index: 10;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.pop-up_content{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+  @include clearfix;
+}
+.piece {
+  background: #fff;
+  float: left;
+}
+.close{
+  position: absolute;
+  z-index: 9999;
+  top:0;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  transition: all 0.5s ease;
+  background-color: #07a5e7;
+  padding: 1.5px 7px;
+  right: 0;
+  margin-right: 5px;
+  margin-top: 5px;
+  line-height: 1.5;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  color: white;
+  -webkit-box-shadow: -4px -2px 6px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: -4px -2px 6px 0px rgba(0,0,0,0.1);
+  box-shadow: -3px 1px 6px 0px rgba(0,0,0,0.1);
+  text-decoration: none;
+  &:hover{
+    background-color: tomato;
+  }
+}
+.pop-up__pic-holder{
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin-top: 15px;
+}
+.pop-up__image{
+  height: 100%;
+}
+.pop-up__text{
+  float: left;
+  width: calc(100% - 200px);
+  height: 100%;
+  overflow: hidden;
+  padding: 0 30px;
+  color: #747474;
+}
+.pop-up__date{
+  margin-bottom: 20px;
+}
+.pop-up__header{
+  @extend .future-events_item__header;
+  color: #22262e;
+  margin-bottom: 10px;
+}
