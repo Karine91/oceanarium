@@ -1,25 +1,28 @@
 
 .header_menu{
-  flex-grow: 1;
-  display: flex;
   margin:0;
   padding:0;
   text-align: right;
   font-size: 0;
-  width: auto;
+  float: right;
 }
 
 .header_menu__item{
   font-size: rem(18);
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-transform: uppercase;
   font-family: $fontBase;
   font-weight: 300;
+  display: inline-block;
   position: relative;
   @include transition(all 300ms ease 0ms);
+  padding: 23px 10px;
+  @include mediaW(1125px){
+    padding: 23px 5px;
+    font-size: 1rem;
+  }
+  @include mediaW(780px){
+    padding: 24px 5px;
+  }
   &:after, &:before{
     content: '';
     display: block;

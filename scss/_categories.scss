@@ -2,22 +2,16 @@
 $icons-sprite-dimensions: true;
 
 .block_categories__row{
-  @include row-flex;
-  flex-direction:row;
-  justify-content: space-around;
-  align-items: stretch;
-  flex-grow: 1;
+  @include clearfix;
   //max-height: 40%;
 }
 .block_categories__item{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-basis: 20%;
+  @include col;
+  @include col-4;
+  @include col-float;
+  @include col-sm-12;
   padding: 1%;
   text-align: center;
-  flex-grow:1;
   &:hover .block_categories__picture-hover
   {
     opacity: 1;
@@ -31,11 +25,11 @@ $icons-sprite-dimensions: true;
   display: block;
 }
 .block_categories__picture-wrap{
-  flex-basis: 90px;
   width: 100%;
-  height: 90px;
-  max-height: 160px;
-  flex-grow: 1;
+  height: 150px;
+  @include mediaW(992px){
+    height: 100px;
+  }
   position: relative;
 }
 .block_categories__picture{

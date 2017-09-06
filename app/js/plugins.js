@@ -53,22 +53,22 @@ $(window).load(function(){
     });
 //ONEPAGE-SCROLL
 
-    $(".main").onepage_scroll({
-        sectionContainer: ".section-page",     // sectionContainer accepts any kind of selector in case you don't want to use section
-        easing: "ease",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
-                                         // "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
-        animationTime: 1000,             // AnimationTime let you define how long each section takes to animate
-        pagination: true,                // You can either show or hide the pagination. Toggle true for show, false for hide.
-        updateURL: false,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
-        beforeMove: function(index) {},  // This option accepts a callback function. The function will be called before the page moves.
-        afterMove: function(index) {},   // This option accepts a callback function. The function will be called after the page moves.
-        loop: false,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
-        keyboard: true,                  // You can activate the keyboard controls
-        responsiveFallback: 600,        // You can fallback to normal page scroll by defining the width of the browser in which
-        // you want the responsive fallback to be triggered. For example, set this to 600 and whenever
-        // the browser's width is less than 600, the fallback will kick in.
-        direction: "vertical"            // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".
-    });
+    // $(".main").onepage_scroll({
+    //     sectionContainer: ".section-page",     // sectionContainer accepts any kind of selector in case you don't want to use section
+    //     easing: "ease",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
+    //                                      // "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
+    //     animationTime: 1000,             // AnimationTime let you define how long each section takes to animate
+    //     pagination: true,                // You can either show or hide the pagination. Toggle true for show, false for hide.
+    //     updateURL: false,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
+    //     beforeMove: function(index) {},  // This option accepts a callback function. The function will be called before the page moves.
+    //     afterMove: function(index) {},   // This option accepts a callback function. The function will be called after the page moves.
+    //     loop: false,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
+    //     keyboard: true,                  // You can activate the keyboard controls
+    //     responsiveFallback: 600,        // You can fallback to normal page scroll by defining the width of the browser in which
+    //     // you want the responsive fallback to be triggered. For example, set this to 600 and whenever
+    //     // the browser's width is less than 600, the fallback will kick in.
+    //     direction: "vertical"            // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".
+    // });
     var galleryShark = $('.gallery-shark');
     var gallerySharkText = $('.gallery-shark__text .section_header');
     try {
@@ -154,12 +154,16 @@ $(window).load(function(){
     }
 
 
-    $('.close').click(function(){
+    $('.close').on('click',function(e){
+        e.preventDefault();
         $(this).hide();
         breakGlass();
+        $('body').css('overflow', 'visible');
     });
     $('.future-events_item').click(function(){
-        $('.pop-up-wrap').show();
+        var popupWrap = $('.pop-up-wrap');
+        $('body').css('overflow', 'hidden');
+        popupWrap.show();
         breakGlass('reverse');
         setTimeout(function(){$('.close').show();},800);
     });
@@ -195,11 +199,15 @@ $(window).load(function(){
         $tf_next			= $('#tf_next'),
         $tf_prev			= $('#tf_prev'),
         $tf_loading			= $('#tf_loading');
-
+    var wrap =  $('.gallery-shark-wrap');
     //preload the images
     $('.gallery-shark__btn').click(function(){
         galleryShark.ripples('pause');
         galleryShark.css('visibility', 'hidden');
+
+        wrap.css('height', '100vh');
+        $(window).scrollTop(wrap.offset().top);
+        $("body").css("overflow","hidden");
         $('.tf_gallery').fadeIn();
         $tf_bg_images.preload({
             onComplete  : function(){
@@ -272,18 +280,18 @@ $(window).load(function(){
             scroll('bt');
         });
         //
-        // //mousewheel events - down / up button trigger the scroll down / up
-        // $(document).mousewheel(function(e, delta) {
-        //     if($tf_bg_img.is(':animated'))
-        //         return false;
-        //
-        //     if(delta > 0)
-        //         scroll('bt');
-        //     else
-        //         scroll('tb');
-        //     return false;
-        // });
-        //
+        //mousewheel events - down / up button trigger the scroll down / up
+        $('.tf_gallery').mousewheel(function(e, delta) {
+            if($tf_bg_img.is(':animated'))
+                return false;
+
+            if(delta > 0)
+                scroll('bt');
+            else
+                scroll('tb');
+            return false;
+        });
+
         // //key events - down / up button trigger the scroll down / up
         // $(document).keydown(function(e){
         //     if($tf_bg_img.is(':animated'))
@@ -341,7 +349,7 @@ $(window).load(function(){
         $tf_thumbs.find('.back').html(content_current);
         $tf_thumbs.find('.front').css('transition', "all ease 0.5s");
         $tf_thumbs.find('.back').css('transition', "all ease 0.5s");
-        console.log(": " + flip.isFlipped);
+        //console.log(": " + flip.isFlipped);
         if(!flip.isFlipped){
             $tf_thumbs.find('.front').css('transition', "none");
             $tf_thumbs.find('.back').css('transition', "none");
@@ -362,7 +370,7 @@ $(window).load(function(){
 
             }else{
                 $tf_thumbs.flip(true);
-                console.log("up: " + flip.isFlipped);
+                //console.log("up: " + flip.isFlipped);
                 $tf_thumbs.find('.front').css('transition', 'none');
                 $tf_thumbs.find('.back').css('transition', 'none');
                 $tf_thumbs.find('.front').html(content_current);
@@ -482,9 +490,32 @@ $(window).load(function(){
         };
     }
 
-    $('#gallery_close').click(function(){
+    $('.gallery_close_shark').click(function(){
+        wrap.css('height', '100%');
+        $("body").css("overflow-y","visible");
         $('.tf_gallery').fadeOut();
         galleryShark.ripples('play');
         galleryShark.css('visibility', 'visible');
+    });
+    var fotorama = $('.fotorama');
+    $('.gallery_close_bottom').click(function(){
+        $('.gallery_fotorama-block').fadeOut();
+        fotorama.destroy();
+    });
+
+    $('.gallery_item').on('click', function(e){
+        e.preventDefault();
+
+        $('.gallery_fotorama-block').fadeIn();
+        fotorama.fotorama({
+            width: '100%',
+            height: $(window).outerHeight()-188,
+            fit: 'cover',
+            nav: 'thumbs',
+            autoplay: false,
+            arrows: true,
+            click: true,
+            swipe: true
+        });
     });
 });

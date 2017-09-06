@@ -4,9 +4,6 @@ var cleanCSS = require('gulp-clean-css');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync');
 var jade = require('gulp-jade');
-// var rev_append = require('gulp-rev-append');
-// var rev = require('gulp-rev');
-// var revCollector = require('gulp-rev-collector');
 var gutil           = require('gulp-util');
 var rimraf          = require('rimraf');
 var revOutdated     = require('gulp-rev-outdated');
@@ -21,6 +18,8 @@ var sass = require("gulp-sass");
 var compass = require('gulp-compass');
 var postcss    = require('gulp-postcss');
 var sourcemaps = require('gulp-sourcemaps');
+var notify = require('gulp-notify');
+var plumber = require('gulp-plumber');
 //Build
 gulp.task('build',['clean'], function () {
     return gulp.src('app/*.html')
@@ -34,8 +33,10 @@ gulp.task('build',['clean'], function () {
 //jade
 gulp.task('jade',['clean_jade'], function() {
     gulp.src('jade/*.jade')
+        .pipe(plumber({
+            errorHandler: function(error){console.log(error); this.end();}
+        }))
         .pipe(jade({pretty: true}))
-        .on('error', console.log)
         .pipe(wiredep({
             directory: './app/bower_components',
             bowerJson: require('./bower.json'),
@@ -60,22 +61,8 @@ gulp.task('server', function(){
         proxy: "oceanarium/app"
     });
 });
-//хэш
-gulp.task('rev',['css'], function() {
-    gulp.src('./app/css/*.css')
-        .pipe(rev())
-        .pipe(gulp.dest('app/css'))
-        .pipe(rev.manifest())
-        .pipe(gulp.dest('./manifests/'));
-});
-//Collector
-gulp.task('rev_collector',['rev'], function () {
-    return gulp.src(['./manifests/*.json', 'app/index.html'])
-        .pipe( revCollector({
-            replaceReved: true
-        }) )
-        .pipe( gulp.dest('') );
-});
+
+
 function cleaner() {
     return through.obj(function(file, enc, cb){
         rimraf( path.resolve( (file.cwd || process.cwd()), file.path), function (err) {
@@ -87,15 +74,7 @@ function cleaner() {
         }.bind(this));
     });
 }
-//Clean
-gulp.task('clean_rev',['rev_collector'], function() {
-    gulp.src( ['./**/*.*'], {read: false})
-        .pipe( revOutdated() ) // leave 1 latest asset file for every file name prefix.
-        .pipe( cleaner() );
 
-    return;
-});
-gulp.task('rev_all', ['rev', 'rev_collector', 'clean']);
 gulp.task('jade_bower',[ 'jade','clean_jade']);
 
 //Clean
@@ -111,12 +90,18 @@ gulp.task('clean_jade', function () {
 //SCSS
 gulp.task('sass', function () {
     return gulp.src('./scss/**/*.scss')
+        .pipe(plumber({
+            errorHandler: function(error){console.log(error); this.end();}
+        }))
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./app/css'));
 });
 //wiredep
 gulp.task('bower', function () {
     gulp.src('./app/index.html')
+        .pipe(plumber({
+            errorHandler: function(error){console.log(error); this.end();}
+        }))
         .pipe(wiredep({
             directory: 'bower_components',
             bowerJson: require('./bower.json')
@@ -126,6 +111,9 @@ gulp.task('bower', function () {
 //COMPASS
 gulp.task('compass', function() {
     gulp.src('./scss/*.scss')
+        .pipe(plumber({
+            errorHandler: function(error){console.log(error); this.end();}
+        }))
         .pipe(compass({
             config_file: './config.rb',
             css: 'app/css',
@@ -135,9 +123,12 @@ gulp.task('compass', function() {
 });
 //POSTCSS
 gulp.task('postcss', function () {
-    gulp.src('./app/css/style.css')
+    return gulp.src('./app/css/style.css')
+        .pipe(plumber({
+            errorHandler: function(error){console.log(error); this.end();}
+        }))
         .pipe( sourcemaps.init() )
-        .pipe( postcss([ require('precss'), require('autoprefixer'), require('postcss-flexibility')]) )
+        .pipe( postcss([ require('precss'), require('autoprefixer')]) )
         .pipe( sourcemaps.write('.') )
         .pipe( gulp.dest('./app/css/'));
 });

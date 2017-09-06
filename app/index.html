@@ -18,9 +18,9 @@
     <!--[if IE 7]link(rel="stylesheet" href="css/fontello-ie7.css")//[endif]-->
     <!--build:css css/vendor.css--><link rel="stylesheet" href="css/idangerous.chopslider-3.4.css"/>
     <link href="css/fractionslider.css" rel="stylesheet">
+    <link href="css/fotorama.css" rel="stylesheet">
     <!--bower:css-->
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
-    <link rel="stylesheet" href="bower_components/onepage-scroll/onepage-scroll.css" />
     <!--endbower-->
     <!--endbuild-->
     <!--build:css css/style.css-->
@@ -153,10 +153,14 @@
         </div>
       </section>
       <section class="section-page gallery-shark-wrap">
-        <div class="gallery-shark"></div>
-        <div class="gallery-shark__text item-centered">
-          <h2 class="section_header section_header_white section_header_text_centered">and very good shark</h2>
-          <button class="gallery-shark__btn">view gallery</button>
+        <div class="section-container">
+          <div class="gallery-sherk_block">
+            <div class="gallery-shark"></div>
+            <div class="gallery-shark__text item-centered">
+              <h2 class="section_header section_header_white section_header_text_centered">and very good shark</h2>
+              <button class="gallery-shark__btn">view gallery</button>
+            </div>
+          </div>
         </div>
         <div class="tf_gallery">
           <div id="tf_loading" class="tf_loading"></div>
@@ -179,7 +183,7 @@
           </div>
           <div id="tf_next" class="tf_next"></div>
           <div id="tf_prev" class="tf_prev"></div>
-          <div id="gallery_close"></div>
+          <div class="gallery_close gallery_close_shark"></div>
         </div>
       </section>
       <section class="section-page future_events">
@@ -563,7 +567,7 @@
       </section>
       <section class="section-page">
         <div class="gallery">
-          <div class="gallery-inner">
+          <div class="gallery_inner">
             <div class="gallery_item"><a href="#" class="gallery_item__pic-wrapper"><img src="img/gallery/gallery1.jpg" alt="" title="" class="gallery_item__picture">
                 <div class="gallery_item__hover">
                   <div class="gallery_item__hover-text item-centered">view</div>
@@ -597,6 +601,10 @@
                   <div class="gallery_item__hover-text item-centered">view</div>
                 </div></a></div>
           </div>
+          <div class="gallery_fotorama-block">
+            <div data-auto="false" class="fotorama"><a href="img/gallery/gallery8.jpg"><img src="img/gallery/gallery8.jpg" alt="" title=""></a><a href="img/gallery/gallery7.jpg"><img src="img/gallery/gallery7.jpg" alt="" title=""></a><a href="img/gallery/gallery6.jpg"><img src="img/gallery/gallery6.jpg" alt="" title=""></a><a href="img/gallery/gallery5.jpg"><img src="img/gallery/gallery5.jpg" alt="" title=""></a></div>
+            <div class="gallery_close gallery_close_bottom"></div>
+          </div>
         </div>
         <footer class="footer">© 2013-2017 Dalechuk Inna, Inc. All rights reserved</footer>
       </section>
@@ -604,14 +612,13 @@
     <!--bower:js-->
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/modernizr/modernizr-custom.js"></script>
-    <script src="bower_components/onepage-scroll/jquery.onepage-scroll.js"></script>
-    <script src="bower_components/flexibility/flexibility.js"></script>
     <script src="bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/flip/dist/jquery.flip.js"></script>
     <!--endbower-->
     <!--build:js scripts/vendor.js--><script src="js/idangerous.chopslider-3.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.ripples.js"></script>
+    <script type="text/javascript" src="js/fotorama.js"></script>
     <!--script(type="text/javascript" src="js/jquery.flip.js")-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>

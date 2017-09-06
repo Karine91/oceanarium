@@ -1,16 +1,16 @@
 .section-contacts_block{
   @extend .future-events_block;
-  flex-direction: row;
   margin-top: 2.5rem;
-  flex-grow: 0;
+  @include clearfix;
 }
 .contacts_form{
   @include size_custom(8, "60px");
   margin-right: 60px;
-  display: flex;
-  flex-direction: column;
+  float: left;
 }
 [class*="contacts_form__"]{
+  width:100%;
+  display: block;
   background-color: #ffffff;
   color: #5f5c6c;
   font-family: $fontBase;
@@ -39,8 +39,12 @@
   max-width: 100%;
   overflow-x: hidden;
   @include mediaH(810px){
-    height: 140px;
-    max-height: 140px;
+    height: 180px;
+    max-height: 180px;
+  }
+  @include mediaW(780px){
+    height: 200px;
+    max-height: 200px;
   }
 }
 .contacts_form__btn{
@@ -56,8 +60,16 @@
 }
 .contacts_info{
   @include size(4);
-  display: flex;
-  flex-direction: column;
+  float: left;
+  min-height: 540px;
+  position: relative;
+  padding-bottom: 67px;
+  @include mediaH(810px){
+    min-height: 420px;
+  }
+  @include mediaW(780px){
+    min-height: 440px;
+  }
 }
 .contacts_info__phone{
   margin-bottom: 10px;
@@ -71,6 +83,9 @@
   color: #747474;
   font-weight: 300;
   font-size: rem(24);
+  @include mediaW(780px){
+    padding-left: 30px;
+  }
 }
 .contacts_info__adress{
   margin-bottom: auto;
@@ -89,19 +104,30 @@
     left: -0.7em;
   }
 }
-
+.contacts_info__socials{
+  position: absolute;
+  width: 100%;
+  bottom:0;
+  left:0;
+  right:0;
+}
 .contacts_socials-list{
   font-size: 0;
-  display: flex;
-  justify-content: space-between;
 }
 .contacts_socials-list__items{
-  width: 72px;
+  @include size_custom(3,7.5px);
   height: 67px;
   display: inline-block;
   font-size: rem(42);
   margin-right: 10px;
   line-height: 67px;
+  @include mediaW(780px){
+    @include size_custom(3,2px);
+    margin-right: 2px;
+    height: 50px;
+    line-height: 50px;
+    font-size: rem(28);
+  }
   &:last-child{
     margin-right: 0;
   }

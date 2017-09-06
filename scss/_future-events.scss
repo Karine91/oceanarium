@@ -1,5 +1,8 @@
+.future_events{
+  position: relative;
+}
 .future-events_period{
-  width: auto;
+ text-align: center;
 }
 a.future-events_period__item{
   color: #272727;
@@ -48,21 +51,16 @@ a.future-events_period__item{
   display: none;
 }
 .future-events_block{
-  align-self: stretch;
   overflow: hidden;
   @include border-radius(10px);
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
   margin-bottom: rem(40);
 }
 .future-events_pagination{
-  align-self: flex-end;
   font-size: rem(24);
   font-weight: 300;
   color: #22262e;
   margin-top: rem(40);
-  width: auto;
+  text-align: right;
 }
 a.future-events_pagination__prev, a.future-events_pagination__next{
   text-decoration: none;
@@ -77,33 +75,30 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover{
   display: inline;
 }
 .future-events_block__row{
-  flex-grow: 1;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  margin-right: -3px;
+  margin-left: -3px;
+  @include clearfix;
   &:last-child{
     margin-bottom: 0;
   }
 }
 
 .future-events_item{
-  @include size_custom(4, 3px);
-  display: flex;
-  margin-right: 5px;
-  flex-direction: column;
-  flex-grow: 1;
-  &:last-child{
-    margin-right: 0;
-  }
+  @include size_custom(4, 6px);
+  @include col-float;
+  margin-right: 3px;
+  margin-left: 3px;
 }
 .future-events_item:hover{
   cursor: pointer;
 }
 .future-events_item__picture-wrap{
-  flex-grow: 1;
-  height: 80%;
+  height: 280px;
+  @include mediaW(780px){
+    height: 150px;
+  }
   perspective: 1000px;
-  max-height: 80%;
   position: relative;
   overflow: hidden;
 }
@@ -162,7 +157,7 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover{
 
 //POPUP
 .pop-up-wrap{
-  position: absolute;
+  position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background-color: rgba(0,0,0,0.7);
   overflow: hidden;
@@ -171,18 +166,18 @@ a.future-events_pagination__prev:hover, a.future-events_pagination__next:hover{
 }
 .pop-up{
   position: absolute;
-  width: 960px;
-  top:0;
-  bottom: 0;
-  left:0;
-  right:0;
+  top: 0; left: 0; right: 0; bottom: 0;
   margin: auto;
+  width: 960px;
+  @include mediaW(780px){
+    width: 600px;
+  }
+  height: 300px;
   -webkit-perspective: 800px;
   -webkit-perspective-origin: 50% 50px;
   perspective: 800px;
   perspective-origin: 50% 50px;
   z-index: 10;
-  height: 300px;
   border-radius: 10px;
   overflow: hidden;
 }

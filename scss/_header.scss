@@ -9,7 +9,6 @@
  height: 100%;
 }
 .header-navigation_panel{
- display: flex;
  padding-left: rem(30);
  padding-right: rem(30);
  background-color: #f2f2f2;
@@ -19,21 +18,28 @@
  position: relative;
  z-index: 999999;
  line-height: 1.6em;
+ @include clearfix;
+ @include mediaW(780px){
+  padding-left: rem(14);
+  padding-right: rem(14);
+ }
 }
 
 .header_logo{
- display: flex;
- align-items: center;
- justify-content: center;
  font-family: $fontHeading;
  text-transform: uppercase;
  font-size: rem(30);
  padding-right: rem(30);
- width: auto;
+ float: left;
+ @include mediaW(780px){
+  padding-right: 5px;
+  font-size: 1.5rem;
+ }
 }
 .header_logo__link{
  color: #000;
  text-decoration: none;
+ line-height: 70px;
 }
 .header_logo__link-blue{
  color: $colorBlue;

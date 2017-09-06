@@ -15,10 +15,16 @@
 }
 .section-guides_item{
   @extend .future-events_item;
-  @include size_custom(3, 3px);
-  flex-grow: 0;
+  @include size_custom(3, 6px);
   opacity: 0;
   max-height: 80%;
+  @include mediaW(780px){
+    @include size_custom(6, 6px);
+    margin-bottom: 6px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
   &:hover{
     cursor: default;
   }
@@ -27,19 +33,22 @@
   background-size: cover;
   background-position: center center;
   width: 100%;
-  flex-grow: 1;
-  height: 90%;
+  height: 390px;
 }
 .section-guides_info{
   @extend .future-events_item__text;
-  display: flex;
   padding: 1em 1em 1.7em;
+  @include clearfix;
   @include mediaW(1370px){
-    min-height: 90px;
+    min-height: 105px;
+  }
+  @include mediaW(780px){
+    min-height: auto;
   }
 }
 .section-guides_info__txt{
   width: calc(100% - 79px);
+  float: left;
 }
 .section-guides_info__name{
   color: #ffffff;
@@ -54,6 +63,7 @@
 }
 .section-guides_socials{
   font-size: 0;
+  float: left;
   width: auto;
 }
 .section-guides_socials__items{

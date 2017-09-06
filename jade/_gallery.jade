@@ -1,6 +1,6 @@
 section.section-page
     .gallery
-        .gallery-inner
+        .gallery_inner
             .gallery_item
                 a(href="#").gallery_item__pic-wrapper
                     img(src="img/gallery/gallery1.jpg" alt="" title="").gallery_item__picture
@@ -41,4 +41,11 @@ section.section-page
                     img(src="img/gallery/gallery8.jpg" alt="" title="").gallery_item__picture
                     .gallery_item__hover
                         .gallery_item__hover-text.item-centered view
+        .gallery_fotorama-block
+            .fotorama(data-auto="false")
+                a(href="img/gallery/gallery8.jpg"): img(src="img/gallery/gallery8.jpg" alt="" title="")
+                a(href="img/gallery/gallery7.jpg"): img(src="img/gallery/gallery7.jpg" alt="" title="")
+                a(href="img/gallery/gallery6.jpg"): img(src="img/gallery/gallery6.jpg" alt="" title="")
+                a(href="img/gallery/gallery5.jpg"): img(src="img/gallery/gallery5.jpg" alt="" title="")
+            .gallery_close.gallery_close_bottom
     footer.footer © 2013-2017 Dalechuk Inna, Inc. All rights reserved
