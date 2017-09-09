@@ -1,28 +1,7 @@
-if (Modernizr.flexbox && Modernizr.flexwrap) {
-    // Modern Flexbox with `flex-wrap` is supported
-} else {
-    flexibility(document.body);
-    var onresizeTimeout;
-    window.onresize = onresize;
-}
-function onresize() {
-    window.onresize = null;
-
-    if (!onresizeTimeout) {
-        onresizeTimeout = setTimeout(function () {
-            onresizeTimeout = null;
-
-            flexibility(container);
-
-            window.onresize = onresize;
-        }, 1000 / 60);
-    }
-}
-
 
 $(window).load(function(){
 
-    $(".cs3").cs3({
+    $(".cs3.slider_block").cs3({
         responsive: true,
         effects : 'random-2d, galaxy, explosion, random-canvas',
         // effectsGroupLock : {
@@ -36,8 +15,8 @@ $(window).load(function(){
             duration: 300
         },
         navigation: {
-            next: ".cs3-slide-next",
-            prev: ".cs3-slide-prev",
+            next: ".cs3.slider_block .cs3-slide-next",
+            prev: ".cs3.slider_block .cs3-slide-prev",
             hideOnStart: true,
             showOnlyOnHover: false
         },
@@ -49,26 +28,9 @@ $(window).load(function(){
             enabled : true,
             delay : 2000,
             disableOnInteraction : true
-        }
+        },
+        preloader: false
     });
-//ONEPAGE-SCROLL
-
-    // $(".main").onepage_scroll({
-    //     sectionContainer: ".section-page",     // sectionContainer accepts any kind of selector in case you don't want to use section
-    //     easing: "ease",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
-    //                                      // "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
-    //     animationTime: 1000,             // AnimationTime let you define how long each section takes to animate
-    //     pagination: true,                // You can either show or hide the pagination. Toggle true for show, false for hide.
-    //     updateURL: false,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
-    //     beforeMove: function(index) {},  // This option accepts a callback function. The function will be called before the page moves.
-    //     afterMove: function(index) {},   // This option accepts a callback function. The function will be called after the page moves.
-    //     loop: false,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
-    //     keyboard: true,                  // You can activate the keyboard controls
-    //     responsiveFallback: 600,        // You can fallback to normal page scroll by defining the width of the browser in which
-    //     // you want the responsive fallback to be triggered. For example, set this to 600 and whenever
-    //     // the browser's width is less than 600, the fallback will kick in.
-    //     direction: "vertical"            // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".
-    // });
     var galleryShark = $('.gallery-shark');
     var gallerySharkText = $('.gallery-shark__text .section_header');
     try {
@@ -292,36 +254,8 @@ $(window).load(function(){
             return false;
         });
 
-        // //key events - down / up button trigger the scroll down / up
-        // $(document).keydown(function(e){
-        //     if($tf_bg_img.is(':animated'))
-        //         return false;
-        //
-        //     switch(e.which){
-        //         case 38:
-        //             scroll('bt');
-        //             break;
-        //
-        //         case 40:
-        //             scroll('tb');
-        //             break;
-        //     }
-        // });
     }
 
-    // $tf_thumbs.flip({
-    //     axis	: 'x',
-    //     speed: 400,
-    //     front: ".tf_thumbs__img",
-    //     trigger: 'click',
-    //     reverse : false,
-    //     onBefore	: function(){
-    //         //the new thumb is set here
-    //         var content	= '';
-    //         content		+='<img src="' + $tf_bg_images.eq(current).attr('longdesc') + '" alt="Thumb' + (current+1) + '"/>';
-    //         $tf_thumbs.html(content);
-    //     }
-    // });
     //show next / prev image
     $tf_thumbs.flip({axis: 'x',
         speed: 500,
@@ -350,23 +284,30 @@ $(window).load(function(){
         $tf_thumbs.find('.front').css('transition', "all ease 0.5s");
         $tf_thumbs.find('.back').css('transition', "all ease 0.5s");
         //console.log(": " + flip.isFlipped);
-        if(!flip.isFlipped){
-            $tf_thumbs.find('.front').css('transition', "none");
-            $tf_thumbs.find('.back').css('transition', "none");
-        }
-        $tf_thumbs.flip(true);
-            if(dir == 'tb'){
-                    $tf_thumbs.find('.front').css('transition', "all ease 0.5s");
-                    $tf_thumbs.find('.back').css('transition', "all ease 0.5s");
-                    $tf_thumbs.flip(false);
-
-                setTimeout(function(){
-                    $tf_thumbs.find('.front').html(content_next);
-                    $tf_thumbs.find('.front').css('transition', 'none');
-                    $tf_thumbs.find('.back').css('transition', 'none');
-                    $tf_thumbs.flip(true);
-                    console.log("down: " + flip.isFlipped);
-                }, 500);
+        if(dir == 'tb' && !flip.isFlipped){
+                $tf_thumbs.find('.back').html(content_current);
+                $tf_thumbs.flip(true);
+                console.log("Test1: " + flip.isFlipped);
+            setTimeout(function(){
+                $tf_thumbs.find('.front').html(content_current);
+                $tf_thumbs.find('.front').css('transition', 'none');
+                $tf_thumbs.find('.back').css('transition', 'none');
+                $tf_thumbs.flip(false);
+                console.log("Test2: " + flip.isFlipped);
+            }, 900);
+        // }else if(dir == 'tb'){
+        //            // $tf_thumbs.flip(true);
+        //             $tf_thumbs.find('.front').css('transition', "all ease 0.5s");
+        //             $tf_thumbs.find('.back').css('transition', "all ease 0.5s");
+        //             $tf_thumbs.flip(false);
+        //
+        //         setTimeout(function(){
+        //             $tf_thumbs.find('.front').html(content_next);
+        //             $tf_thumbs.find('.front').css('transition', 'none');
+        //             $tf_thumbs.find('.back').css('transition', 'none');
+        //             $tf_thumbs.flip(true);
+        //             console.log("down: " + flip.isFlipped);
+        //         }, 500);
 
             }else{
                 $tf_thumbs.flip(true);
@@ -497,25 +438,53 @@ $(window).load(function(){
         galleryShark.ripples('play');
         galleryShark.css('visibility', 'visible');
     });
-    var fotorama = $('.fotorama');
-    $('.gallery_close_bottom').click(function(){
-        $('.gallery_fotorama-block').fadeOut();
-        fotorama.destroy();
-    });
 
-    $('.gallery_item').on('click', function(e){
+
+
+    var cs3_gallery = $('.cs3_gallery').cs3({
+        pagination : {
+            container : '.cs3_gallery .cs3-pagination'
+        },
+        navigation : {
+            next : '.cs3_gallery .cs3-slide-next',
+            prev : '.cs3_gallery .cs3-slide-prev'
+        },
+        effects : 'random-2d, random-flat',
+        autoplay : {
+            enabled : false,
+            delay : 5000,
+            disableOnInteraction : true
+        },
+        gallery : {
+            enabled : true,
+            trigger : '.cs3-fs-trigger',
+            hideOnStart : true,
+            showCaptions : false
+        }
+
+    });
+    // var fotorama = $('.fotorama');
+    $('.gallery_close_bottom').on('click', function(e){
+        $('.gallery_block').fadeOut();
+        cs3_gallery.autoplayStop();
+    });
+    var gal_blk = $('.gallery_block');
+    $('body').on('click', '.cs3-gallery-close', function(e){
+        //$(window).scrollTop(gal_blk.offset().top);
+        gal_blk.fadeOut();
+       // cs3_gallery.params.gallery.enabled = false;
+    });
+    $('.gallery_item__pic-wrapper').on('click', function(e){
         e.preventDefault();
 
-        $('.gallery_fotorama-block').fadeIn();
-        fotorama.fotorama({
-            width: '100%',
-            height: $(window).outerHeight()-188,
-            fit: 'cover',
-            nav: 'thumbs',
-            autoplay: false,
-            arrows: true,
-            click: true,
-            swipe: true
+        gal_blk.fadeIn();
+        gal_blk.mousewheel(function(e, delta) {
+            return false;
         });
+        $('.gallery_block.cs3-wrap').css("background", "rgba(0,0,0,0.9)");
+        cs3_gallery.autoplayStart();
+    });
+    $('a[class*="cs3-slide-"]').on('click', function(e){
+        e.preventDefault();
     });
 });

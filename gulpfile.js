@@ -20,40 +20,8 @@ var postcss    = require('gulp-postcss');
 var sourcemaps = require('gulp-sourcemaps');
 var notify = require('gulp-notify');
 var plumber = require('gulp-plumber');
-//Build
-gulp.task('build',['clean'], function () {
-    return gulp.src('app/*.html')
-        .pipe(useref())
-        .pipe(gulpif('*.js', uglify()))
-        .pipe(gulpif('*.css', cleanCSS()))
-        .pipe(gulp.dest('dist'));
-});
 
 
-//jade
-gulp.task('jade',['clean_jade'], function() {
-    gulp.src('jade/*.jade')
-        .pipe(plumber({
-            errorHandler: function(error){console.log(error); this.end();}
-        }))
-        .pipe(jade({pretty: true}))
-        .pipe(wiredep({
-            directory: './app/bower_components',
-            bowerJson: require('./bower.json'),
-            ignorePath: '../app/'
-        }))
-        .pipe(gulp.dest('app/'))
-});
-//css
-gulp.task('css',['compass'], function () {
-    return gulp.src('./app/css/style.css')
-        // .pipe(concatCss("style.css"))
-           .pipe(autoprefixer({
-            browsers: ['last 20 versions'],
-            cascade: false
-        }))
-        .pipe(gulp.dest('app/css/'))
-});
 
 //Server
 gulp.task('server', function(){
@@ -75,7 +43,7 @@ function cleaner() {
     });
 }
 
-gulp.task('jade_bower',[ 'jade','clean_jade']);
+
 
 //Clean
 gulp.task('clean', function () {
@@ -87,6 +55,23 @@ gulp.task('clean_jade', function () {
     return gulp.src('app/index.html', {read: false})
         .pipe(clean());
 });
+//jade
+gulp.task('jade', function() {
+    return gulp.src('jade/*.jade')
+        .pipe(plumber({
+            errorHandler: function(error){console.log(error); this.end();}
+        }))
+        .pipe(jade({pretty: true}))
+        .pipe(wiredep({
+            directory: './app/bower_components',
+            bowerJson: require('./bower.json'),
+            ignorePath: '../app/'
+        }))
+        .pipe(gulp.dest('app/'))
+        .pipe(browserSync.reload({stream:true}));
+});
+
+gulp.task('jade_bower',gulp.series('clean_jade', 'jade'));
 //SCSS
 gulp.task('sass', function () {
     return gulp.src('./scss/**/*.scss')
@@ -98,7 +83,7 @@ gulp.task('sass', function () {
 });
 //wiredep
 gulp.task('bower', function () {
-    gulp.src('./app/index.html')
+    return gulp.src('./app/index.html')
         .pipe(plumber({
             errorHandler: function(error){console.log(error); this.end();}
         }))
@@ -110,7 +95,7 @@ gulp.task('bower', function () {
 });
 //COMPASS
 gulp.task('compass', function() {
-    gulp.src('./scss/*.scss')
+    return gulp.src('./scss/*.scss')
         .pipe(plumber({
             errorHandler: function(error){console.log(error); this.end();}
         }))
@@ -119,7 +104,17 @@ gulp.task('compass', function() {
             css: 'app/css',
             sass: 'scss'
         }))
-        .pipe(gulp.dest('app/css/'));
+        .pipe(gulp.dest('app/css/'))
+});
+//css
+gulp.task('css', function () {
+    return gulp.src('./app/css/style.css')
+    // .pipe(concatCss("style.css"))
+        .pipe(autoprefixer({
+            browsers: ['last 20 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('app/css/'))
 });
 //POSTCSS
 gulp.task('postcss', function () {
@@ -130,20 +125,27 @@ gulp.task('postcss', function () {
         .pipe( sourcemaps.init() )
         .pipe( postcss([ require('precss'), require('autoprefixer')]) )
         .pipe( sourcemaps.write('.') )
-        .pipe( gulp.dest('./app/css/'));
+        .pipe( gulp.dest('./app/css/'))
+        .pipe(browserSync.reload({stream:true}));
 });
 
 //watch
-gulp.task('watch', function(){
-    gulp.watch('jade/**/*.jade', ['jade_bower']);
-    gulp.watch('./scss/**/*.scss', ['compass']);
-    gulp.watch('app/css/style.css', ['postcss']);
+gulp.task('watch', function(done){
+    gulp.watch('jade/**/*.jade', gulp.series('jade_bower'));
+    gulp.watch('./scss/**/*.scss', gulp.series('compass', 'postcss'));
     gulp.watch([
         'app/*.html',
         'app/css/**/*.css',
         'app/js/**/*.js'
     ]).on('change', browserSync.reload);
 });
-
+//Build
+gulp.task('build',gulp.series('clean'), function () {
+    return gulp.src('app/*.html')
+        .pipe(useref())
+        .pipe(gulpif('*.js', uglify()))
+        .pipe(gulpif('*.css', cleanCSS()))
+        .pipe(gulp.dest('dist'));
+});
 //default
-gulp.task('default', ['server','jade','postcss','watch']);
+gulp.task('default',  gulp.series('jade_bower','compass','postcss' ,gulp.parallel('server', "watch")));

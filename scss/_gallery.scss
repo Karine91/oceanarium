@@ -75,7 +75,7 @@
     background-repeat: no-repeat;
   }
 }
-.gallery_fotorama-block{
+.gallery_block{
   display: none;
   position: fixed;
   top:0;
@@ -83,13 +83,29 @@
   bottom:0;
   right:0;
 }
-.fotorama{
-  width: 100%;
-  height: 100%;
+
+.cs3_gallery {
+  width: 600px;
+  height: 300px;
+  z-index: 999999;
+  margin:auto;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  .cs3-slide-next,
+  .cs3-slide-prev{
+    border: 2px solid #fff;
+    text-align: center;
+    width: rem(50);
+    height: rem(50);
+    line-height: rem(50);
+    font-size: rem(30);
+    margin-top: rem(-25);
+  }
 }
-.fotorama__nav-wrap{
-  background-color: rgba(#000, .75);
-}
+
 .footer{
   background: #22262e;
   text-align: center;

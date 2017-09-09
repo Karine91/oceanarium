@@ -18,7 +18,6 @@
     <!--[if IE 7]link(rel="stylesheet" href="css/fontello-ie7.css")//[endif]-->
     <!--build:css css/vendor.css--><link rel="stylesheet" href="css/idangerous.chopslider-3.4.css"/>
     <link href="css/fractionslider.css" rel="stylesheet">
-    <link href="css/fotorama.css" rel="stylesheet">
     <!--bower:css-->
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
     <!--endbower-->
@@ -601,8 +600,21 @@
                   <div class="gallery_item__hover-text item-centered">view</div>
                 </div></a></div>
           </div>
-          <div class="gallery_fotorama-block">
-            <div data-auto="false" class="fotorama"><a href="img/gallery/gallery8.jpg"><img src="img/gallery/gallery8.jpg" alt="" title=""></a><a href="img/gallery/gallery7.jpg"><img src="img/gallery/gallery7.jpg" alt="" title=""></a><a href="img/gallery/gallery6.jpg"><img src="img/gallery/gallery6.jpg" alt="" title=""></a><a href="img/gallery/gallery5.jpg"><img src="img/gallery/gallery5.jpg" alt="" title=""></a></div>
+          <div class="gallery_block cs3-wrap">
+            <div class="cs3 cs3_gallery">
+              <div class="cs3-slide"><img src="img/gallery/gallery8.jpg" alt="" title="" width="600" height="300"></div>
+              <div class="cs3-slide"><img src="img/gallery/gallery7.jpg" alt="" title="" width="600" height="300"></div>
+              <div class="cs3-slide"><img src="img/gallery/gallery6.jpg" alt="" title="" width="600" height="300"></div>
+              <div class="cs3-slide"><img src="img/gallery/gallery5.jpg" alt="" title="" width="600" height="300"></div><a href="#" class="cs3-slide-next"><i class="icon-right-dir"></i></a><a href="#" class="cs3-slide-prev"><i class="icon-left-dir"></i></a>
+              <div class="cs3-pagination-wrap">
+                <div class="cs3-pagination"></div>
+              </div>
+            </div>
+            <!--.fotorama(data-auto="false")-->
+            <!--    a(href="img/gallery/gallery8.jpg"): img(src="img/gallery/gallery8.jpg" alt="" title="")-->
+            <!--    a(href="img/gallery/gallery7.jpg"): img(src="img/gallery/gallery7.jpg" alt="" title="")-->
+            <!--    a(href="img/gallery/gallery6.jpg"): img(src="img/gallery/gallery6.jpg" alt="" title="")-->
+            <!--    a(href="img/gallery/gallery5.jpg"): img(src="img/gallery/gallery5.jpg" alt="" title="")-->
             <div class="gallery_close gallery_close_bottom"></div>
           </div>
         </div>
@@ -618,7 +630,6 @@
     <!--endbower-->
     <!--build:js scripts/vendor.js--><script src="js/idangerous.chopslider-3.4.min.js"></script>
     <script type="text/javascript" src="js/jquery.ripples.js"></script>
-    <script type="text/javascript" src="js/fotorama.js"></script>
     <!--script(type="text/javascript" src="js/jquery.flip.js")-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js"></script>

@@ -135,7 +135,7 @@
 .tf_thumbs{
   position:absolute !important;
   z-index:12;
-  right:50px;
+  right: 50px;
   width:auto;
   top:50%;
   margin-top:-79px;
@@ -233,7 +233,11 @@
   right: 20px;
   z-index: 100;
   cursor: pointer;
-  background: transparent url(../img/gallery-shark/close.png) no-repeat top left;
+  background: transparent url(../img/gallery-shark/close.png) no-repeat center center;
+  background-size: 50%;
+  padding: 20px;
+  border-radius: 50%;
+  border: 2px solid #00a0cf;
   opacity: 0.5;
   &:hover{
     opacity: 1;
