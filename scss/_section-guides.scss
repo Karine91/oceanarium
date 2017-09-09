@@ -39,7 +39,7 @@
   @extend .future-events_item__text;
   padding: 1em 1em 1.7em;
   @include clearfix;
-  @include mediaW(1370px){
+  @include mediaW(1410px){
     min-height: 105px;
   }
   @include mediaW(780px){

@@ -25,6 +25,10 @@ $(function(){
 
 
         }
+        if($(document).scrollTop() >=$('.gallery-shark-wrap').offset().top -$(window).innerHeight() && $(document).scrollTop() <=$('.future_events').offset().top){
+            $('.gallery-shark').ripples('play');
+        }
+
     });
 
 //TODAY EVENTS CLOCK

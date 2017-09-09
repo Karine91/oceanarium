@@ -56,6 +56,15 @@ body {
   overflow-x: hidden;
 }
 
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -69,6 +78,11 @@ html, body {
   }
 }
 
+.main {
+  position: relative;
+  z-index: 2;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Underdog", cursive;
 }
@@ -77,6 +91,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1170px;
   width: 80%;
   margin: 0 auto;
+  background: #f2f2f2;
 }
 
 .section-container {
@@ -910,7 +925,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
   border-radius: 50%;
   border: 2px solid #00a0cf;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .gallery_close:hover {
@@ -1686,7 +1701,7 @@ a.today-events_calendar-header-month__month-prev:hover, a.today-events_calendar-
   clear: both;
 }
 
-@media (max-width: 1370px) {
+@media (max-width: 1410px) {
   .section-guides_info {
     min-height: 105px;
   }
@@ -1873,6 +1888,12 @@ a.today-events_calendar-header-month__month-prev:hover, a.today-events_calendar-
   font-weight: 400;
   font-family: "Underdog", cursive;
   cursor: pointer;
+  -webkit-transition: all ease 300ms;
+  transition: all ease 300ms;
+}
+
+.contacts_form__btn:hover {
+  background-color: #00ade6;
 }
 
 .contacts_info {
@@ -2122,8 +2143,8 @@ a.today-events_calendar-header-month__month-prev:hover, a.today-events_calendar-
 }
 
 .cs3_gallery {
-  width: 600px;
-  height: 300px;
+  width: 800px;
+  height: 400px;
   z-index: 999999;
   margin: auto;
   position: absolute;
@@ -2143,6 +2164,18 @@ a.today-events_calendar-header-month__month-prev:hover, a.today-events_calendar-
   margin-top: -1.5625rem;
 }
 
+.cs3_gallery .cs3-slide-next {
+  right: -80px;
+}
+
+.cs3_gallery .cs3-slide-prev {
+  left: -80px;
+}
+
+.cs3_gallery__image {
+  width: 100%;
+}
+
 .footer {
   background: #22262e;
   text-align: center;
@@ -2152,7 +2185,5 @@ a.today-events_calendar-header-month__month-prev:hover, a.today-events_calendar-
   color: #ffffff;
   font-weight: 300;
 }
-
-/*# sourceMappingURL=style.css.map */
 
 /*# sourceMappingURL=style.css.map */

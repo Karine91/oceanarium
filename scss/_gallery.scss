@@ -85,8 +85,8 @@
 }
 
 .cs3_gallery {
-  width: 600px;
-  height: 300px;
+  width: 800px;
+  height: 400px;
   z-index: 999999;
   margin:auto;
   position: absolute;
@@ -104,8 +104,16 @@
     font-size: rem(30);
     margin-top: rem(-25);
   }
+  .cs3-slide-next{
+    right: -80px;
+  }
+  .cs3-slide-prev{
+    left: -80px;
+  }
 }
-
+.cs3_gallery__image{
+  width: 100%;
+}
 .footer{
   background: #22262e;
   text-align: center;

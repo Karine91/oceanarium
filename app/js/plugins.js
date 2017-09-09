@@ -64,7 +64,7 @@ $(window).load(function(){
         var strength = 0.03 + Math.random() * 0.03;
         $el.ripples('drop', x, y, dropRadius, strength);
     }, 2000);
-
+    galleryShark.ripples('pause');
 
 //POP-UP FUTURE-EVENTS
     var popupW = $('.pop-up').outerWidth();
@@ -125,6 +125,10 @@ $(window).load(function(){
     $('.future-events_item').click(function(){
         var popupWrap = $('.pop-up-wrap');
         $('body').css('overflow', 'hidden');
+        /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+        particlesJS.load('particles-js', 'assets/particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
         popupWrap.show();
         breakGlass('reverse');
         setTimeout(function(){$('.close').show();},800);
@@ -201,32 +205,6 @@ $(window).load(function(){
                 top		: dim.top
             });
         });
-
-        //expand and fit the image to the screen
-        $('#tf_zoom').on('click',
-            function(){
-                if($tf_bg_img.is(':animated'))
-                    return false;
-
-                var $this	= $(this);
-                if($this.hasClass('tf_zoom')){
-                    resize($tf_bg_img);
-                    $this.addClass('tf_fullscreen')
-                        .removeClass('tf_zoom');
-                }
-                else{
-                    var dim	= getImageDim($tf_bg_img);
-                    $tf_bg_img.animate({
-                        width	: dim.width,
-                        height	: dim.height,
-                        top		: dim.top,
-                        left	: dim.left
-                    },350);
-                    $this.addClass('tf_zoom')
-                        .removeClass('tf_fullscreen');
-                }
-            }
-        );
 
         //click the arrow down, scrolls down
         $tf_next.bind('click',function(){
@@ -476,7 +454,6 @@ $(window).load(function(){
     });
     $('.gallery_item__pic-wrapper').on('click', function(e){
         e.preventDefault();
-
         gal_blk.fadeIn();
         gal_blk.mousewheel(function(e, delta) {
             return false;

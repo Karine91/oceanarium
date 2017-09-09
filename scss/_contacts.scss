@@ -57,6 +57,10 @@
   font-weight: 400;
   font-family: $fontHeading;
   cursor: pointer;
+  transition: all ease 300ms;
+  &:hover{
+    background-color: darken(#00c0ff, 5);
+  }
 }
 .contacts_info{
   @include size(4);
