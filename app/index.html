@@ -28,7 +28,7 @@
   </head>
   <body>
     <div class="main">
-      <header class="section-page"><a href="#" class="cs3-slide-next"><i class="icon-right-dir"></i></a><a href="#" class="cs3-slide-prev"><i class="icon-left-dir"></i></a>
+      <header class="header section-page"><a href="#" class="cs3-slide-next"><i class="icon-right-dir"></i></a><a href="#" class="cs3-slide-prev"><i class="icon-left-dir"></i></a>
         <div class="cs3 slider_block">
           <div class="cs3-slide slider_block__item"><img src="img/slider/slide1.jpg" width="100%" alt="photo #1" class="slider_image"></div>
           <div class="cs3-slide slider_block__item"><img src="img/slider/slide2.jpg" width="100%" alt="photo #2" class="slider_image"></div>
@@ -51,24 +51,57 @@
             </div>
           </div>
         </div>
-        <div class="header_wrapper">
-          <div class="container">
-            <nav class="header-navigation_panel">
-              <div class="header_logo"><a href="#" class="header_logo__link"><span class="header_logo__link-blue">Океан</span>ариум</a></div>
-                    <ul class="header_menu">
-                      <li class="header_menu__item"><a href="#" class="header_menu__link">Blog</a></li>
-                      <li class="header_menu__item"><a href="#" class="header_menu__link">News</a></li>
-                      <li class="header_menu__item"><a href="#" class="header_menu__link">Gallery</a></li>
-                      <li class="header_menu__item"><a href="#" class="header_menu__link">Price</a></li>
-                      <li class="header_menu__item"><a href="#" class="header_menu__link">Services</a></li>
-                      <li class="header_menu__item active"><a href="#" class="header_menu__link">Shedule</a></li>
-                      <li class="header_menu__item"><a href="#" class="header_menu__link">Contacts</a></li>
-                    </ul>
-            </nav>
+      </header>
+      <div class="header_wrapper">
+        <div class="container">
+          <nav class="header-navigation_panel">
+            <div class="header_logo"><a href="#" class="header_logo__link"><span class="header_logo__link-blue">Океан</span>ариум</a></div>
+                  <ul class="header_menu">
+                    <li class="header_menu__item"><a href="#" class="header_menu__link">Blog</a></li>
+                    <li class="header_menu__item"><a href="#news" class="header_menu__link">News</a></li>
+                    <li class="header_menu__item"><a href="#gallery" class="header_menu__link">Gallery</a></li>
+                    <li class="header_menu__item"><a href="#shedule" class="header_menu__link">Price</a></li>
+                    <li class="header_menu__item"><a href="#services" class="header_menu__link">Services</a></li>
+                    <li class="header_menu__item active"><a href="#shedule" class="header_menu__link">Shedule</a></li>
+                    <li class="header_menu__item"><a href="#contacts" class="header_menu__link">Contacts</a></li>
+                  </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="mobile-menu-wrapper">
+              <ul class="mobile-menu-list">
+                <li class="mobile-menu-list__item"><a href="#" class="mobile-menu-list__link">Blog</a></li>
+                <li class="mobile-menu-list__item"><a href="#news" class="mobile-menu-list__link">News</a></li>
+                <li class="mobile-menu-list__item"><a href="#gallery" class="mobile-menu-list__link">Gallery</a></li>
+                <li class="mobile-menu-list__item"><a href="#shedule" class="mobile-menu-list__link">Price</a></li>
+                <li class="mobile-menu-list__item"><a href="#services" class="mobile-menu-list__link">Services</a></li>
+                <li class="mobile-menu-list__item active"><a href="#shedule" class="mobile-menu-list__link">Shedule</a></li>
+                <li class="mobile-menu-list__item"><a href="#contacts" class="mobile-menu-list__link">Contacts</a></li>
+              </ul>
+      </div>
+      <div class="hamburger-wrapper">
+        <div id="hamburger" class="hamburger is-closed">
+          <div class="burger-icon">
+            <div class="burger-container"><span class="burger-bun-top"></span><span class="burger-filling"></span><span class="burger-bun-bot"></span></div>
+          </div><!-- svg ring containter -->
+          <div class="burger-ring">
+            <svg viewBox="0 0 68 68" class="svg-ring">
+              <path fill="none" stroke="#00C0FF" stroke-miterlimit="10" stroke-width="4" d="M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2" class="path"></path>
+            </svg><!-- the masked path that animates the fill to the ring -->
+            <svg width="0" height="0" viewBox="0 0 68 68">
+              <mask id="mask">
+                <path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ff0000" stroke-miterlimit="10" stroke-width="4" d="M 34 2 c 11.6 0 21.8 6.2 27.4 15.5 c 2.9 4.8 5 16.5 -9.4 16.5 h -4"></path>
+              </mask>
+            </svg>
+          </div>
+          <div class="path-burger">
+            <div class="animate-path">
+              <div class="path-rotation"></div>
+            </div>
           </div>
         </div>
-      </header>
-      <section class="section-page block_categories">
+      </div>
+      <section id="services" class="section-page block_categories">
         <div class="section-container">
           <h2 class="section_header">we work every day</h2>
           <div class="block_categories__row">
@@ -159,7 +192,7 @@
           <div class="gallery_close gallery_close_shark"></div>
         </div>
       </section>
-      <section class="section-page future_events">
+      <section id="news" class="section-page future_events">
         <div class="section-container">
           <h2 class="section_header">future events</h2>
           <div class="future-events_period"><a href="#" class="future-events_period__item"><span class="future-events_period__item-text">This week</span></a><a href="#" class="future-events_period__item"><span class="future-events_period__item-text active">This month<span class="future-events_period__item-update">+2</span></span></a><a href="#" class="future-events_period__item"><span class="future-events_period__item-text">This year</span></a></div>
@@ -257,7 +290,7 @@
           </div>
         </div>
       </section>
-      <section class="section-page todays-events">
+      <section id="shedule" class="section-page todays-events">
         <div class="section-container">
           <h2 class="section_header">todays events</h2>
           <div class="todays-events_block">
@@ -430,14 +463,14 @@
                     <div class="section-guides_info__name">Anastasia Lakomaja</div>
                     <div class="section-guides_info__activities">trainer</div>
                   </div>
-                  <ul class="section-guides_socials">
-                    <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-facebook"></a>
-                    </li>
-                    <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-twitter"></a>
-                    </li>
-                    <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-gplus-1"></a>
-                    </li>
-                  </ul>
+                        <ul class="section-guides_socials">
+                          <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-facebook"></a>
+                          </li>
+                          <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-twitter"></a>
+                          </li>
+                          <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-gplus-1"></a>
+                          </li>
+                        </ul>
                 </div>
               </div>
               <div class="section-guides_item">
@@ -447,14 +480,14 @@
                     <div class="section-guides_info__name">James Calabrio</div>
                     <div class="section-guides_info__activities">PhD</div>
                   </div>
-                  <ul class="section-guides_socials">
-                    <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-facebook"></a>
-                    </li>
-                    <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-twitter"></a>
-                    </li>
-                    <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-gplus-1"></a>
-                    </li>
-                  </ul>
+                        <ul class="section-guides_socials">
+                          <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-facebook"></a>
+                          </li>
+                          <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-twitter"></a>
+                          </li>
+                          <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-gplus-1"></a>
+                          </li>
+                        </ul>
                 </div>
               </div>
               <div class="section-guides_item">
@@ -464,14 +497,14 @@
                     <div class="section-guides_info__name">Nicol Mira</div>
                     <div class="section-guides_info__activities">trainer</div>
                   </div>
-                  <ul class="section-guides_socials">
-                    <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-facebook"></a>
-                    </li>
-                    <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-twitter"></a>
-                    </li>
-                    <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-gplus-1"></a>
-                    </li>
-                  </ul>
+                        <ul class="section-guides_socials">
+                          <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-facebook"></a>
+                          </li>
+                          <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-twitter"></a>
+                          </li>
+                          <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-gplus-1"></a>
+                          </li>
+                        </ul>
                 </div>
               </div>
               <div class="section-guides_item">
@@ -481,21 +514,21 @@
                     <div class="section-guides_info__name">Vanessa Delphino</div>
                     <div class="section-guides_info__activities">trainer</div>
                   </div>
-                  <ul class="section-guides_socials">
-                    <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-facebook"></a>
-                    </li>
-                    <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-twitter"></a>
-                    </li>
-                    <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-gplus-1"></a>
-                    </li>
-                  </ul>
+                        <ul class="section-guides_socials">
+                          <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-facebook"></a>
+                          </li>
+                          <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-twitter"></a>
+                          </li>
+                          <li class="section-guides_socials__items"><a href="#" class="section-guides_socials__items-icon icon-gplus-1"></a>
+                          </li>
+                        </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="section-page contacts">
+      <section id="contacts" class="section-page contacts">
         <div class="section-container">
           <h2 class="section_header">Contact us</h2>
           <p class="section-guides_text">
@@ -524,23 +557,23 @@
                 </ul>
               </div>
               <div class="contacts_info__socials">
-                <ul class="contacts_socials-list">
-                  <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_twitter icon-twitter"></a>
-                  </li>
-                  <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_facebook icon-facebook"></a>
-                  </li>
-                  <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_google icon-google"></a>
-                  </li>
-                  <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_skype-1 icon-skype-1"></a>
-                  </li>
-                </ul>
+                      <ul class="contacts_socials-list">
+                        <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_twitter icon-twitter"></a>
+                        </li>
+                        <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_facebook icon-facebook"></a>
+                        </li>
+                        <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_google icon-google"></a>
+                        </li>
+                        <li class="contacts_socials-list__items"><a href="#" class="contacts_socials-list__items-icon contacts_socials-list__items-icon_skype-1 icon-skype-1"></a>
+                        </li>
+                      </ul>
               </div>
             </div>
           </div>
         </div>
       </section>
       <section class="section-page">
-        <div class="gallery">
+        <div id="gallery" class="gallery">
           <div class="gallery_inner">
             <div class="gallery_item"><a href="#" class="gallery_item__pic-wrapper"><img src="img/gallery/gallery1.jpg" alt="" title="" class="gallery_item__picture">
                 <div class="gallery_item__hover">
@@ -576,7 +609,6 @@
                 </div></a></div>
           </div>
           <div class="gallery_block cs3-wrap">
-            <div id="particles-js"></div>
             <div class="cs3 cs3_gallery">
               <div class="cs3-slide"><img src="img/gallery/gallery8.jpg" alt="" title="" class="cs3_gallery__image"></div>
               <div class="cs3-slide"><img src="img/gallery/gallery7.jpg" alt="" title="" class="cs3_gallery__image"></div>

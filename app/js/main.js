@@ -1,5 +1,7 @@
 $(function(){
-    $(window).bind('mousewheel DOMMouseScroll MozMousePixelScroll', function(event){
+    var hamwrapper = $('.hamburger-wrapper');
+
+    $(window).scroll(function(){
         //GALLERY-SHARK
         if($(document).scrollTop() >=$('.gallery-shark-wrap').offset().top -$(window).innerHeight()){
            setTimeout(function(){
@@ -28,6 +30,16 @@ $(function(){
         if($(document).scrollTop() >=$('.gallery-shark-wrap').offset().top -$(window).innerHeight() && $(document).scrollTop() <=$('.future_events').offset().top){
             $('.gallery-shark').ripples('play');
         }
+        //sticky menu
+        var menupanel = $('.header-navigation_panel');
+        if($(document).scrollTop() >= menupanel.offset().top -$(window).innerHeight() && !menupanel.hasClass('sticky')){
+            menupanel.addClass('sticky');
+            hamwrapper.addClass('sticky');
+        }
+        if($(document).scrollTop() <= 45 && menupanel.hasClass('sticky')){
+            menupanel.removeClass('sticky');
+            hamwrapper.removeClass('sticky');
+        }
 
     });
 
@@ -47,6 +59,8 @@ $(function(){
         var degrees = ev_time*30;
         clock_arrow.css({'transform' : 'rotate('+ degrees +'deg)'});
     });
+
+
 
 });
 

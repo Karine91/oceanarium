@@ -13,7 +13,7 @@
   position: absolute;
   top:50%;
   margin-top: rem(-42);
-  z-index: 99999;
+  z-index: 50;
 }
 .cs3-slide-next:hover,
 .cs3-slide-prev:hover{
@@ -56,6 +56,9 @@
   overflow: hidden;
   @include mediaW(780px){
     height:400px;
+  }
+  @include mediaW(992px){
+    height:600px;
   }
   &:before{
     content: '';

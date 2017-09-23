@@ -1,4 +1,15 @@
 - var socialsItem = ["facebook", "twitter", "gplus-1"]
+
+- var socialsContactsItem = [ "twitter", "facebook", "google", "skype-1"]
+
+mixin socials(items, blockName)
+    ul(class="#{blockName}")
+        each item in items
+            li(class="#{blockName}__items")
+                if items == socialsContactsItem
+                    a(href="#", class="#{blockName}__items-icon #{blockName}__items-icon_#{item} icon-#{item}")
+                else
+                    a(href="#", class="#{blockName}__items-icon icon-#{item}")
 section.section-page.section-guides
     .section-container
         h2.section_header Meet our guides

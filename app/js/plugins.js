@@ -1,5 +1,24 @@
 
 $(window).load(function(){
+    var mob_menu =  $('.mobile-menu-wrapper'),
+        trigger = $('#hamburger'),
+        isClosed = true;
+    trigger.on('click', burgerTime);
+
+    function burgerTime() {
+        if (isClosed == true) {
+            trigger.removeClass('is-open');
+            trigger.addClass('is-closed');
+            mob_menu .fadeOut();
+            isClosed = false;
+        } else {
+            trigger.removeClass('is-closed');
+            trigger.addClass('is-open');
+            mob_menu.fadeIn();
+            isClosed = true;
+        }
+    }
+
 
     $(".cs3.slider_block").cs3({
         responsive: true,
@@ -122,6 +141,8 @@ $(window).load(function(){
         breakGlass();
         $('body').css('overflow', 'visible');
     });
+
+
     $('.future-events_item').click(function(){
         var popupWrap = $('.pop-up-wrap');
         $('body').css('overflow', 'hidden');

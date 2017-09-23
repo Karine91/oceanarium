@@ -9,25 +9,29 @@
 .section-guides_block{
   @extend .future-events_block;
   margin-top: 2.5rem;
+
 }
 .section-guides_block__row{
   @extend .future-events_block__row;
+  @include mediaW(1050px){
+    &:last-child{
+      margin-bottom: -6px;
+    }
+  }
 }
 .section-guides_item{
   @extend .future-events_item;
   @include size_custom(3, 6px);
   opacity: 0;
   max-height: 80%;
-  @include mediaW(780px){
+  @include mediaW(1050px){
     @include size_custom(6, 6px);
     margin-bottom: 6px;
-    &:last-child{
-      margin-bottom: 0;
-    }
   }
   &:hover{
     cursor: default;
   }
+  @include col-xs-12;
 }
 .section-guides_item__picture{
   background-size: cover;
@@ -42,13 +46,17 @@
   @include mediaW(1410px){
     min-height: 105px;
   }
-  @include mediaW(780px){
+  @include mediaW(560px){
     min-height: auto;
   }
 }
 .section-guides_info__txt{
   width: calc(100% - 79px);
   float: left;
+  @include mediaW(560px){
+
+    width: 50%;
+  }
 }
 .section-guides_info__name{
   color: #ffffff;
@@ -65,6 +73,9 @@
   font-size: 0;
   float: left;
   width: auto;
+  @include mediaW(560px){
+    float: right;
+  }
 }
 .section-guides_socials__items{
   display: inline-block;
@@ -72,6 +83,10 @@
   margin-bottom: 2px;
   width: 25px;
   height: 25px;
+  @include mediaW(560px){
+    width: 30px;
+    height: 30px;
+  }
   text-align: center;
   &:last-child{
     margin-right: 0;
@@ -84,6 +99,10 @@
     width: 100%;
     height: 100%;
     line-height: 25px;
+    @include mediaW(560px){
+      font-size: rem(16);
+      line-height: 30px;
+    }
     display: block;
     @include transition(color 300ms ease);
     &:hover{

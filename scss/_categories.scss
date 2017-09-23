@@ -19,7 +19,11 @@ $icons-sprite-dimensions: true;
 
 
 }
-
+.block_categories{
+  @include mediaW(560px){
+    padding-top: 90px;
+  }
+}
 .block_categories__item a{
   text-decoration: none;
   display: block;

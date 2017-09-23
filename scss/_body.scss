@@ -7,12 +7,7 @@ $colorBlue: #00c0ff;
 @function rem($px){
   @return $px/($bodyFSTypeNumber) + rem;
 }
-@mixin polyfill_flex($prop, $value){
-  @if $prop==display{
-    -js-#{$prop}: $value;
-    #{$prop}: $value;
-  }
-}
+
 
 @mixin size_custom($n, $margin){
   $value: $atom * $n;
@@ -51,7 +46,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  @include mediaW(780px){
+  @include mediaW(991px){
     font-size: 14px;
   }
 }
@@ -97,10 +92,12 @@ h1,h2,h3,h4,h5,h6{
   text-transform: uppercase;
   text-align: center;
   margin: 2% 0;
+
 }
 .section_header_white{
   @extend .section_header;
   color: #fff;
+  line-height:1;
 }
 .section-page{
   position: relative;
@@ -110,6 +107,24 @@ h1,h2,h3,h4,h5,h6{
   top: 50%;
   left: 50%;
   @include translate(-50%, -50%);
+}
+.gallery_close{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 250;
+  cursor: pointer;
+  background: transparent url(../img/gallery-shark/close.png) no-repeat center center;
+  background-size: 50%;
+  padding: 20px;
+  border-radius: 50%;
+  border: 2px solid #00a0cf;
+  opacity: 0.8;
+  &:hover{
+    opacity: 1;
+  }
 }
 
 

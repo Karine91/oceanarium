@@ -9,9 +9,10 @@
   width: 25%;
   float: left;
   height:390px;
-  @include mediaW(780px){
+  @include mediaW(991px){
     width: 50%;
   }
+  @include col-xs-12;
 }
 .gallery_item__pic-wrapper{
   width: 100%;
@@ -82,11 +83,21 @@
   left:0;
   bottom:0;
   right:0;
+  z-index: 230;
 }
 
 .cs3_gallery {
   width: 800px;
   height: 400px;
+  @include mediaW(991px){
+    width:600px;
+    height: 350px;
+  }
+  @include mediaW(560px){
+    width: 100%;
+    max-height: 350px;
+    height:auto;
+  }
   z-index: 999999;
   margin:auto;
   position: absolute;
@@ -106,9 +117,15 @@
   }
   .cs3-slide-next{
     right: -80px;
+    @include mediaW(780px){
+      right: 15px;
+    }
   }
   .cs3-slide-prev{
     left: -80px;
+    @include mediaW(780px){
+      left: 15px;
+    }
   }
 }
 .cs3_gallery__image{
